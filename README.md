@@ -1,3 +1,1 @@
-# cisco-kubeflow-starter-kit
-
-TODO
+# cisco-kubeflow-starter-pack
