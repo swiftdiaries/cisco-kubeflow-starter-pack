@@ -1,1 +1,0 @@
-# Installation related scripts
