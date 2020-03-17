@@ -6,7 +6,7 @@ We use a real world data set that is publicly
 available from the [Machine Learning Repository, University of
 California, Irvine](https://archive.ics.uci.edu/ml/datasets/BLE+RSSI+Dataset+for+Indoor+localization+and+Navigation#).
 
-<img src="./pictures/iBeacon_layout.jpg" width="500" align="middle"/>
+<img src="./pictures/iBeacon_Layout.jpg" width="500" align="middle"/>
 
 The data set is from a real-world deployment of 13 of Apple's iBeacons,
 which
