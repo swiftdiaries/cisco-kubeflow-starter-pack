@@ -15,7 +15,7 @@ Follow the [steps](./../install/) to install K8s, KF, NFS servers, PVs and PVCs.
 
 ### Create & Connect to Jupyter Notebook Server
 
-You can access Kubeflow Dashboard using UCS Cluster IP, provided while running [nfs-installation](./../install/) script, and 31380 port. For example, http://<UCS_CLUSTER_IP:31380>
+You can access Kubeflow Dashboard using UCS Cluster IP, provided while running [nfs-installation](./../install#-provide-ucs-cluster-ip) script, and _31380_ port. For example, http://<UCS_CLUSTER_IP:31380>
 
 Select _anonymous_ namespace and click Notebook Servers in the left panel of the Kubeflow Dashboard
 
@@ -30,9 +30,11 @@ Provide Notebook Server name, custom Docker Image URL or use prebuilt Image, _sa
 
 ![TF-BLERSSI Pipeline](pictures/3-name-details.PNG)
 
-Make Workspace Volume type as None and add Data Volume type as existing, name as nfs1 with path as /mnt/
+Set Workspace Volume type as _None_.
 
 ![TF-BLERSSI Pipeline](pictures/4-volume-details.PNG)
+
+Click Add Volume under Data Volume; Set type to _existing_ and name to _nfs1_ with mount point as /mnt/
 
 ![TF-BLERSSI Pipeline](pictures/4-volume-details1.PNG)
 
