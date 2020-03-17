@@ -15,7 +15,7 @@ Follow the [steps](./../install/) to install K8s, KF, NFS servers, PVs and PVCs.
 
 ### Create & Connect to Jupyter Notebook Server
 
-You can access Kubeflow Dashboard using UCS Cluster IP, provided while running [nfs-installation](./../install/) script, and 31380 port. For example, http://<UCS_CLUSTER_IP:31380>
+You can access Kubeflow Dashboard using UCS Cluster IP, provided while running [nfs-installation](./../install#-provide-ucs-cluster-ip) script, and 31380 port. For example, http://<UCS_CLUSTER_IP:31380>
 
 Select _anonymous_ namespace and click Notebook Servers in the left panel of the Kubeflow Dashboard
 
