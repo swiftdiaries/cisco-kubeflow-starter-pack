@@ -24,3 +24,7 @@ measurements were captured.
 There are two possible ways of implementing this application:
   - [Using Kubeflow pipelines](./pipelines)
   - [Using Jupyter notebook server from Kubeflow](./notebook)
+
+## Installation
+
+Follow the app-specific installation [instructions](./install).
