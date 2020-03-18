@@ -21,16 +21,14 @@ leading contributors with a focus on our customer needs.
 This repository needs to be cloned and the instructions in the following
 directories need to be followed:
 
-- [install](./install) - This directory contains Kubernetes and
-  Kubeflow installation instructions. These instructions should be followed
-  to setup the base system first, before installing individual apps.
+- [install](./install) - This directory contains installation instructions to help easily install Kubeflow on Cisco infrastructure. These instructions should be followed to setup the base system first, before installing individual apps. Once Kubeflow is up and running, individual apps can be installed on top of it.
 
-- [apps](./apps) - This directory contains apps from different verticals
+- [apps](./apps) - This directory contains apps from different verticals (use cases)
   with each vertical being in a separate sub-folder.
   New apps across verticals will be regularly added. Each app has its
   own installation instructions that need to be followed *after* the base
   system has been setup. The instructions for how to use the app are also
-  contained here.
+  contained here. Each app can be a good reference point in building your own machine learning workflow.
 
 ## Getting Help
 If you have questions, concerns, bug reports, etc., please create an issue against this repository. Before filing a new issue, do check if the
