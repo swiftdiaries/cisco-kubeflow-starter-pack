@@ -1,0 +1,37 @@
+name: "Test BLERSSI pipeline using KinD"
+on: [pull_request, push]
+
+jobs:
+  kind:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    
+    - name: Step 1 - Set permissions for executables
+      run: |
+        chmod +x kind/kind-config.yaml
+        chmod +x install/kubeflowup.sh
+
+    - name: Step 2 - Create k8s cluster
+      uses: engineerd/setup-kind@v0.3.0
+      with:
+        name: "blerssi"
+        version: "v0.7.0"
+        config: "kind/kind-config.yaml"
+    
+    - name: Step 3 - KinD Cluster Check
+      run: |
+        kubectl cluster-info
+        kubectl get pods -n kube-system
+    
+    - name: Step 4 - Deploy Kubeflow
+      run: |
+        bash install/kubeflowup.sh
+        sleep 30
+    
+    - name: Step 5 - Install and setup NFS
+      run: |
+        export UCS_CLUSTER_IP=$(hostname -I | awk '{print $1}')
+        bash nfs-installation.sh
+
+    #TODO(swiftdiaries): complete rest of the setup
