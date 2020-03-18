@@ -1,1 +1,10 @@
-# cisco-kubeflow-starter-pack
+# Cisco Kubeflow Starter Pack
+
+This repository is a starter pack of machine learning apps that use
+[Kubeflow](https://www.kubeflow.org/) **and** are ready to run on 
+Cisco UCS ML servers. More apps will be added as and when
+they become ready.
+
+## List of apps
+
+- **Networking:** [Bluetooth Low Energy (BLE) Wireless Localization](./apps/networking/ble-localization/onprem)
