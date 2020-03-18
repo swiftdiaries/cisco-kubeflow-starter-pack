@@ -1,7 +1,6 @@
 # Installation Instructions
 
-This directory contains the installation instructions for installing Kubernetes and
-Kubeflow. Additionally, each app directory has the app-specific installation instructions.
+This directory contains the installation instructions for installing Kubernetes and Kubeflow. 
 
 ## Prerequisites
 
@@ -18,7 +17,7 @@ Here's a [guide](k8sup.md) for creating a test Kubernetes cluster with a dynamic
 
 - [Kubeflow](#kubeflow)
 
-## <a id=kubeflow></a> Install Kubeflow 
+## <a id=kubeflow></a> Install Kubeflow
 
 	sh kubeflowup.sh
 
