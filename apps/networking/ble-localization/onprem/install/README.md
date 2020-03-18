@@ -1,4 +1,8 @@
 ## Installation
+
+Please ensure that K8s & Kubeflow was already installed from [here](./../../../../../install) 
+before executing app instructions
+
 - [NFS and it's PV and PVC](#nfs)
   * [NFS apt package](#nfs-apt-package)
   * [Run nfs-installation.sh](#run-nfs-installationsh)
