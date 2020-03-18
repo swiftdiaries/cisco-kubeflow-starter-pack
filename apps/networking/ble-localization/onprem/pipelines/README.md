@@ -78,6 +78,7 @@ Logs of Tensorboard Component
 
 ![TF-BLERSSI Pipeline](pictures/5-tensorboard-log.PNG)
 
+For obtaining the URLs for Tensorboard Graph and WebUI for BLERSSI as shown below, change the INGRESS_IP in the last two cells with your ingress IP.
 
 Tensorboard Graph for BLERSSI
 
