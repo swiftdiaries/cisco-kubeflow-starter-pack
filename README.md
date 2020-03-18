@@ -38,7 +38,7 @@ issue has already been reported. You can also send email to the core group
 at *cisco-kubeflow-support AT cisco.com*.
 
 ## Getting Involved
-We encourage our customers to provide us with feedback and suggesting
+We encourage Cisco customers to provide us with feedback and suggest
 features that are high on their priority list.
 
 ## Licensing Information
