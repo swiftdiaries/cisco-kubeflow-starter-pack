@@ -38,13 +38,13 @@ issue has already been reported. You can also send email to the core group
 at *cisco-kubeflow-support AT cisco.com*.
 
 ## Getting Involved
-We encourage Cisco customers to provide us with feedback and suggest
+We encourage everyone to provide us with feedback and suggest
 features that are high on their priority list.
 
 ## Licensing Information
 Please look at the [LICENSE](./LICENSE) and [NOTICE](./NOTICE) files.
 
 ## Credits and References
-1. Cisco Blog: [#consistentAI: Lessons from our Journey to Kubeflow 1.0](#consistentAI: Lessons from our Journey to Kubeflow 1.0)
+1. Cisco Blog: [#consistentAI: Lessons from our Journey to Kubeflow 1.0](https://blogs.cisco.com/cloud/consistentai-lessons-from-our-journey-to-kubeflow-1-0)
 2. [Kubeflow](https://www.kubeflow.org/)
 3. [Kubernetes](https://kubernetes.io/)
