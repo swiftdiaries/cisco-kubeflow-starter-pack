@@ -14,6 +14,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+echo "Provide UCS Cluster IP (ex:10.123.232.211)"
+
+read -p "UCS Cluster IP: " UCS_CLUSTER_IP
+
 echo $UCS_CLUSTER_IP
 
 if [ -z "${UCS_CLUSTER_IP}" ]; then
