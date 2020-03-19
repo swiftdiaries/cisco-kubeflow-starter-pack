@@ -16,6 +16,28 @@ Cisco UCS - C240
 
 ### Install K8s, Kubeflow & NFS server
 
+#### Retrieve Ingress IP
+
+For installation, we need to know the external IP of the 'istio-ingressgateway' service. This can be retrieved by the following steps.  
+
+```
+kubectl get service -n istio-system istio-ingressgateway
+```
+
+If your service is of LoadBalancer Type, use the 'EXTERNAL-IP' of this service.  
+
+Or else, if your service is of NodePort Type - run the following command:  
+
+```
+kubectl get nodes -o wide
+```
+
+Use either of 'EXTERNAL-IP' or 'INTERNAL-IP' of any of the nodes based on which IP is accessible in your network.  
+
+This IP will be referred to as INGRESS_IP from here on.
+
+#### Installing K8s, KF, NFS servers, PVs and PVCs.
+
 Follow the [steps](./../install/) to install K8s, KF, NFS servers, PVs and PVCs.
 
 ### Create Jupyter Notebook Server
@@ -78,6 +100,7 @@ Logs of Tensorboard Component
 
 ![TF-BLERSSI Pipeline](pictures/5-tensorboard-log.PNG)
 
+For obtaining the URLs for Tensorboard Graph and WebUI for BLERSSI as shown below, change the INGRESS_IP in the last two cells with your ingress IP.
 
 Tensorboard Graph for BLERSSI
 
