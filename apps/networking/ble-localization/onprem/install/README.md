@@ -19,7 +19,7 @@ With sudo access on the UCS machine run:
 
      sh nfs-installation.sh
 
-### <a id=ucs-cluster-ip></a> Provide UCS Cluster IP
+### <a id=ucs-cluster-ip></a> Provide INGRESS IP
 
 	 $ sh nfs-installation.sh
 	 Provide INGRESS_IP (ex: 10.10.10.101)
