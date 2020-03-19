@@ -16,7 +16,10 @@ With sudo access on the UCS machine run:
 	sudo apt install nfs-kernel-server
 	
 ### <a id=run-nfs-installationsh></a> Run nfs-installation.sh 
-     export UCS_CLUSTER_IP=$(hostname -I | awk '{print $1}') 
-     sh nfs-installation.sh
+     
+     $ sh nfs-installation.sh
+     Provide UCS Cluster IP (ex: 10.10.10.101)
+     UCS Cluster IP:
+
 
 This script will create ClusterRoleBinding, create secrets, create nfs-server, nfs-pv, nfs-pvc in anonymous, kubeflow namespaces.
