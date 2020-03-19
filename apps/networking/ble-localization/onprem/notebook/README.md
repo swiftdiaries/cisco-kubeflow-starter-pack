@@ -13,7 +13,7 @@ Then, serve and predict using the saved model.
 
 #### Retrieve Ingress IP
 
-For installation, we need to know the external IP of the 'istio-ingressgateway' service. This can be retieved by the following steps.
+For installation, we need to know the external IP of the 'istio-ingressgateway' service. This can be retrieved by the following steps.
 
 ```
 kubectl get service -n istio-system istio-ingressgateway
@@ -38,7 +38,7 @@ Follow the [steps](./../install/) to install K8s, KF, NFS servers, PVs and PVCs.
 
 ### Create & Connect to Jupyter Notebook Server
 
-You can access Kubeflow Dashboard using UCS Cluster IP, provided while running [nfs-installation](./../install#-provide-ucs-cluster-ip) script, and _31380_ port. For example, http://<UCS_CLUSTER_IP:31380>
+You can access Kubeflow Dashboard using the Ingress IP, provided while running [nfs-installation](./../install#-provide-ucs-cluster-ip) script, and _31380_ port. For example, http://<INGRESS_IP:31380>
 
 Select _anonymous_ namespace and click Notebook Servers in the left panel of the Kubeflow Dashboard
 
@@ -91,7 +91,7 @@ Once training completes, the model will be stored in local notebook server
 
 ### Predict location for test data using served BLERSSI Model 
 
-Change UCS Cluster IP in the curl command to your provided value before executing location prediction.
+Change Ingress IP in the curl command to your provided value before executing location prediction.
 
 
 ![TF-BLERSSI Pipeline](pictures/5-predict-model.PNG)

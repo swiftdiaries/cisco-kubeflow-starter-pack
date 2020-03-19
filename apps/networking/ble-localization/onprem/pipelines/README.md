@@ -18,7 +18,7 @@ Cisco UCS - C240
 
 #### Retrieve Ingress IP
 
-For installation, we need to know the external IP of the 'istio-ingressgateway' service. This can be retieved by the following steps.  
+For installation, we need to know the external IP of the 'istio-ingressgateway' service. This can be retrieved by the following steps.  
 
 ```
 kubectl get service -n istio-system istio-ingressgateway
