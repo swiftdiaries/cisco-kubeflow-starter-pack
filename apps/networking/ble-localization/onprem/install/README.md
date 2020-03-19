@@ -17,10 +17,6 @@ With sudo access on the UCS machine run:
 	
 ### <a id=run-nfs-installationsh></a> Run nfs-installation.sh 
      
-     $ sh nfs-installation.sh
-     Provide UCS Cluster IP (ex: 10.10.10.101)
-     UCS Cluster IP:
-
      sh nfs-installation.sh
 
 ### <a id=ucs-cluster-ip></a> Provide UCS Cluster IP
