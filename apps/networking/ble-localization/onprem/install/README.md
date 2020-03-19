@@ -22,7 +22,7 @@ With sudo access on the UCS machine run:
 ### <a id=ucs-cluster-ip></a> Provide UCS Cluster IP
 
 	 $ sh nfs-installation.sh
-	 Provide UCS Cluster IP (ex: 10.10.10.101)
-	 UCS Cluster IP:
+	 Provide INGRESS_IP (ex: 10.10.10.101)
+	 INGRESS IP:
 
 This script will create ClusterRoleBinding, create secrets, create nfs-server, nfs-pv, nfs-pvc in anonymous, kubeflow namespaces.
