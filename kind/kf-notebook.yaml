@@ -1,0 +1,8 @@
+apiVersion: kubeflow.org/v1beta1
+kind: Notebook
+metadata:
+  name: notebook-sample
+spec:
+  template:
+    spec:
+      

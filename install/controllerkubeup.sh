@@ -1,14 +1,14 @@
 #!/bin/bash
 
-if [ -z $ipaddress ];
+if [ -z $UCS_CLUSTER_IP ];
 then
-	echo "environment variable 'ipaddress' is not set; please set it to the node's IP."
+	echo "environment variable 'UCS_CLUSTER_IP' is not set; please set it to the node's IP."
 	echo "exiting script..."
 	exit 1
 fi
 
 sudo swapoff -a
-sudo kubeadm init --pod-network-cidr=192.168.0.0/16 --apiserver-advertise-address=${ipaddress}
+sudo kubeadm init --pod-network-cidr=192.168.0.0/16 --apiserver-advertise-address=${UCS_CLUSTER_IP}
 mkdir -p $HOME/.kube
 sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
