@@ -27,8 +27,7 @@ Or else, if your service is of NodePort Type - run the following command:
 kubectl get nodes -o wide
 ```
 
-Use either of 'EXTERNAL-IP' or 'INTERNAL-IP' of any of the nodes based on which IP is accessible in you
-r network.
+Use either of 'EXTERNAL-IP' or 'INTERNAL-IP' of any of the nodes based on which IP is accessible in your network.
 
 This IP will be referred to as INGRESS_IP from here on.
 
