@@ -1,43 +1,21 @@
 # Cisco Kubeflow Starter Pack
-The Cisco Kubeflow Starter Pack is a set of end-to-end applications that
-uses [Kubeflow](https://www.kubeflow.org/) to manage a portable,
-distributed, and scalable machine learning system on on-premise
-[Kubernetes](https://kubernetes.io/)
-clusters running on Cisco ML servers. Our mission is to help Cisco
-customers to reduce the friction in managing ML infrastructure by
-eliminating the complex steps in *build-train-deploy* machine learning
-models.
+The Cisco Kubeflow Starter Pack is a set of end-to-end applications that uses [Kubeflow](https://www.kubeflow.org/) to manage a portable, distributed, and scalable machine learning system on on-premise [Kubernetes](https://kubernetes.io/) clusters running on Cisco ML servers. Our mission is to help Cisco customers to reduce the friction in managing ML infrastructure by eliminating the complex steps in *build-train-deploy* machine learning models.
 
 ## Cisco and Kubeflow
-[Kubeflow](https://www.kubeflow.org/)
-is a machine learning toolkit for Kubernetes. It consists of
-a core set of components needed to develop, build, train, and deploy
-models on [Kubernetes](https://kubernetes.io/) efficiently.
-Cisco has been part of the Kubeflow
-journey since the project’s formative stage and has been one of the
-leading contributors with a focus on our customer needs.
+[Kubeflow](https://www.kubeflow.org/) is a machine learning toolkit for Kubernetes. It consists of a core set of components needed to develop, build, train, and deploy models on [Kubernetes](https://kubernetes.io/) efficiently. Cisco has been part of the Kubeflow journey since the project’s formative stage and has been one of the leading contributors with a focus on our customer needs.
 
 ## Installation
-This repository needs to be cloned and the instructions in the following
-directories need to be followed:
+This repository needs to be cloned and the instructions in the following directories need to be followed:
 
-- [install](./install) - This directory contains installation instructions to help easily install Kubeflow on Cisco infrastructure. These instructions should be followed to setup the base system first, before installing individual apps. Once Kubeflow is up and running, individual apps can be installed on top of it.
+- [install](./install) - This directory contains Kubernetes and Kubeflow installation instructions. These instructions should be followed to setup the base system first, before installing individual apps.
 
-- [apps](./apps) - This directory contains apps from different verticals (use cases)
-  with each vertical being in a separate sub-folder.
-  New apps across verticals will be regularly added. Each app has its
-  own installation instructions that need to be followed *after* the base
-  system has been setup. The instructions for how to use the app are also
-  contained here. Each app can be a good reference point in building your own machine learning workflow.
+- [apps](./apps) - This directory contains apps from different verticals with each vertical being in a separate sub-folder. New apps across verticals will be regularly added. Each app has its own installation instructions that need to be followed *after* the base system has been setup. The instructions for how to use the app are also contained here.
 
 ## Getting Help
-If you have questions, concerns, bug reports, etc., please create an issue against this repository. Before filing a new issue, do check if the
-issue has already been reported. You can also send email to the core group
-at *cisco-kubeflow-support AT cisco.com*.
+If you have questions, concerns, bug reports, etc., please create an issue against this repository. Before filing a new issue, do check if the issue has already been reported. You can also send email to the core group at *cisco-kubeflow-support AT cisco.com*.
 
 ## Getting Involved
-We encourage everyone to provide us with feedback and suggest
-features that are high on their priority list.
+We encourage everyone to provide us with feedback and suggest features that are high on their priority list.
 
 ## Licensing Information
 Please look at the [LICENSE](./LICENSE) and [NOTICE](./NOTICE) files.
