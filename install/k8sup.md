@@ -74,13 +74,13 @@ A single node Kubernetes cluster does not have ETCD replication or cluster backu
 
 ### <a id=kubeadm></a> Create cluster with kubeadm
 ```bash
-IPADDRESS=<UCS machine\'s IP>
+INGRESS_IP=<UCS machine\'s IP>
 sudo systemctl daemon-reload
 sudo systemctl restart docker
 sudo systemctl restart kubelet
 sleep 30 # wait for docker, kubelet to restart
 sudo swapoff -a
-sudo kubeadm init --pod-network-cidr=192.168.0.0/16 --apiserver-advertise-address=${IPADDRESS}
+sudo kubeadm init --pod-network-cidr=192.168.0.0/16 --apiserver-advertise-address=${INGRESS_IP}
 ```
 
 ### <a id=kubeconfig></a> Copy KUBECONFIG into userspace
