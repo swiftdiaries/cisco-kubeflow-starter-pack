@@ -16,7 +16,7 @@ With sudo access on the UCS machine run:
 	sudo apt install nfs-kernel-server
 	
 ### <a id=run-nfs-installationsh></a> Run nfs-installation.sh 
-
+     
      sh nfs-installation.sh
 
 ### <a id=ucs-cluster-ip></a> Provide UCS Cluster IP
