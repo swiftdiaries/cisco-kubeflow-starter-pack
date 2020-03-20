@@ -11,7 +11,7 @@ Then, serve and predict using the saved model.
 
 ## Setup
 
-### Install K8s, Kubeflow & NFS server (if not installed)
+### Install NFS server (if not installed)
 
 To install NFS server follow steps below.
 

@@ -12,7 +12,7 @@ To train, serve and prodict  model  using kubeflow pipeline through jupyter-note
 
 ## Setup
 
-### Install K8s, Kubeflow & NFS server (if not installed)
+### Install NFS server (if not installed)
 
 To install NFS server follow steps below.
 
