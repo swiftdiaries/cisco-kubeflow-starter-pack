@@ -14,14 +14,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-echo "Provide UCS Cluster IP (ex:10.123.232.211)"
+echo "Provide Ingress IP (ex:10.123.232.211)"
 
-read -p "UCS Cluster IP: " UCS_CLUSTER_IP
+read -p "INGRESS IP: " INGRESS_IP
 
-echo $UCS_CLUSTER_IP
+echo $INGRESS_IP
 
-if [ -z "${UCS_CLUSTER_IP}" ]; then
-  echo "You must specify UCS Cluster IP"
+if [ -z "${INGRESS_IP}" ]; then
+  echo "You must specify Ingress IP"
   exit 1
 fi
 
@@ -77,7 +77,7 @@ else
 fi
 
 # Create secret for Kubeflow Dashboard IP
-kubectl create secret generic kubeflow-dashboard-ip  --from-literal=KUBEFLOW_DASHBOARD_IP=$UCS_CLUSTER_IP  -n kubeflow
+kubectl create secret generic kubeflow-dashboard-ip  --from-literal=KUBEFLOW_DASHBOARD_IP=$INGRESS_IP  -n kubeflow
 sleep 4
 
 # Check secrets in kubeflow ns
