@@ -9,7 +9,11 @@ Then, serve and predict using the saved model.
 
 * Cisco UCS - C240
 
-### Install K8s, Kubeflow & NFS server(if not installed) 
+## Setup
+
+### Install NFS server (if not installed)
+
+To install NFS server follow steps below.
 
 #### Retrieve Ingress IP
 
@@ -31,9 +35,9 @@ Use either of 'EXTERNAL-IP' or 'INTERNAL-IP' of any of the nodes based on which 
 
 This IP will be referred to as INGRESS_IP from here on.
 
-#### Installing K8s, KF, NFS servers, PVs and PVCs.
+#### Installing NFS server, PVs and PVCs.
 
-Follow the [steps](./../install/) to install K8s, KF, NFS servers, PVs and PVCs.
+Follow the [steps](./../install/) to install NFS server, PVs and PVCs.
 
 ### Create & Connect to Jupyter Notebook Server
 

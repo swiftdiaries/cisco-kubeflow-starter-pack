@@ -1,4 +1,4 @@
-# BLE RSSI Location Prediction using Kubeflow Pipelines
+# BLERSSI Location Prediction using Kubeflow Pipelines
 
 ## What we're going to build
 
@@ -8,13 +8,13 @@ To train, serve and prodict  model  using kubeflow pipeline through jupyter-note
 
 ## Infrastructure Used
 
-Cisco UCS - C240
-
+* Cisco UCS - C240
 
 ## Setup
 
+### Install NFS server (if not installed)
 
-### Install K8s, Kubeflow & NFS server
+To install NFS server follow steps below.
 
 #### Retrieve Ingress IP
 
@@ -36,9 +36,9 @@ Use either of 'EXTERNAL-IP' or 'INTERNAL-IP' of any of the nodes based on which 
 
 This IP will be referred to as INGRESS_IP from here on.
 
-#### Installing K8s, KF, NFS servers, PVs and PVCs.
+#### Installing NFS server, PVs and PVCs.
 
-Follow the [steps](./../install/) to install K8s, KF, NFS servers, PVs and PVCs.
+Follow the [steps](./../install/) to install NFS server, PVs and PVCs.
 
 ### Create Jupyter Notebook Server
 
