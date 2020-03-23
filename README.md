@@ -20,6 +20,28 @@ We encourage everyone to provide us with feedback and suggest features that are 
 ## Licensing Information
 Please look at the [LICENSE](./LICENSE) and [NOTICE](./NOTICE) files.
 
+## FAQ
+
+*1. Am I eligible for Cisco Kubeflow Starter-pack?*
+
+The prerequisites for trying out Kubeflow Starter Pack is very simple. If you have Kubernetes v.1.14 (or lower) version installed on Cisco UCS ML servers, you are good to go. 
+
+
+*2. What if I am a Cisco customer, but don't have Kubernetes installed?*
+
+If you are a Cisco customer, but don't have Kubernetes installed, you may consider trying Cisco Container Platform or set up Kubernetes v.1.14 on
+Cisco UCS ML servers before installing Kubeflow and the starter pack. The ./install directory in this repo has instructions on how to install Kubernetes but we might not be able to provide support for Kubernetes installation. 
+
+
+*3. What is Cisco Community Support?*
+
+Cisco's Kubeflow team is among the top contributing teams to the Kubeflow project and we contribute to some of the core Kubeflow components. The team is also actively involved in the Technical Advisory Committee of Kubeflow and the  project management of the open-source project. We have deep knowledge of internal Kubeflow architecture that allows us to address and prioritize customers bugs quickly. Cisco Kubeflow community leaders will speak on behalf of our customers and will help prioritize features that meet our customers needs.
+
+
+*4. Does Cisco Kubeflow starter-pack support GPU?*
+
+Yes, we support Nvidia v100 GPUs.
+
 ## Credits and References
 1. Cisco Blog: [#consistentAI: Lessons from our Journey to Kubeflow 1.0](https://blogs.cisco.com/cloud/consistentai-lessons-from-our-journey-to-kubeflow-1-0)
 2. [Kubeflow](https://www.kubeflow.org/)
