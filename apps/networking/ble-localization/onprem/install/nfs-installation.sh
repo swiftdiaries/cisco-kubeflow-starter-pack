@@ -108,7 +108,8 @@ if [ -z "${NFS_ANONYMOUS_CLUSTER_IP}" ]; then
 fi
 
 #Replace IP
-sed -i "s/nfs-cluster-ip/$NFS_ANONYMOUS_CLUSTER_IP/g" nfs/anonymous/nfs-pv.yaml
+#sed -i "s/nfs-cluster-ip/$NFS_ANONYMOUS_CLUSTER_IP/g" nfs/anonymous/nfs-pv.yaml
+sed -i.bak "s/nfs-cluster-ip/$NFS_ANONYMOUS_CLUSTER_IP/g" nfs/anonymous/nfs-pv.yaml && rm -rf nfs/anonymous/nfs-pv.yaml.bak
 
 # Create nfs pv
 kubectl apply -f nfs/anonymous/nfs-pv.yaml -n anonymous
@@ -154,7 +155,8 @@ if [ -z "${NFS_KUBEFLOW_CLUSTER_IP}" ]; then
 fi
 
 #Replace IP
-sed -i "s/nfs-cluster-ip/$NFS_KUBEFLOW_CLUSTER_IP/g" nfs/kubeflow/nfs-pv.yaml
+#sed -i "s/nfs-cluster-ip/$NFS_KUBEFLOW_CLUSTER_IP/g" nfs/kubeflow/nfs-pv.yaml
+sed -i.bak "s/nfs-cluster-ip/$NFS_KUBEFLOW_CLUSTER_IP/g" nfs/kubeflow/nfs-pv.yaml && rm -rf nfs/kubeflow/nfs-pv.yaml.bak
 
 # Create nfs pv
 kubectl apply -f nfs/kubeflow/nfs-pv.yaml -n kubeflow
