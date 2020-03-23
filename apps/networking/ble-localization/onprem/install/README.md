@@ -6,7 +6,7 @@ before executing app instructions
 - [NFS and it's PV and PVC](#nfs)
   * [NFS apt package](#nfs-apt-package)
   * [Run nfs-installation.sh](#run-nfs-installationsh)
-  * [Provide UCS Cluster IP](#ucs-cluster-ip)
+  * [Provide INGRESS IP](#ingress-ip)
   
 ## <a id=nfs></a> Install NFS and it's PV and PVC
 
@@ -19,7 +19,7 @@ With sudo access on the UCS machine run:
      
      sh nfs-installation.sh
 
-### <a id=ucs-cluster-ip></a> Provide INGRESS IP
+### <a id=ingress-ip></a> Provide INGRESS IP
 
 	 $ sh nfs-installation.sh
 	 Provide INGRESS_IP (ex: 10.10.10.101)
