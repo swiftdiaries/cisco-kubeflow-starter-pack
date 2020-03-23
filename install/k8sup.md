@@ -171,10 +171,10 @@ Cluster checks:
     calico-node-762sx                              1/1     Running   0          4d2h
     coredns-6dcc67dcbc-8hg5d                       1/1     Running   0          4d2h
     coredns-6dcc67dcbc-zj7gn                       1/1     Running   0          4d2h
-    etcd-ucs-kubeflow                      1/1     Running   0          4d2h
-    kube-apiserver-ucs-kubeflow            1/1     Running   0          4d2h
-    kube-controller-manager-ucs-kubeflow   1/1     Running   0          4d2h
+    etcd-ucs-kubeflow                              1/1     Running   0          4d2h
+    kube-apiserver-ucs-kubeflow                    1/1     Running   0          4d2h
+    kube-controller-manager-ucs-kubeflow           1/1     Running   0          4d2h
     kube-proxy-c8nrt                               1/1     Running   0          4d2h
-    kube-scheduler-ucs-kubeflow            1/1     Running   0          4d2h
+    kube-scheduler-ucs-kubeflow                    1/1     Running   0          4d2h
     nvidia-device-plugin-daemonset-xr96d           1/1     Running   0          4d2h
     ```
