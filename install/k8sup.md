@@ -102,9 +102,6 @@ export KUBECONFIG=$HOME/.kube/config
 NAME                   STATUS   ROLES    AGE    VERSION    INTERNAL-IP     EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
 ucs-kubeflow  Not Ready    master   4d2h   v1.14.10   10.x.x.101   <none>        Ubuntu 18.04.2 LTS   4.15.0-20-generic   docker://18.9.3
 ```
-|NAME               |STATUS         |ROLES      |AGE  	    |VERSION    |INTERNAL-IP |EXTERNAL-IP |OS_IMAGE             |KERNEL-VERSION     |CONTAINER-RUNTIME |
-|---	            |---	        |---	    |---	    |---	    |---         |---         |---                  |---                |---               |
-|ucs-kubeflow   	|Not Ready   	  |master   	|6d10h   	|v1.14.10   |10.x.x.1    |\<none>     |Ubuntu 18.04.2 LTS   |4.15.0-20-generic  |docker://18.9.3   |
 
 **Note:** Master node status becomes Ready after Calico is installed in the next steps.
 
