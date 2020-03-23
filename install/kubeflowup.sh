@@ -9,3 +9,4 @@ tar -zxvf kfctl.tar.gz
 chmod +x kfctl
 wget -O kfctl_k8s_istio.yaml ${KFDEF_URL}
 ./kfctl apply -V -f kfctl_k8s_istio.yaml
+echo "The Kubeflow Central Dashboard is at ${INGRESS_IP}:31380"
