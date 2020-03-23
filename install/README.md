@@ -9,13 +9,12 @@ This directory contains the instructions for installing Kubeflow.
 	* Kubernetes v1.14.x
 	* Default Kubernetes storage class that can dynamically provision volumes
 
-### [Internal] Kubernetes reference
-Here's a  reference [guide](k8sup.md) for creating a test Kubernetes cluster with a dynamic storage class. <br>
-**Note:** This guide is meant for internal development and testing. And serves as a reference for kubeflow-starter-pack users and not as a recommended setup instructions for Kubernetes.
-
 ## Installation
 
 - [Kubeflow](#kubeflow)
+	* Version: v1.0.0
+	* Kubeflow manifests repo release tag: https://github.com/kubeflow/manifests/tree/v1.0.0
+	* kfctl CLI release tag: https://github.com/kubeflow/kfctl/tree/v1.0 
 
 ## <a id=kubeflow></a> Install Kubeflow
 	export INGRESS_IP=<UCS Machine's IP>
