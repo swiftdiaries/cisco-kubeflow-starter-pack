@@ -109,7 +109,6 @@ fi
 
 #Replace IP
 #sed -i "s/nfs-cluster-ip/$NFS_ANONYMOUS_CLUSTER_IP/g" nfs/anonymous/nfs-pv.yaml
-# Updated sed command portable between linux(ubuntu) and macos
 sed -i.bak "s/nfs-cluster-ip/$NFS_ANONYMOUS_CLUSTER_IP/g" nfs/anonymous/nfs-pv.yaml && rm -rf nfs/anonymous/nfs-pv.yaml.bak
 
 # Create nfs pv
@@ -157,7 +156,6 @@ fi
 
 #Replace IP
 #sed -i "s/nfs-cluster-ip/$NFS_KUBEFLOW_CLUSTER_IP/g" nfs/kubeflow/nfs-pv.yaml
-# Updated sed command portable between linux(ubuntu) and macos
 sed -i.bak "s/nfs-cluster-ip/$NFS_KUBEFLOW_CLUSTER_IP/g" nfs/kubeflow/nfs-pv.yaml && rm -rf nfs/kubeflow/nfs-pv.yaml.bak
 
 # Create nfs pv
