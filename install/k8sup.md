@@ -27,12 +27,16 @@ sudo apt-get install -y \
 
 ```bash
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
 sudo apt-key fingerprint 0EBFCD88
 # the output should equal:
 # 9DC8 5822 9FC7 DD38 854A  E2D8 8D81 803C 0EBF CD88
+
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
     $(lsb_release -cs) stable"
+
 sudo apt-get update
+
 sudo apt-get install -y \
   containerd.io=1.2.10-3 \
   docker-ce=5:19.03.4~3-0~ubuntu-$(lsb_release -cs) \
@@ -84,6 +88,7 @@ sudo systemctl daemon-reload
 sudo systemctl restart docker
 sudo systemctl restart kubelet
 sleep 30 # wait for docker, kubelet to restart
+
 sudo swapoff -a
 sudo kubeadm init --pod-network-cidr=192.168.0.0/16 --apiserver-advertise-address=${INGRESS_IP}
 ```
@@ -93,6 +98,7 @@ sudo kubeadm init --pod-network-cidr=192.168.0.0/16 --apiserver-advertise-addres
 mkdir -p $HOME/.kube
 sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
 export KUBECONFIG=$HOME/.kube/config
 ```
 #### Check KUBECONFIG
@@ -139,6 +145,7 @@ There are security concerns around host-path volumes as they expose the underlyi
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/rancher/local-path-provisioner/master/deploy/local-path-storage.yaml
+
 # set local-path to be default storage class
 kubectl patch storageclasses.storage.k8s.io local-path -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
 ```
@@ -148,30 +155,33 @@ kubectl patch storageclasses.storage.k8s.io local-path -p '{"metadata": {"annota
 Cluster checks:
 - [ ] Kubernetes node is ready<br>
     * `kubectl get nodes -o wide`
-    Expected output:<br>
-    ```
-    NAME                   STATUS   ROLES    AGE    VERSION    INTERNAL-IP     EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
-    ucs-kubeflow  Ready    master   4d2h   v1.14.10   10.x.x.101   <none>        Ubuntu 18.04.2 LTS   4.15.0-20-generic   docker://18.9.3
-    ```
+
+Expected output:<br>
+```
+NAME                   STATUS   ROLES    AGE    VERSION    INTERNAL-IP     EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
+ucs-kubeflow  Ready    master   4d2h   v1.14.10   10.x.x.101   <none>        Ubuntu 18.04.2 LTS   4.15.0-20-generic   docker://18.9.3
+```
 - [ ] Storage Class is running
     * `kubectl get pods -n local-path-storage`<br>
-    Expected output:<br>
-    ```
-    NAME                                      READY   STATUS    RESTARTS   AGE
-    local-path-provisioner-74c64c9987-vnh76   1/1     Running   0          4d2h
-    ```
+
+Expected output:<br>
+```
+NAME                                      READY   STATUS    RESTARTS   AGE
+local-path-provisioner-74c64c9987-vnh76   1/1     Running   0          4d2h
+```
 - [ ] kube-system pods are running
     * `kubectl get pods -n kube-system`<br>
-    Expected output:<br>
-    ```
-    calico-kube-controllers-867fbf6cd4-sxgmw       1/1     Running   0          4d2h
-    calico-node-762sx                              1/1     Running   0          4d2h
-    coredns-6dcc67dcbc-8hg5d                       1/1     Running   0          4d2h
-    coredns-6dcc67dcbc-zj7gn                       1/1     Running   0          4d2h
-    etcd-ucs-kubeflow                              1/1     Running   0          4d2h
-    kube-apiserver-ucs-kubeflow                    1/1     Running   0          4d2h
-    kube-controller-manager-ucs-kubeflow           1/1     Running   0          4d2h
-    kube-proxy-c8nrt                               1/1     Running   0          4d2h
-    kube-scheduler-ucs-kubeflow                    1/1     Running   0          4d2h
-    nvidia-device-plugin-daemonset-xr96d           1/1     Running   0          4d2h
-    ```
+
+Expected output:<br>
+```
+calico-kube-controllers-867fbf6cd4-sxgmw       1/1     Running   0          4d2h
+calico-node-762sx                              1/1     Running   0          4d2h
+coredns-6dcc67dcbc-8hg5d                       1/1     Running   0          4d2h
+coredns-6dcc67dcbc-zj7gn                       1/1     Running   0          4d2h
+etcd-ucs-kubeflow                              1/1     Running   0          4d2h
+kube-apiserver-ucs-kubeflow                    1/1     Running   0          4d2h
+kube-controller-manager-ucs-kubeflow           1/1     Running   0          4d2h
+kube-proxy-c8nrt                               1/1     Running   0          4d2h
+kube-scheduler-ucs-kubeflow                    1/1     Running   0          4d2h
+nvidia-device-plugin-daemonset-xr96d           1/1     Running   0          4d2h
+```
