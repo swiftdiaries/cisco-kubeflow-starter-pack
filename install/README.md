@@ -21,10 +21,10 @@ This directory contains the instructions for installing Kubeflow.
 	* Kubeflow manifests repo release tag: https://github.com/kubeflow/manifests/tree/v1.0.0
 	* kfctl CLI release tag: https://github.com/kubeflow/kfctl/tree/v1.0 
 	
-	```
-	export INGRESS_IP=<UCS Machine's IP>
-	sh kubeflowup.sh
-	```
+```
+export INGRESS_IP=<UCS Machine's IP>
+sh kubeflowup.sh
+```
 
 Check if all Kubeflow components are running successfully
 
