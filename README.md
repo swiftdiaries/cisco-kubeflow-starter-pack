@@ -1,5 +1,5 @@
 # Cisco Kubeflow Starter Pack
-The Cisco Kubeflow Starter Pack is a set of end-to-end applications that uses [Kubeflow](https://www.kubeflow.org/) to manage a portable, distributed, and scalable machine learning system on on-premise [Kubernetes](https://kubernetes.io/) clusters running on Cisco ML servers. Our mission is to help Cisco customers to reduce the friction in managing ML infrastructure by eliminating the complex steps in *build-train-deploy* machine learning models.
+The Cisco Kubeflow Starter Pack is a set of end-to-end applications that uses [Kubeflow](https://www.kubeflow.org/) to manage a portable, distributed, and scalable machine learning system on on-premise [Kubernetes](https://kubernetes.io/) clusters running on Cisco Infrastructure (UCS). Our mission is to help Cisco customers to reduce the friction in managing ML infrastructure by eliminating the complex steps in *build-train-deploy* machine learning models.
 
 ## Cisco and Kubeflow
 [Kubeflow](https://www.kubeflow.org/) is a machine learning toolkit for Kubernetes. It consists of a core set of components needed to develop, build, train, and deploy models on [Kubernetes](https://kubernetes.io/) efficiently. Cisco has been part of the Kubeflow journey since the project’s formative stage and has been one of the leading contributors with a focus on our customer needs.
@@ -30,7 +30,7 @@ The prerequisites for trying out Kubeflow Starter Pack is very simple. If you ha
 *2. What if I am a Cisco customer, but don't have Kubernetes installed?*
 
 If you are a Cisco customer, but don't have Kubernetes installed, you may consider trying Cisco Container Platform or set up Kubernetes v.1.14 on
-Cisco UCS ML servers before installing Kubeflow and the starter pack. The ./install directory in this repo has instructions on how to install Kubernetes but we might not be able to provide support for Kubernetes installation. 
+Cisco UCS before installing Kubeflow and the starter pack. The ./install directory in this repo has instructions on how to install Kubernetes but we might not be able to provide support for Kubernetes installation. 
 
 
 *3. What is Cisco Community Support?*
