@@ -47,14 +47,19 @@ Recommended version is `v1.14.10` for Kubernetes and `v0.7.5` for Kubernetes-CNI
 Please lookup EOL for Kubernetes versions before installing.
 
 ```bash
-KUBERNETES_VERSION=1.14.10
-KUBERNETES_CNI=0.7.5
+# set environment variables for Kubernetes and CNI
+export KUBERNETES_VERSION=1.14.10
+export KUBERNETES_CNI=0.7.5
+
+# add kubernetes apt packages
 sudo bash -c 'apt-get update && apt-get install -y apt-transport-https
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
 cat <<EOF >/etc/apt/sources.list.d/kubernetes.list
 deb http://apt.kubernetes.io/ kubernetes-xenial main
 EOF
 apt-get -y update'
+
+# install kubernetes packages
 sudo apt-get install -yf \
   socat \
   ebtables \
@@ -93,9 +98,12 @@ export KUBECONFIG=$HOME/.kube/config
 #### Check KUBECONFIG
 
 `kubectl get nodes -o wide`
-|NAME               |STATUS         |ROLES      |AGE  	    |VERSION    |INTERNAL-IP |EXTERNAL-IP |OS_IMAGE             |KERNEL-VERSION     |CONTAINER-RUNTIME |
-|---	            |---	        |---	    |---	    |---	    |---         |---         |---                  |---                |---               |
-|ucs-kubeflow   	|Ready   	    |master   	|6d10h   	|v1.14.10   |10.x.x.1    |\<none>     |Ubuntu 18.04.2 LTS   |4.15.0-20-generic  |docker://18.9.3   |
+```
+NAME                   STATUS   ROLES    AGE    VERSION    INTERNAL-IP     EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
+ucs-kubeflow  Not Ready    master   4d2h   v1.14.10   10.x.x.101   <none>        Ubuntu 18.04.2 LTS   4.15.0-20-generic   docker://18.9.3
+```
+
+**Note:** Master node status becomes Ready after Calico is installed in the next steps.
 
 ### <a id=add-ons></a> Install cluster add-ons
 
@@ -109,10 +117,14 @@ kubectl apply -f https://docs.projectcalico.org/v3.11/manifests/calico.yaml
 ```bash
 # tainting the master node alows pods to be scheduled on it
 kubectl taint nodes --all node-role.kubernetes.io/master-
+```
+Expected output: <br>
+`node/ucs-kubeflow untainted`
+
+Ensure the coredns, calico and the kube-proxy pods are running.
+```bash
 kubectl get pods -n kube-system -w
 ```
-Ensure the coredns, calico and the kube-proxy pods are running.
-
 #### <a id=nvidia></a> NVIDIA Device Plugin
 The NVIDIA GPU device plugin runs as a Kubernetes daemonset and exposes the underlying GPUs as a usable Kubernetes resource.
 
@@ -134,9 +146,32 @@ kubectl patch storageclasses.storage.k8s.io local-path -p '{"metadata": {"annota
 ## <a id=k8s-ready></a> Check cluster readiness
 
 Cluster checks:
-- [ ] Kubernetes node is ready
+- [ ] Kubernetes node is ready<br>
     * `kubectl get nodes -o wide`
+    Expected output:<br>
+    ```
+    NAME                   STATUS   ROLES    AGE    VERSION    INTERNAL-IP     EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
+    ucs-kubeflow  Ready    master   4d2h   v1.14.10   10.x.x.101   <none>        Ubuntu 18.04.2 LTS   4.15.0-20-generic   docker://18.9.3
+    ```
 - [ ] Storage Class is running
-    * `kubectl get pods -n local-path-storage`
+    * `kubectl get pods -n local-path-storage`<br>
+    Expected output:<br>
+    ```
+    NAME                                      READY   STATUS    RESTARTS   AGE
+    local-path-provisioner-74c64c9987-vnh76   1/1     Running   0          4d2h
+    ```
 - [ ] kube-system pods are running
-    * `kubectl get pods -n kube-system`
+    * `kubectl get pods -n kube-system`<br>
+    Expected output:<br>
+    ```
+    calico-kube-controllers-867fbf6cd4-sxgmw       1/1     Running   0          4d2h
+    calico-node-762sx                              1/1     Running   0          4d2h
+    coredns-6dcc67dcbc-8hg5d                       1/1     Running   0          4d2h
+    coredns-6dcc67dcbc-zj7gn                       1/1     Running   0          4d2h
+    etcd-ucs-kubeflow                              1/1     Running   0          4d2h
+    kube-apiserver-ucs-kubeflow                    1/1     Running   0          4d2h
+    kube-controller-manager-ucs-kubeflow           1/1     Running   0          4d2h
+    kube-proxy-c8nrt                               1/1     Running   0          4d2h
+    kube-scheduler-ucs-kubeflow                    1/1     Running   0          4d2h
+    nvidia-device-plugin-daemonset-xr96d           1/1     Running   0          4d2h
+    ```
