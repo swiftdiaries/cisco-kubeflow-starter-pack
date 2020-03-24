@@ -7,7 +7,7 @@ The Cisco Kubeflow Starter Pack is a set of end-to-end applications that uses [K
 ## Installation
 This repository needs to be cloned and the instructions in the following directories need to be followed:
 
-- [install](./install) - This directory contains Kubernetes and Kubeflow installation instructions. These instructions should be followed to setup the base system first, before installing individual apps.
+- [install](./install) - This directory contains Kubeflow installation instructions. These instructions should be followed to setup the base system first, before installing individual apps.
 
 - [apps](./apps) - This directory contains apps from different verticals with each vertical being in a separate sub-folder. New apps across verticals will be regularly added. Each app has its own installation instructions that need to be followed *after* the base system has been setup. The instructions for how to use the app are also contained here.
 
@@ -24,7 +24,7 @@ Please look at the [LICENSE](./LICENSE) and [NOTICE](./NOTICE) files.
 
 *1. Am I eligible for Cisco Kubeflow Starter-pack?*
 
-The prerequisites for trying out Kubeflow Starter Pack is very simple. If you have Kubernetes v.1.14 (or lower) version installed on Cisco UCS ML servers, you are good to go. 
+The prerequisites for trying out Kubeflow Starter Pack is very simple. If you have Kubernetes v.1.14 (or lower) version installed on Cisco UCS servers, you are good to go. 
 
 
 *2. What if I am a Cisco customer, but don't have Kubernetes installed?*
