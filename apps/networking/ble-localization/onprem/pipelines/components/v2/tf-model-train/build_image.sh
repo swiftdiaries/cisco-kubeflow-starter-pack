@@ -16,6 +16,7 @@
 while getopts ":hu:t:i:b:l:" opt; do
   case "${opt}" in
     h)  echo "-t: tag name"
+        echo "-u: user name"
         echo "-i: image name. If provided, project name and tag name are not necessary"
         echo "-b: tensorflow base image tag. Optional. The value can be tags listed under \
         https://hub.docker.com/r/tensorflow/tensorflow/tags. Defaults to '1.6.0'."
@@ -44,7 +45,8 @@ if [ -z "${LOCAL_IMAGE_NAME}" ]; then
 fi
 
 if [ -z "${USER_NAME}" ]; then
-   USER_NAME=poornimadevii
+   echo "Provide Username "
+   exit 1
 fi
 
 
