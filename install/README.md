@@ -5,7 +5,6 @@ This directory contains the instructions for installing Kubeflow.
 ## Prerequisites
 
 - UCS C240
-	* Ubuntu 16+ baremetal
 	* Kubernetes v1.14.x
 	* Default Kubernetes storage class that can dynamically provision volumes
 
