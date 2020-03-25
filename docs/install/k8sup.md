@@ -1,5 +1,17 @@
-# Installing Prerequisites
+# Prerequisites
 
+- UCS C240
+	* Ubuntu 16+ baremetal
+	* Kubernetes v1.14.x
+	* Default Kubernetes storage class that can dynamically provision volumes
+
+## Prerequisites Reference Setup
+
+This is a reference guide for creating a test Kubernetes cluster on Ubuntu. <br>
+
+**Note:** This is not part of the kubeflow-starter-pack.
+It is meant for internal development and testing.
+This serves as a reference for kubeflow-starter-pack users and not recommended as a golden path for setting up prerequisites.
 
 - [Docker](#docker)
 - [Kubernetes](#kubernetes)
@@ -152,25 +164,34 @@ kubectl patch storageclasses.storage.k8s.io local-path -p '{"metadata": {"annota
 
 ## <a id=k8s-ready></a> Check cluster readiness
 
-Cluster checks:
-- [ ] Kubernetes node is ready<br>
-    * `kubectl get nodes -o wide`
+Cluster checks: <br>
+
+- [ ] Kubernetes node is ready
+- [ ] Storage Class is running
+- [ ] kube-system pods are running
+<br>
+
+### Kubernetes node is ready
+    kubectl get nodes -o wide
 
 Expected output:<br>
 ```
 NAME                   STATUS   ROLES    AGE    VERSION    INTERNAL-IP     EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
-ucs-kubeflow  Ready    master   4d2h   v1.14.10   10.x.x.101   <none>        Ubuntu 18.04.2 LTS   4.15.0-20-generic   docker://18.9.3
+ucs-kubeflow           Ready    master   4d2h   v1.14.10   10.x.x.101      <none>        Ubuntu 18.04.2 LTS   4.15.0-20-generic   docker://18.9.3
 ```
-- [ ] Storage Class is running
-    * `kubectl get pods -n local-path-storage`<br>
+
+### Storage Class is running
+    kubectl get pods -n local-path-storage
 
 Expected output:<br>
 ```
 NAME                                      READY   STATUS    RESTARTS   AGE
 local-path-provisioner-74c64c9987-vnh76   1/1     Running   0          4d2h
 ```
-- [ ] kube-system pods are running
-    * `kubectl get pods -n kube-system`<br>
+
+
+### kube-system pods are running
+    kubectl get pods -n kube-system
 
 Expected output:<br>
 ```

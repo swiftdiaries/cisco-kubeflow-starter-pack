@@ -12,38 +12,6 @@ To train, serve and prodict  model  using kubeflow pipeline through jupyter-note
 
 ## Setup
 
-### Install NFS server (if not installed)
-
-To install NFS server follow steps below.
-
-#### Retrieve Ingress IP
-
-For installation, we need to know the external IP of the 'istio-ingressgateway' service. This can be retrieved by the following steps.  
-
-```
-kubectl get service -n istio-system istio-ingressgateway
-```
-
-If your service is of LoadBalancer Type, use the 'EXTERNAL-IP' of this service.  
-
-Or else, if your service is of NodePort Type - run the following command:  
-
-```
-kubectl get nodes -o wide
-```
-
-Use either of 'EXTERNAL-IP' or 'INTERNAL-IP' of any of the nodes based on which IP is accessible in your network.  
-
-This IP will be referred to as INGRESS_IP from here on.
-
-#### Installing NFS server, PVs and PVCs.
-
-Follow the [steps](./../install/) to install NFS server, PVs and PVCs.
-
-### Create Jupyter Notebook Server
-
-Follow the [steps](./../notebook#create--connect-to-jupyter-notebook-server) to create & connect to Jupyter Notebook Server in Kubeflow
-
 ### Upload Notebook file
 
 Upload [BLERSSI-Pipeline-Deployment.ipynb](BLERSSI-Pipeline-Deployment.ipynb)
@@ -112,7 +80,7 @@ Tensorboard Scalar for BLERSSI
 ![TF-BLERSSI Pipeline](pictures/5-tensorboard-scalar.PNG)
 
 
-Predict BLERSSI Location using Web UI - upload data file located at [location](./../data/iBeacon_RSSI_Unlabeled_truncated.csv)
+Predict BLERSSI Location using Web UI - upload data file located at [location](https://github.com/CiscoAI/cisco-kubeflow-starter-pack/blob/master/apps/networking/ble-localization/onprem/data/iBeacon_RSSI_Unlabeled_truncated.csv)
 
 ![TF-BLERSSI Pipeline](pictures/7-upload-file-1.png)
 
