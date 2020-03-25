@@ -1,5 +1,5 @@
 # Cisco Kubeflow Starter Pack
-The Cisco Kubeflow Starter Pack is a set of end-to-end applications that uses [Kubeflow](https://www.kubeflow.org/) to manage a portable, distributed, and scalable machine learning system on on-premise [Kubernetes](https://kubernetes.io/) clusters running on Cisco Infrastructure (e.g. UCS servers). Our mission is to help Cisco customers to reduce the friction in managing ML infrastructure by eliminating the complex steps in *build-train-deploy* machine learning models.
+The Cisco Kubeflow Starter Pack is a set of end-to-end applications that uses [Kubeflow](https://www.kubeflow.org/) to manage a portable, distributed, and scalable machine learning (ML) system on on-premise [Kubernetes](https://kubernetes.io/) clusters running on Cisco Infrastructure (e.g. UCS servers). Our mission is to help Cisco customers to reduce the friction in managing ML infrastructure by eliminating the complex steps in *build-train-deploy* machine learning models.
 
 ## Cisco and Kubeflow
 [Kubeflow](https://www.kubeflow.org/) is a machine learning toolkit for Kubernetes. It consists of a core set of components needed to develop, build, train, and deploy models on [Kubernetes](https://kubernetes.io/) efficiently. Cisco has been part of the Kubeflow journey since the project’s formative stage and has been one of the leading contributors with a focus on our customer needs.
@@ -43,6 +43,7 @@ Cisco's Kubeflow team is among the top contributing teams to the Kubeflow projec
 Yes, we support Nvidia v100 GPUs (over both PCIe as well as NVLINK).
 
 ## Credits and References
-1. Cisco Blog: [#consistentAI: Lessons from our Journey to Kubeflow 1.0](https://blogs.cisco.com/cloud/consistentai-lessons-from-our-journey-to-kubeflow-1-0)
-2. [Kubeflow](https://www.kubeflow.org/)
-3. [Kubernetes](https://kubernetes.io/)
+1. [Cisco Kubeflow Starter Pack Website](https://developer.cisco.com/kubeflow/)
+2. Cisco Blog: [#consistentAI: Lessons from our Journey to Kubeflow 1.0](https://blogs.cisco.com/cloud/consistentai-lessons-from-our-journey-to-kubeflow-1-0)
+3. [Kubeflow](https://www.kubeflow.org/)
+4. [Kubernetes](https://kubernetes.io/)
