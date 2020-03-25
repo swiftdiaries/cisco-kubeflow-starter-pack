@@ -12,6 +12,11 @@
         - [Storage Class](#rancher)
 - [Check cluster readiness](#k8s-ready)
 
+## Prerequisites 
+
+UCS c240
+Ubuntu 16+ baremetal
+
 ## <a id=docker></a> Docker setup
 
 Update and install common libraries
