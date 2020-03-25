@@ -1,0 +1,34 @@
+site_name: Cisco Kubeflow Starter Pack
+
+nav:
+  - Intro: 'index.md'
+  - Kubeflow Install: 'install/kfup.md'
+  - Apps: 
+    - Networking: 'apps/networking/ble-localization/onprem/blerssipipeline.md'
+  - GitHub Source Code: https://github.com/CiscoAI/cisco-kubeflow-starter-pack
+
+plugins:
+  - monorepo
+
+theme:
+  name: material
+  logo: 'assets/images/spotify.svg'
+  favicon: 'assets/images/favicon.ico'
+  language: 'en'
+  palette:
+    primary: 'blue'
+    accent: 'blue'
+  font:
+    text: 'Circular'
+    code: 'Inconsolata'
+
+extra_css:
+  - 'assets/stylesheets/circular.css'
+
+markdown_extensions:
+  - admonition
+  - codehilite:
+      linenums: true
+  - pymdownx.superfences
+  - toc:
+      permalink: true
