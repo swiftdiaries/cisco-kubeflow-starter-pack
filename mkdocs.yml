@@ -1,0 +1,44 @@
+site_name: Cisco Kubeflow Starter Pack
+site_url: 'https://ciscoai.github.io/starter-pack'
+repo_url: https://github.com/CiscoAI/cisco-kubeflow-starter-pack
+copyright: 'Copyright &copy; 2020 Cisco Systems'
+
+dev_addr: '127.0.0.1:8000'
+
+nav:
+  - Home: './index.md'
+  - Installation:
+    - Prerequisites Reference: 'install/k8sup.md'
+    - Kubeflow: 'install/kfup.md'
+  - Jupyter Notebook Server: 'jupyter/createserver.md'
+  - NFS Installation: 'nfs/nfsup.md'
+  - Apps:
+    - Networking: 'apps/networking/ble-localization/onprem/blerssipipeline.md'
+  - GitHub Source Code: https://github.com/CiscoAI/cisco-kubeflow-starter-pack
+
+plugins:
+  - monorepo
+
+theme:
+  name: material
+  logo: 'images/cisco.svg'
+  favicon: 'images/favicon.ico'
+  language: 'en'
+  palette:
+    primary: 'blue'
+    accent: 'blue'
+  font:
+    text: 'Circular'
+    code: 'Inconsolata'
+
+extra_css:
+  - 'assets/stylesheets/circular.css'
+
+markdown_extensions:
+  - admonition
+  - codehilite:
+      linenums: true
+  - pymdownx.superfences
+  - pymdownx.tasklist
+  - toc:
+      permalink: True
