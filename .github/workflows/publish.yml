@@ -32,3 +32,4 @@ jobs:
           user_email: 'github-actions[bot]@users.noreply.github.com'
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           publish_dir: ./site
+          allow_empty_commit: true

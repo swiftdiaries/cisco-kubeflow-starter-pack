@@ -3,6 +3,10 @@ repo_name: 'CiscoAI/cisco-kubeflow-starter-pack'
 repo_url: https://github.com/CiscoAI/cisco-kubeflow-starter-pack
 copyright: 'Copyright &copy; 2020 Cisco Systems'
 
+google_analytics: 
+  - 'UA-161751488-1'
+  - auto
+
 dev_addr: '127.0.0.1:8000'
 
 nav:
