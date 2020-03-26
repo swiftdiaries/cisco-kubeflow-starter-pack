@@ -2,11 +2,14 @@
 
 This directory contains the instructions for installing Kubeflow. 
 
+## Infrastructure Used
+
+* Cisco UCS - C240
+
 ## Prerequisites
 
-- UCS C240
-	* Kubernetes v1.14.x
-	* Default Kubernetes storage class that can dynamically provision volumes
+* Kubernetes v1.14.x
+* Default Kubernetes storage class that can dynamically provision volumes
 
 ### [Internal] Prerequisites Reference setup
 
