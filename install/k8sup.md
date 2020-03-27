@@ -52,12 +52,12 @@ sudo apt-get install -y \
 
 ## <a id=kubernetes></a> Kubernetes setup
 
-Recommended version is `v1.14.10` for Kubernetes and `v0.7.5` for Kubernetes-CNI.
+Recommended version is `v1.15.11` for Kubernetes and `v0.7.5` for Kubernetes-CNI.
 Please lookup EOL for Kubernetes versions before installing.
 
 ```bash
 # set environment variables for Kubernetes and CNI
-export KUBERNETES_VERSION=1.14.10
+export KUBERNETES_VERSION=1.15.11
 export KUBERNETES_CNI=0.7.5
 
 # add kubernetes apt packages
@@ -111,7 +111,7 @@ export KUBECONFIG=$HOME/.kube/config
 `kubectl get nodes -o wide`
 ```
 NAME                   STATUS   ROLES    AGE    VERSION    INTERNAL-IP     EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
-ucs-kubeflow  Not Ready    master   4d2h   v1.14.10   10.x.x.101   <none>        Ubuntu 18.04.2 LTS   4.15.0-20-generic   docker://18.9.3
+ucs-kubeflow  Not Ready    master   4d2h   v1.15.11   10.x.x.101   <none>        Ubuntu 18.04.2 LTS   4.15.0-20-generic   docker://18.9.3
 ```
 
 **Note:** Master node status becomes Ready after Calico is installed in the next steps.
@@ -164,7 +164,7 @@ Cluster checks:
 Expected output:<br>
 ```
 NAME                   STATUS   ROLES    AGE    VERSION    INTERNAL-IP     EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
-ucs-kubeflow  Ready    master   4d2h   v1.14.10   10.x.x.101   <none>        Ubuntu 18.04.2 LTS   4.15.0-20-generic   docker://18.9.3
+ucs-kubeflow  Ready    master   4d2h   v1.15.11   10.x.x.101   <none>        Ubuntu 18.04.2 LTS   4.15.0-20-generic   docker://18.9.3
 ```
 - [ ] Storage Class is running
     * `kubectl get pods -n local-path-storage`<br>
