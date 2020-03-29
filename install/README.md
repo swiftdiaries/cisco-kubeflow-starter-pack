@@ -8,7 +8,7 @@ This directory contains the instructions for installing Kubeflow.
 
 ## Prerequisites
 
-* Kubernetes v1.14.x
+* Kubernetes v1.15.x
 * Default Kubernetes storage class that can dynamically provision volumes
 
 ### [Internal] Prerequisites Reference setup
