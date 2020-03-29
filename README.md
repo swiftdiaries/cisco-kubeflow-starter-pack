@@ -24,12 +24,12 @@ Please look at the [LICENSE](./LICENSE) and [NOTICE](./NOTICE) files.
 
 *1. Am I eligible for Cisco Kubeflow Starter-pack?*
 
-The prerequisites for trying out Kubeflow Starter Pack is very simple. If you have Kubernetes v.1.14 (or lower) version installed on Cisco UCS servers, you are good to go. GPUs are recommended for better performance.  
+The prerequisites for trying out Kubeflow Starter Pack is very simple. If you have Kubernetes v.1.15 (or lower) version installed on Cisco UCS servers, you are good to go. GPUs are recommended for better performance.  
 
 
 *2. What if I am a Cisco customer, but don't have Kubernetes installed?*
 
-If you are a Cisco customer, but don't have Kubernetes installed, you may consider trying Cisco Container Platform or set up Kubernetes v.1.14 on
+If you are a Cisco customer, but don't have Kubernetes installed, you may consider trying Cisco Container Platform or set up Kubernetes v.1.15 on
 Cisco UCS servers before installing Kubeflow and the starter pack. The ./install directory in this repo has instructions on how to install Kubernetes but we might not be able to provide support for Kubernetes installation. 
 
 
