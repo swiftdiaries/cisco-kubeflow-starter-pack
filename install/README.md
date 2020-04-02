@@ -25,7 +25,28 @@ This directory contains the instructions for installing Kubeflow.
 	
 ```
 export INGRESS_IP=<UCS Machine's IP>
-sh kubeflowup.sh
+bash kubeflowup.bash
+```
+
+### Note
+
+If script fails with
+```
+Resolving github.com (github.com)... 13.234.176.102
+Connecting to github.com (github.com)|13.234.176.102|:443... connected.
+HTTP request sent, awaiting response... 404 Not Found
+2020-04-02 05:05:57 ERROR 404: Not Found.
+.
+.
+.
+.
+```
+
+Fix by removing trailing carriage returns.
+```
+cat kubeflowup.bash | tr -d '\r' > kubeflow_up.bash
+chmod +x kubeflow_up.bash
+bash kubeflow_up.bash
 ```
 
 Check if all Kubeflow components are running successfully
