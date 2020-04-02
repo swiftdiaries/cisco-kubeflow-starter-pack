@@ -57,16 +57,13 @@ if [ -z "${TF_BASE_TAG}" ]; then
   TF_BASE_TAG=1.7.0
 fi
 
-mkdir -p ./build
-cp ./src/deploy.sh ./build/
-
 docker build  -t ${USER_NAME}/${LOCAL_IMAGE_NAME}:${TAG_NAME} .
 if [ -z "${IMAGE_NAME}" ]; then
   cat ~/my_password.txt | docker login --username ${USER_NAME} --password-stdin	
   docker push ${USER_NAME}/${LOCAL_IMAGE_NAME}:${TAG_NAME}
 else
   cat ~/my_password.txt | docker login --username ${USER_NAME} --password-stdin
+  docker tag ${USER_NAME}/${LOCAL_IMAGE_NAME}:${TAG_NAME} ${USER_NAME}/${IMAGE_NAME}:${TAG_NAME}
   docker push "${USER_NAME}/${IMAGE_NAME}:${TAG_NAME}"
 fi
 
-rm -rf ./build

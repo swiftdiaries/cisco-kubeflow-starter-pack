@@ -44,7 +44,7 @@ if [ -z "${LOCAL_IMAGE_NAME}" ]; then
   LOCAL_IMAGE_NAME=tf_webui_test
 fi
 
-f [ -z "${USER_NAME}" ]; then
+if [ -z "${USER_NAME}" ]; then
    echo "Provide Username "
    exit 1
 fi
