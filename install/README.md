@@ -4,7 +4,7 @@ This directory contains the instructions for installing Kubeflow.
 
 ## Infrastructure Used
 
-* Cisco UCS - C240
+* Cisco UCS - C240M5 and C480ML
 
 ## Prerequisites
 
