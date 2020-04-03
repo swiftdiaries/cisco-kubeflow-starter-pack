@@ -25,7 +25,7 @@ This directory contains the instructions for installing Kubeflow.
 	
 ```
 export INGRESS_IP=<UCS Machine's IP>
-sh kubeflowup.sh
+bash kubeflowup.bash
 ```
 
 Check if all Kubeflow components are running successfully
