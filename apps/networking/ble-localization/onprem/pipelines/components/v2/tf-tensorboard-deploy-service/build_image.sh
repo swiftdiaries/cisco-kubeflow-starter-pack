@@ -13,14 +13,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-while getopts ":hu:t:i:b:l:" opt; do
+while getopts ":hu:t:i:l:" opt; do
   case "${opt}" in
     h)  echo "-t: tag name"
         echo "-u: user name"
         echo "-i: image name. If provided, project name and tag name are not necessary"
-        echo "-b: tensorflow base image tag. Optional. The value can be tags listed under \
-        https://hub.docker.com/r/tensorflow/tensorflow/tags. Defaults to '1.6.0'."
-        echo "-l: local image name. Optional. Defaults to 'ml-pipeline-kubeflow-tf-trainer'"
+        echo "-l: local image name. Optional. Defaults to 'tf_tensorboard'"
         exit
       ;;
     u) USER_NAME=${OPTARG}
@@ -29,11 +27,9 @@ while getopts ":hu:t:i:b:l:" opt; do
       ;;
     i) IMAGE_NAME=${OPTARG}
       ;;
-    b) TF_BASE_TAG=${OPTARG}
-      ;;
     l) LOCAL_IMAGE_NAME=${OPTARG}
       ;;
-    \? ) echo "Usage: cmd [-u] username [-t] tag [-i] image [-b] base image tag [l] local image"
+    \? ) echo "Usage: cmd [-u] username [-t] tag [-i] image  [l] local image"
       exit
       ;;
   esac
@@ -53,9 +49,6 @@ if [ -z "${TAG_NAME}" ]; then
   TAG_NAME=$(date +v%Y%m%d)-$(git describe --tags --always --dirty)-$(git diff | shasum -a256 | cut -c -6)
 fi
 
-if [ -z "${TF_BASE_TAG}" ]; then
-  TF_BASE_TAG=1.7.0
-fi
 
 docker build  -t ${USER_NAME}/${LOCAL_IMAGE_NAME}:${TAG_NAME} .
 if [ -z "${IMAGE_NAME}" ]; then
@@ -66,4 +59,3 @@ else
   docker tag ${USER_NAME}/${LOCAL_IMAGE_NAME}:${TAG_NAME} ${USER_NAME}/${IMAGE_NAME}:${TAG_NAME}
   docker push "${USER_NAME}/${IMAGE_NAME}:${TAG_NAME}"
 fi
-
