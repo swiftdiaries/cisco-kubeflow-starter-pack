@@ -14,7 +14,8 @@
 
 ## Prerequisites 
 
-UCS c240
+UCS C240M5 or C480ML
+
 Ubuntu 16+ baremetal
 
 ## <a id=docker></a> Docker setup
