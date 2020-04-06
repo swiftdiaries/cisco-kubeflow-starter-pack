@@ -1,15 +1,16 @@
-name: Build, Test & Deploy
+name: Build & Deploy Docs Site (on-merge)
 
 on:
   push:
     branches:
       - master
   pull_request:
-    branches:
-      - master
+    types: [closed]
+
 jobs:
   docs:
-    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@master
       - name: Set up Python ${{ matrix.python-version }}
