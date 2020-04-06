@@ -6,7 +6,7 @@ inputs:
 
 implementation:
   container:
-    image: premkarthi/blerssi-webui-deploy-service:v11
+    image: docker.io/samba07/kf-blerssi-webui-deploy-service:0.1
     command: ["/bin/deploy.sh"]
     args: [
       --image, {inputValue: Image path},

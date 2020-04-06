@@ -6,7 +6,7 @@ inputs:
 
 implementation:
   container:
-    image: premkarthi/blerssi-tensorboard-deploy-service:v5
+    image: docker.io/samba07/kf-blerssi-tensorboard-deploy-service:0.1
     command: ["/bin/deploy.sh"]
     args: [
       --timestamp, {inputValue: timestamp},
