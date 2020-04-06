@@ -2,9 +2,13 @@ name: Build & Deploy Docs Site (on-merge)
 
 on:
   push:
+    paths:
+    - 'docs/**'
     branches:
       - master
   pull_request:
+    paths:
+    - 'docs/**'
     types: [closed]
 
 jobs:
