@@ -20,4 +20,5 @@ jobs:
     
     - name: Setup Kubeflow (using kfx)
       run: |
+        chmod +x ./test/kind-smoketest.sh
         ./test/kind-smoketest.sh
