@@ -7,7 +7,8 @@ jobs:
     steps:
     - uses: actions/checkout@master
 
-    - uses: engineerd/setup-kind@v0.3.0
+    - name: KinD Create Cluster
+      uses: engineerd/setup-kind@v0.3.0
       with:
         name: "kfx-k8s"
         version: "v0.7.0"
@@ -23,10 +24,15 @@ jobs:
         chmod +x ${GITHUB_WORKSPACE}/test/kind-smoketest.sh
         ${GITHUB_WORKSPACE}/test/kind-smoketest.sh
 
-    - name: Setup NFS
+    - name: Setup Helm
+      uses: azure/setup-helm@v1
+      id: install
+
+    - name: Setup NFS (using Helm)
       run: |
-        chmod +x ${GITHUB_WORKSPACE}/test/starter-pack-smoketest.sh
-        ${GITHUB_WORKSPACE}/test/starter-pack-smoketest.sh
+        helm repo update
+        helm install stable/nfs-server-provisioner --set=persistence.enabled=true,persistence.storageClass=standard,persistence.size=20Gi --generate-name
+        kubectl create -f ${GITHUB_WORKSPACE}/test/nfs-pvc.yaml
 
     - name: Run BLERSSI pipeline
       run: |
