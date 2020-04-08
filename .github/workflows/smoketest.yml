@@ -31,8 +31,6 @@ jobs:
         mv linux-amd64/helm ${GITHUB_WORKSPACE}/helm
     - name: Setup NFS (using Helm)
       run: |
-        ${GITHUB_WORKSPACE}/helm init
-        sleep 30
         ${GITHUB_WORKSPACE}/helm repo update
         ${GITHUB_WORKSPACE}/helm install stable/nfs-server-provisioner --set=persistence.enabled=true,persistence.storageClass=standard,persistence.size=20Gi --generate-name
         kubectl create -f ${GITHUB_WORKSPACE}/test/nfs-pvc.yaml
