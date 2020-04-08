@@ -22,7 +22,12 @@ jobs:
       run: |
         chmod +x ./test/kind-smoketest.sh
         ./test/kind-smoketest.sh
+
     - name: Setup NFS
       run: |
         chmod +x ./test/starter-pack-smoketest.sh
         ./test/starter-pack-smoketest.sh
+
+    - name: Run BLERSSI pipeline
+      run: |
+        echo "Launching Pipeline..."

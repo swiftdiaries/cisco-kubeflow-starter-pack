@@ -1,4 +1,4 @@
 #!/bin/bash
-apt install nfs-kernel-server
+sudo apt install nfs-kernel-server
 cd ../apps/networking/ble-localization/onprem/install/
-# sh nfs-installation.sh
+sh nfs-installation.sh
