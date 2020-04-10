@@ -2,7 +2,7 @@
 
 ## What we're going to build
 
-Train & Save a BLERSSI location model prediction using kubeflow fairing from jupyter notebook. Then, deploy the trained model to Kubeflow for Predictions.
+Train & Save a BLERSSI location model using Kubeflow fairing from jupyter notebook. Then, deploy the trained model to Kubeflow for Predictions.
 
 
 ## Infrastructure Used
@@ -15,31 +15,7 @@ Train & Save a BLERSSI location model prediction using kubeflow fairing from jup
 
 ### Install NFS server (if not installed)
 
-To install NFS server follow steps below.
-
-#### Retrieve Ingress IP
-
-For installation, we need to know the external IP of the 'istio-ingressgateway' service. This can be retrieved by the following steps.  
-
-```
-kubectl get service -n istio-system istio-ingressgateway
-```
-
-If your service is of LoadBalancer Type, use the 'EXTERNAL-IP' of this service.  
-
-Or else, if your service is of NodePort Type - run the following command:  
-
-```
-kubectl get nodes -o wide
-```
-
-Use either of 'EXTERNAL-IP' or 'INTERNAL-IP' of any of the nodes based on which IP is accessible in your network.  
-
-This IP will be referred to as INGRESS_IP from here on.
-
-#### Installing NFS server, PVs and PVCs.
-
-Follow the [steps](./../install/) to install NFS server, PVs and PVCs.
+To install NFS server follow [steps](./../notebook#install-nfs-server-if-not-installed)
 
 ### Create Jupyter Notebook Server
 
@@ -55,7 +31,7 @@ Upload [BLERSSI-Classification-fairing.ipynb](BLERSSI-Classification-fairing.ipy
 
 Open the BLERSSI-Classification-fairing.ipynb file and run notebook
 
-### Configure docker credentials
+### Configure Docker credentials
 
 ![TF-BLERSSI Docker Configure](pictures/1_configure_docker_credentials.PNG)
 
@@ -63,7 +39,7 @@ Open the BLERSSI-Classification-fairing.ipynb file and run notebook
 
 ![TF-BLERSSI Create requirements](pictures/2_create_requirements_file.PNG)
 
-### Import Libraries
+### Import Fairing Packages
 
 ![TF-BLERSSI Import Libraries](pictures/3_import_python_libraries.PNG)
 
@@ -71,13 +47,13 @@ Open the BLERSSI-Classification-fairing.ipynb file and run notebook
 
 ### Get minio-service cluster IP to upload docker build context
 
-Note: The DOCKER_REGISTRY variable is used to push the newly built image. Please change the variable to the registry for which you've configured credentials.
+Note: Please change DOCKER_REGISTRY to the registry for which you've configured credentials. Built training image are pushed to this registry.
 
 ![TF-BLERSSI Minio Service](pictures/5_minio_service_ip.PNG)
 
 ### Create config-map to map your own docker credentials from created config.json
 
-Note: create configmap only with the name "docker-config". If already exists, delete existing one and create new configmap.
+Note: create configmap named "docker-config". If already exists, delete existing one and create new configmap.
 
 * Delete existing configmap
 
@@ -89,7 +65,7 @@ kubectl delete configmap -n $namespace docker-config
 
 ### Build docker image for our model
 
-output_map is a map of extra files to add to the notebook. It is a map from source location to the location inside the context.
+output_map is a map from source location to the location inside the context.
 
 ![TF-BLERSSI Build Docker Image](pictures/7_build_docker_image.PNG)
 
@@ -107,13 +83,12 @@ Note: Must necessarily contain train() and predict() methods
 
 ### Train Blerssi model remotely on Kubeflow
 
-Kubeflow Fairing packages the BlerssiServe class, the training data, and the training job's software prerequisites as a Docker image. Then Kubeflow Fairing deploys and runs the training job on kubeflow.
+Kubeflow Fairing packages the BlerssiServe class, the training data, and prerequisites as a Docker image. 
+It the builds & runs the training job on kubeflow.
 
 ![TF-BLERSSI Training](pictures/10_training_using_fairing.PNG)
 
 ### Deploy the trained model to Kubeflow for predictions
-
-Kubeflow Fairing packages the BlerssiServe class, the trained model, and the prediction endpoint's software prerequisites as a Docker image. Then Kubeflow Fairing deploys and runs the prediction endpoint on Kubeflow.
 
 ![TF-BLERSSI Deploy model](pictures/11_deploy_trained_model_for_prediction.PNG)
 
@@ -124,7 +99,7 @@ Kubeflow Fairing packages the BlerssiServe class, the trained model, and the pre
 
 ### Predict location for data using prediction endpoint
 
-Change endpoint in the curl command to your provided value before executing location prediction.
+Change endpoint in the curl command to previous cell output, before executing location prediction.
 
 ![TF-BLERSSI prediction](pictures/13_prediction.PNG)
 
