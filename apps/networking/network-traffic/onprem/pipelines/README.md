@@ -2,7 +2,7 @@
 
 ## What we're going to build
 
-To train, serve and prodict  model  using kubeflow pipeline through jupyter-notebook.
+To train, serve, and prodict model using kubeflow pipeline through jupyter-notebook.
 
 ![TF-Network Traffic Pipeline](pictures/0-network-graph.PNG)
 
@@ -34,7 +34,7 @@ Upload Network Traffic-Pipeline-Deployment.ipynb file from [here](./Network-Pipe
 
 ### Run Network Traffic Pipeline
 
-Open the Network Traffic-Pipeline-Deployment.ipynb file and run pipeline 
+Open the Network Traffic-Pipeline-Deployment.ipynb file and run pipeline
 
 ![TF-Network Traffic Pipeline](pictures/2-run-pipeline.PNG)
 
@@ -42,7 +42,7 @@ Once Network Traffic Pipeline is executed Experiment and Run link will generate 
 
 ![TF-Network Traffic Pipeline](pictures/3-exp-link.PNG)
 
-Click on latest experiment which is created 
+Click on latest experiment which is created
 
 ![TF-Network Traffic Pipeline](pictures/4-pipeline-created.PNG)
 
@@ -59,7 +59,7 @@ Logs of Serving Component
 
 ![TF-Network Traffic Pipeline](pictures/3-serving.PNG)
 
-Logs of Webui Component
+Logs of WebUI Component
 
 ![TF-Network Traffic Pipeline](pictures/4-webui.PNG)
 
