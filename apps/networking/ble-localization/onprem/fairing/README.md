@@ -2,7 +2,7 @@
 
 ## What we're going to build
 
-Train & Save a BLERSSI location model using Kubeflow fairing from jupyter notebook. Then, deploy the trained model to Kubeflow for Predictions.
+Train & Save a BLERSSI location model using Kubeflow Fairing from jupyter notebook. Then, deploy the trained model to Kubeflow for Predictions.
 
 
 ## Infrastructure Used
@@ -31,7 +31,7 @@ Upload [BLERSSI-Classification-fairing.ipynb](BLERSSI-Classification-fairing.ipy
 
 Open the BLERSSI-Classification-fairing.ipynb file and run notebook
 
-### Configure Docker credentials
+### Configure Docker Registry credentials 
 
 ![TF-BLERSSI Docker Configure](pictures/1_configure_docker_credentials.PNG)
 
@@ -63,9 +63,9 @@ kubectl delete configmap -n $namespace docker-config
 
 ![TF-BLERSSI Create Configmap](pictures/6_create_configmap.PNG)
 
-### Build docker image for our model
-
-output_map is a map from source location to the location inside the context.
+### Build docker image for the model
+Note: Upload dataset, Dockerfile, and blerssi-model.py into notebook.  
+Builder builds training image using input files, an output_map - a map from source location to the location inside the context, and pushes it to the registry.
 
 ![TF-BLERSSI Build Docker Image](pictures/7_build_docker_image.PNG)
 
@@ -81,10 +81,10 @@ Note: Must necessarily contain train() and predict() methods
 ![TF-BLERSSI Serve](pictures/9_define_blerssi_serve.PNG)
 
 
-### Train Blerssi model remotely on Kubeflow
+### Train Blerssi model on Kubeflow
 
-Kubeflow Fairing packages the BlerssiServe class, the training data, and prerequisites as a Docker image. 
-It the builds & runs the training job on kubeflow.
+Kubeflow Fairing packages the BlerssiServe class, the training data, and requirements.txt as a Docker image. 
+It then builds & runs the training job on Kubeflow.
 
 ![TF-BLERSSI Training](pictures/10_training_using_fairing.PNG)
 
