@@ -36,6 +36,16 @@ Upload Network Traffic-Pipeline-Deployment.ipynb file from [here](./Network-Pipe
 
 Open the Network Traffic-Pipeline-Deployment.ipynb file and run pipeline
 
+Clone git repo
+
+![TF-Network Traffic  Pipeline](pictures/1-git-clone.PNG)
+
+Loading Components
+
+![TF-BLERSSI Pipeline](pictures/2-load-compoents.PNG)
+
+Run Pipeline
+
 ![TF-Network Traffic Pipeline](pictures/2-run-pipeline.PNG)
 
 Once Network Traffic Pipeline is executed Experiment and Run link will generate and displayed as output
