@@ -52,7 +52,12 @@ Click New Server button and provide required details
 
 ![TF-BLERSSI Pipeline](pictures/2-create-notebook.PNG)
 
-Provide Notebook Server name, custom Docker Image URL or use prebuilt Image, _samba07/pipeline-notebook:v0.1_ , in the Image Tab
+
+CPU Notebook : 
+	Provide Notebook Server name, custom Docker Image URL or use prebuilt Image : docker.io/samba07/pipeline-notebook:v0.1  in the Image Tab and proceed with the steps to create nfs pv and pvc
+
+GPU Notebook
+	Select  default docker notebook image  gcr.io/kubeflow-images-public/tensorflow-1.15.2-notebook-gpu:1.0.0 from the list and create default pvc.
 
 ![TF-BLERSSI Pipeline](pictures/3-name-details.PNG)
 
