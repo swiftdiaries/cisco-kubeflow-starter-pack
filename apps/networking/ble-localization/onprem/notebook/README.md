@@ -59,16 +59,17 @@ Provide Notebook Server name and select notebook image appropriately as below
 
 ![TF-BLERSSI Pipeline](pictures/create-notebook-1.PNG)
 
-Create new Workspace Volume as displayed in kubeflow UI.
+Create new Workspace Volume
 
 ![TF-BLERSSI Pipeline](pictures/create-notebook-2.PNG)
 
-If you are creating GPU attached notebook then choose the number of GPUs and GPU Vendor as *NVIDIA*.
-Click LAUNCH Button
+If you are creating GPU attached notebook then choose number of GPUs and GPU Vendor as *NVIDIA*. 
+
+Click Launch Button
 
 ![TF-BLERSSI Pipeline](pictures/create-notebook-3.PNG)
 
-Once the Notebook Server is created, click on connect button.
+Once Notebook Server is created, click on Connect button.
 
 ![TF-BLERSSI Pipeline](pictures/6-connect-notebook1.PNG)
 
@@ -88,7 +89,7 @@ Once training completes, the model will be stored in local notebook server
 
 ![TF-BLERSSI Pipeline](pictures/2-complete-training.PNG)
 
-### Serve BLERSSI Model from Kubernetes PVC through Kubeflow Kfserving
+### Serve BLERSSI Model from K8s PVC through Kfserving
 
 ![TF-BLERSSI Pipeline](pictures/4-create-kfserving-blerssi.PNG)
 
