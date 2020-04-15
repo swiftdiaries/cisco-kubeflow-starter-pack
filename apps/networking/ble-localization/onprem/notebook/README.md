@@ -52,40 +52,36 @@ Click New Server button and provide required details
 
 ![TF-BLERSSI Pipeline](pictures/2-create-notebook.PNG)
 
+Provide Notebook Server name and select notebook image appropriately as below
+     
+     CPU  - gcr.io/kubeflow-images-public/tensorflow-1.15.2-notebook-cpu:1.0.0
+     GPU  - gcr.io/kubeflow-images-public/tensorflow-1.15.2-notebook-gpu:1.0.0
 
-CPU Notebook : 
-	Provide Notebook Server name, custom Docker Image URL or use prebuilt Image : docker.io/samba07/pipeline-notebook:v0.1  in the Image Tab and proceed with the steps to create nfs pv and pvc
+![TF-BLERSSI Pipeline](pictures/create-notebook-1.PNG)
 
-GPU Notebook
-	Select  default docker notebook image  gcr.io/kubeflow-images-public/tensorflow-1.15.2-notebook-gpu:1.0.0 from the list and create default pvc.
+Create new Workspace Volume
 
-![TF-BLERSSI Pipeline](pictures/3-name-details.PNG)
+![TF-BLERSSI Pipeline](pictures/create-notebook-2.PNG)
 
-Set Workspace Volume type as _None_.
+If you are creating GPU attached notebook then choose number of GPUs and GPU Vendor as *NVIDIA*. 
 
-![TF-BLERSSI Pipeline](pictures/4-volume-details.PNG)
+Click Launch Button
 
-Click Add Volume under Data Volume; Set type to _existing_ and name to _nfs1_ with mount point as /mnt/
+![TF-BLERSSI Pipeline](pictures/create-notebook-3.PNG)
 
-![TF-BLERSSI Pipeline](pictures/4-volume-details1.PNG)
-
-Click LAUNCH Button
-
-![TF-BLERSSI Pipeline](pictures/5-launch-notebook.PNG)
-
-Once the Notebook Server is created, click on connect button.
+Once Notebook Server is created, click on Connect button.
 
 ![TF-BLERSSI Pipeline](pictures/6-connect-notebook1.PNG)
 
 ### Upload Notebook, Data & Yaml files
 
-Upload the [BLERSSI-Classification.ipynb](./BLERSSI-Classification.ipynb), [iBeacon_RSSI_Labeled.csv](./../data/iBeacon_RSSI_Labeled.csv) and [blerssi_kfserving.yaml](./blerssi_kfserving.yaml) to the Notebook Server.
+Upload the [BLERSSI-Classification-cpu.ipynb](./BLERSSI-Classification-cpu.ipynb) or [BLERSSI-Classification-gpu.ipynb](./BLERSSI-Classification-gpu.ipynb), [iBeacon_RSSI_Labeled.csv](./../data/iBeacon_RSSI_Labeled.csv) and [blerssi_kfserving.yaml](./blerssi_kfserving.yaml) to the Notebook Server.
 
 ![TF-BLERSSI Pipeline](pictures/7-upload-pipeline-notebook1.PNG)
 
 ### Train BLERSSI Model
 
-Open the BLERSSI-Classification.ipynb file and run first command to train BLERSSI model
+Open the notebook file and run first command to train BLERSSI model
 
 ![TF-BLERSSI Pipeline](pictures/1-start-training.PNG)
 
@@ -93,7 +89,7 @@ Once training completes, the model will be stored in local notebook server
 
 ![TF-BLERSSI Pipeline](pictures/2-complete-training.PNG)
 
-### Serve BLERSSI Model from Kubernetes PVC through Kubeflow Kfserving
+### Serve BLERSSI Model from K8s PVC through Kfserving
 
 ![TF-BLERSSI Pipeline](pictures/4-create-kfserving-blerssi.PNG)
 
