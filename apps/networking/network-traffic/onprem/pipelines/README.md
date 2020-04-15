@@ -8,25 +8,45 @@ To train, serve, and prodict model using kubeflow pipeline through jupyter-noteb
 
 ## Infrastructure Used
 
-Google Kubernetes Engine (Cloud)
+* Cisco UCS - C240
 
 
 ## Setup
 
-### Kubeflow Installation
+### Install NFS server (if not installed)
 
-Follow the [steps](./../../kubeflow-v1.0-installation) to install kubeflow v1.0 in GKE.
+To install NFS server follow steps below.
+
+#### Retrieve Ingress IP
 
 
-### Create secrets for github token
+For installation, we need to know the external IP of the 'istio-ingressgateway' service. This can be retrieved by the following steps.
 
 ```
-kubectl create secret generic git --from-literal=GITHUB_TOKEN=<enter your token> -n kubeflow
+kubectl get service -n istio-system istio-ingressgateway
 ```
+
+If your service is of LoadBalancer Type, use the 'EXTERNAL-IP' of this service.  
+
+Or else, if your service is of NodePort Type - run the following command:  
+
+```
+kubectl get nodes -o wide
+```
+
+Use either of 'EXTERNAL-IP' or 'INTERNAL-IP' of any of the nodes based on which IP is accessible in your network.  
+
+This IP will be referred to as INGRESS_IP from here on.
+
+#### Installing NFS server, PVs and PVCs.
+
+Follow the [steps](../../../ble-localization/onprem/install) to install NFS server, PVs and PVCs.
+
+
 
 ### Create Jupyter Notebook Server
 
-Follow the [steps](./../notebook)  to create Jupyter Notebook in Kubeflow
+Follow the [steps](../../../ble-localization/onprem/notebook#create--connect-to-jupyter-notebook-server)  to create Jupyter Notebook in Kubeflow
 
 ### Upload Notebook file
 
