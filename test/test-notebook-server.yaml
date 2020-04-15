@@ -1,0 +1,32 @@
+apiVersion: kubeflow.org/v1
+kind: Notebook
+metadata:
+  name: blerssi
+  namespace: anonymous
+spec:
+  template:
+    spec:
+      containers:
+      - env: []
+        image: gcr.io/kubeflow-images-public/tensorflow-1.15.2-notebook-gpu:1.0.0
+        name: blerssi
+        resources:
+          limits:
+            nvidia.com/gpu: 2
+          requests:
+            cpu: "0.5"
+            memory: 1.0Gi
+        volumeMounts:
+        - mountPath: /home/jovyan
+          name: workspace-blerssi
+        - mountPath: /dev/shm
+          name: dshm
+      serviceAccountName: default-editor
+      ttlSecondsAfterFinished: 300
+      volumes:
+      - name: workspace-blerssi
+        persistentVolumeClaim:
+          claimName: notebook-workspace-claim
+      - emptyDir:
+          medium: Memory
+        name: dshm

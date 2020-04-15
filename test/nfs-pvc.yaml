@@ -1,11 +1,11 @@
     kind: PersistentVolumeClaim
     apiVersion: v1
     metadata:
-      name: test-dynamic-volume-claim
+      name: notebook-workspace-claim
     spec:
       storageClassName: "nfs"
       accessModes:
-        - ReadWriteOnce
+        - ReadWriteMany
       resources:
         requests:
-          storage: 2Gi
+          storage: 5Gi
