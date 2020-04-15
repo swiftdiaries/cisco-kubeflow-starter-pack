@@ -54,24 +54,21 @@ Click New Server button and provide required details
 
 
 CPU Notebook : 
-	Provide Notebook Server name, custom Docker Image URL or use prebuilt Image : docker.io/samba07/pipeline-notebook:v0.1  in the Image Tab and proceed with the steps to create nfs pv and pvc
+	 Provide Notebook Server name and select default tensorflow-cpu-1.15  notebook image  gcr.io/kubeflow-images-public/tensorflow-1.15.2-notebook-cpu:1.0.0 from the list.
 
 GPU Notebook
-	Select  default docker notebook image  gcr.io/kubeflow-images-public/tensorflow-1.15.2-notebook-gpu:1.0.0 from the list and create default pvc.
+	Provide Notebook Server name and select default tensorflow-gpu-1.15 notebook image  gcr.io/kubeflow-images-public/tensorflow-1.15.2-notebook-gpu:1.0.0 from the list.
 
-![TF-BLERSSI Pipeline](pictures/3-name-details.PNG)
+![TF-BLERSSI Pipeline](pictures/create-notebook-1.PNG)
 
-Set Workspace Volume type as _None_.
+Create new Workspace Volume as displayed in kubeflow UI.
 
-![TF-BLERSSI Pipeline](pictures/4-volume-details.PNG)
+![TF-BLERSSI Pipeline](pictures/create-notebook-2.PNG)
 
-Click Add Volume under Data Volume; Set type to _existing_ and name to _nfs1_ with mount point as /mnt/
-
-![TF-BLERSSI Pipeline](pictures/4-volume-details1.PNG)
-
+If you are create GPU attached notebook then choose number of GPUs and GPU Vendor.
 Click LAUNCH Button
 
-![TF-BLERSSI Pipeline](pictures/5-launch-notebook.PNG)
+![TF-BLERSSI Pipeline](pictures/5reate-notebook-3.PNG)
 
 Once the Notebook Server is created, click on connect button.
 
