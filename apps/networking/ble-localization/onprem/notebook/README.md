@@ -52,12 +52,10 @@ Click New Server button and provide required details
 
 ![TF-BLERSSI Pipeline](pictures/2-create-notebook.PNG)
 
-
-CPU Notebook : 
-     Provide Notebook Server name and select default tensorflow-cpu-1.15  notebook image  [gcr.io/kubeflow-images-public/tensorflow-1.15.2-notebook-cpu:1.0.0 from] the list.
-
-GPU Notebook : 
-     Provide Notebook Server name and select default tensorflow-gpu-1.15 notebook image  [gcr.io/kubeflow-images-public/tensorflow-1.15.2-notebook-gpu:1.0.0] from the list.
+Provide Notebook Server name and select notebook image appropriately as below
+     
+     CPU  - gcr.io/kubeflow-images-public/tensorflow-1.15.2-notebook-cpu:1.0.0
+     GPU  - gcr.io/kubeflow-images-public/tensorflow-1.15.2-notebook-gpu:1.0.0
 
 ![TF-BLERSSI Pipeline](pictures/create-notebook-1.PNG)
 
@@ -65,7 +63,7 @@ Create new Workspace Volume as displayed in kubeflow UI.
 
 ![TF-BLERSSI Pipeline](pictures/create-notebook-2.PNG)
 
-If you are create GPU attached notebook then choose number of GPUs and GPU Vendor.
+If you are creating GPU attached notebook then choose the number of GPUs and GPU Vendor as *NVIDIA*.
 Click LAUNCH Button
 
 ![TF-BLERSSI Pipeline](pictures/create-notebook-3.PNG)
@@ -82,7 +80,7 @@ Upload the [BLERSSI-Classification-cpu.ipynb](./BLERSSI-Classification-cpu.ipynb
 
 ### Train BLERSSI Model
 
-Open the BLERSSI-Classification.ipynb file and run first command to train BLERSSI model
+Open the notebook file and run first command to train BLERSSI model
 
 ![TF-BLERSSI Pipeline](pictures/1-start-training.PNG)
 
