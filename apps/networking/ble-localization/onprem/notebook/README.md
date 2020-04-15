@@ -54,10 +54,10 @@ Click New Server button and provide required details
 
 
 CPU Notebook : 
-	 Provide Notebook Server name and select default tensorflow-cpu-1.15  notebook image  gcr.io/kubeflow-images-public/tensorflow-1.15.2-notebook-cpu:1.0.0 from the list.
+     Provide Notebook Server name and select default tensorflow-cpu-1.15  notebook image  [gcr.io/kubeflow-images-public/tensorflow-1.15.2-notebook-cpu:1.0.0 from] the list.
 
-GPU Notebook
-	Provide Notebook Server name and select default tensorflow-gpu-1.15 notebook image  gcr.io/kubeflow-images-public/tensorflow-1.15.2-notebook-gpu:1.0.0 from the list.
+GPU Notebook : 
+     Provide Notebook Server name and select default tensorflow-gpu-1.15 notebook image  [gcr.io/kubeflow-images-public/tensorflow-1.15.2-notebook-gpu:1.0.0] from the list.
 
 ![TF-BLERSSI Pipeline](pictures/create-notebook-1.PNG)
 
@@ -68,7 +68,7 @@ Create new Workspace Volume as displayed in kubeflow UI.
 If you are create GPU attached notebook then choose number of GPUs and GPU Vendor.
 Click LAUNCH Button
 
-![TF-BLERSSI Pipeline](pictures/5reate-notebook-3.PNG)
+![TF-BLERSSI Pipeline](pictures/create-notebook-3.PNG)
 
 Once the Notebook Server is created, click on connect button.
 
