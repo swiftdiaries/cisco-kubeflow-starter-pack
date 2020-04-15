@@ -49,7 +49,7 @@ jobs:
         kubectl create -f ${GITHUB_WORKSPACE}/test/test-notebook-server.yaml
 
         echo "Cloning starter-pack into the notebook"
-        kubectl -n anonymous exec blerssi --container blerssi -- git clone https://github.com/CiscoAI/cisco-kubeflow-starter-pack starter-pack
+        kubectl -n anonymous exec blerssi-0 --container blerssi -- git clone https://github.com/CiscoAI/cisco-kubeflow-starter-pack starter-pack
 
     - name: Run BLERSSI pipeline
       run: |
