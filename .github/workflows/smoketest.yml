@@ -23,6 +23,7 @@ jobs:
       run: |
         chmod +x ${GITHUB_WORKSPACE}/test/kfx-smoketest.sh
         ${GITHUB_WORKSPACE}/test/kfx-smoketest.sh
+        sleep 150
 
     - name: Setup Helm
       run: |
@@ -36,6 +37,7 @@ jobs:
         ${GITHUB_WORKSPACE}/helm repo update
 
         ${GITHUB_WORKSPACE}/helm install stable/nfs-server-provisioner --set=persistence.enabled=true,persistence.storageClass=standard,persistence.size=20Gi --generate-name
+        sleep 300
     
     - name: Create Notebook Server, Bootstrap starter-pack
       run: |
@@ -47,7 +49,6 @@ jobs:
 
         echo "Creating Notebook server"
         kubectl create -f ${GITHUB_WORKSPACE}/test/test-notebook-server.yaml
-        sleep 150
 
         echo "Cloning starter-pack into the notebook"
         kubectl get po --all-namespaces
@@ -57,7 +58,7 @@ jobs:
       run: |
         echo "Executing pipeline launcher notebook"
         kubectl -n anonymous exec blerssi-0 --container blerssi -- jupyter nbconvert --to notebook --execute starter-pack/apps/networking/ble-localization/onprem/pipelines/BLERSSI-Pipeline-Deployment.ipynb
-        sleep 30
+        sleep 150
 
     - name: Check Pipeline output
       run: |
