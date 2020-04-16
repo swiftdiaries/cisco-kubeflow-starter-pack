@@ -47,7 +47,7 @@ jobs:
 
         echo "Creating Notebook server"
         kubectl create -f ${GITHUB_WORKSPACE}/test/test-notebook-server.yaml
-        sleep 30
+        sleep 60
 
         echo "Cloning starter-pack into the notebook"
         kubectl -n anonymous exec blerssi-0 --container blerssi -- git clone https://github.com/CiscoAI/cisco-kubeflow-starter-pack starter-pack
