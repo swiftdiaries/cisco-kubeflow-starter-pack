@@ -50,7 +50,7 @@ jobs:
         sleep 150
 
         echo "Cloning starter-pack into the notebook"
-        kubectl get po -n anonymous
+        kubectl get po --all-namespaces
         kubectl -n anonymous exec blerssi-0 --container blerssi -- git clone https://github.com/CiscoAI/cisco-kubeflow-starter-pack starter-pack
 
     - name: Run BLERSSI pipeline
