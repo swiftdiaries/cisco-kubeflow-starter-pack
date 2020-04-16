@@ -7,4 +7,4 @@ spec:
   default:
     predictor:
       tensorflow:
-        storageUri: "pvc://nfs1/blerssi/export/blerssi"
+        storageUri: "pvc://nfs/blerssi/export/blerssi"
