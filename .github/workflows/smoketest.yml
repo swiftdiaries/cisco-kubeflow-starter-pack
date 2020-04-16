@@ -47,6 +47,7 @@ jobs:
 
         echo "Creating Notebook server"
         kubectl create -f ${GITHUB_WORKSPACE}/test/test-notebook-server.yaml
+        sleep 30
 
         echo "Cloning starter-pack into the notebook"
         kubectl -n anonymous exec blerssi-0 --container blerssi -- git clone https://github.com/CiscoAI/cisco-kubeflow-starter-pack starter-pack
@@ -54,7 +55,8 @@ jobs:
     - name: Run BLERSSI pipeline
       run: |
         echo "Executing pipeline launcher notebook"
-        kubectl -n anonymous exec blerssi-0 --container blerssi -- jupyter nbconvert --to notebook --execute starter-pack/apps/networking/ble-localization/onprem/pipelines/BLERSSI-Pipeline-Deployment.ipynb 
+        kubectl -n anonymous exec blerssi-0 --container blerssi -- jupyter nbconvert --to notebook --execute starter-pack/apps/networking/ble-localization/onprem/pipelines/BLERSSI-Pipeline-Deployment.ipynb
+        sleep 30
 
     - name: Check Pipeline output
       run: |
