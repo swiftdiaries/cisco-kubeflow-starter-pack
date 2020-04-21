@@ -7,7 +7,7 @@ Train & Save a BLERSSI location model using Kubeflow Fairing from jupyter notebo
 
 ## Infrastructure Used
 
-* Cisco UCS - C240
+* Cisco UCS - C240M5 and C480ML
 
 
 ## Setup
