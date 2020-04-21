@@ -55,7 +55,7 @@ sudo apt-get install -y \
 
 Note : To train models using GPU 
 
-Change default runtime environment as Nvidia and add following configuration in /etc/docker/daemon.json
+Change default docker runtime environment to nvidia configuration in /etc/docker/daemon.json
 ```
 {
 	"default-runtime": "nvidia",
