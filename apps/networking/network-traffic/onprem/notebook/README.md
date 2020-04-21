@@ -85,7 +85,7 @@ https://cse-cic-ids2018.s3.ca-central-1.amazonaws.com/Processed+Traffic+Data+for
 
 ### Train Network Model
 
-Open the notebook file and run first command to train BLERSSI model
+Open the notebook file and run first command to train Network Traffic model
 
 ![TF-Network Pipeline](pictures/1-start-training.PNG)
 
