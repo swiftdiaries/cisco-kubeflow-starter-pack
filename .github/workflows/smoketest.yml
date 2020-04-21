@@ -42,7 +42,7 @@ jobs:
     - name: Setup Python + Conda
       uses: actions/setup-python@v1
       with:
-        python-version: 3.7.5
+        python-version: 3.7
     - uses: s-weigand/setup-conda@v1
 
     - name: Setup Conda environment for test
