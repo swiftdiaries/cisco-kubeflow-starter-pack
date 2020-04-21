@@ -7,7 +7,7 @@ Then, serve and predict using the saved model.
 
 ### Infrastructure Used
 
-* Cisco UCS - C240
+* Cisco UCS - C240M5 and C480ML
 
 ## Setup
 
@@ -101,4 +101,16 @@ Change Ingress IP in the curl command to your provided value before executing lo
 ![TF-BLERSSI Pipeline](pictures/5-predict-model.PNG)
 
 Prediction - class_ids(38) in response is location and predicted using kubeflow-kfserving which represents the location "M05"
+
+### Limitations of Multi-GPU training using TF Estimator API
+
+The list of *Distribution Strategy* which are supported on multi GPU with TF Estimator API
+
+| Distribution Strategy       | Multi GPU Training  |
+| --------------------------- |:-------------------:|
+| MirroredStrategy            | No                  |
+| MultiWorkerMirroredStrategy | Yes                 |
+| ParameterServerStrategy     | Yes                 |
+| OneDeviceStrategy           | Yes                 |
+| CentralStorageStrategy      | Yes                 |
 
