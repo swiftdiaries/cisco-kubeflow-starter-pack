@@ -38,6 +38,7 @@ jobs:
 
         ${GITHUB_WORKSPACE}/helm install stable/nfs-server-provisioner --set=persistence.enabled=true,persistence.storageClass=standard,persistence.size=20Gi --generate-name
         sleep 60
+        kubectl get po --all-namespaces
 
     - name: Setup Python + Conda
       uses: actions/setup-python@v1
