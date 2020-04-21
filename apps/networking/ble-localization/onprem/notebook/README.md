@@ -7,7 +7,7 @@ Then, serve and predict using the saved model.
 
 ### Infrastructure Used
 
-* Cisco UCS - C240
+* Cisco UCS - C240/C480
 
 ## Setup
 
@@ -102,11 +102,9 @@ Change Ingress IP in the curl command to your provided value before executing lo
 
 Prediction - class_ids(38) in response is location and predicted using kubeflow-kfserving which represents the location "M05"
 
-### Limitations of Multi-GPU training using tf.estimator
+### Limitations of Multi-GPU training using TF Estimator API
 
-tf.estimator has limited support to train model in Multi GPU.
-
-Here is the list of Distribution Strategy with verified-testing using tf.estimator in multi GPU
+The list of *Distribution Strategy* which are supported on multi GPU with TF Estimator API
 
 | Distribution Strategy       | Multi GPU Training  |
 | --------------------------- |:-------------------:|
