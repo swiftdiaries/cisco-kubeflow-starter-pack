@@ -76,4 +76,4 @@ jobs:
         sleep 300
 
         echo "Get Argo workflow status"
-        ${GITHUB_WORKSPACE}/argo list -n anonymous
+        ${GITHUB_WORKSPACE}/argo list --all-namespaces
