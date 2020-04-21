@@ -57,16 +57,15 @@ Note : To train models using GPU
 
 Change default runtime environment as Nvidia and add following configuration in /etc/docker/daemon.json
 ```
-		{
-			"default-runtime": "nvidia",
-			"runtimes": {
-				"nvidia": {
-					"path": "nvidia-container-runtime",
-					"runtimeArgs": []
-				}
-			}
+{
+	"default-runtime": "nvidia",
+	"runtimes": {
+		"nvidia": {
+			"path": "nvidia-container-runtime",
+			"runtimeArgs": []
 		}
-
+	}
+}
 ```
 ## <a id=kubernetes></a> Kubernetes setup
 
