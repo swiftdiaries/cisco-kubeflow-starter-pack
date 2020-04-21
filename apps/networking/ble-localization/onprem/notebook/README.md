@@ -102,3 +102,17 @@ Change Ingress IP in the curl command to your provided value before executing lo
 
 Prediction - class_ids(38) in response is location and predicted using kubeflow-kfserving which represents the location "M05"
 
+### Limitations of Multi-GPU training using tf.estimator
+
+tf.estimator has limited support to train model in Multi GPU.
+
+Here is the list of Distribution Strategy with test-result  using tf.estimator
+
+| Distribution Strategy       | Multi GPU Training  |
+| --------------------------- |:-------------------:|
+| MirroredStrategy            | No                  |
+| MultiWorkerMirroredStrategy | Yes                 |
+| ParameterServerStrategy     | Yes                 |
+| OneDeviceStrategy           | Yes                 |
+| CentralStorageStrategy      | Yes                 |
+

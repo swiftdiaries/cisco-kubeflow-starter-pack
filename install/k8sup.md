@@ -16,6 +16,9 @@
 
 UCS c240
 Ubuntu 16+ baremetal
+Nvidia Driver Version 	: 	410.129  & above
+CUDA Version		: 	10.0 & above
+NVIDIA-SMI Version 	:  	410.129 & above
 
 ## <a id=docker></a> Docker setup
 
@@ -44,12 +47,27 @@ sudo apt-get update
 
 sudo apt-get install -y \
   containerd.io=1.2.10-3 \
-  docker-ce=5:19.03.4~3-0~ubuntu-$(lsb_release -cs) \
-  docker-ce-cli=5:19.03.4~3-0~ubuntu-$(lsb_release -cs)
+  docker-ce=5:18.09.3~3-0~ubuntu-bionic  \
+  docker-ce-cli=5:18.09.3~3-0~ubuntu-bionic
 ```
 
 [Source](https://kubernetes.io/docs/setup/production-environment/container-runtimes/#docker)
 
+Note : To train models using GPU 
+
+Change default runtime environment as Nvidia and add following configuration in /etc/docker/daemon.json
+```
+		{
+			"default-runtime": "nvidia",
+			"runtimes": {
+				"nvidia": {
+					"path": "nvidia-container-runtime",
+					"runtimeArgs": []
+				}
+			}
+		}
+
+```
 ## <a id=kubernetes></a> Kubernetes setup
 
 Recommended version is `v1.15.11` for Kubernetes and `v0.7.5` for Kubernetes-CNI.
