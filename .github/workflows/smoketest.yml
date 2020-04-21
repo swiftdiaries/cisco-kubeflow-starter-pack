@@ -48,7 +48,8 @@ jobs:
 
     - name: Setup Conda environment for test
       run: |
-        conda env create -f kf-conda-environment.yaml
+        conda create -n kubeflow-fairing python=3.7
+        conda env update --prune
 
     - name: Run BLERSSI pipeline
       run: |
