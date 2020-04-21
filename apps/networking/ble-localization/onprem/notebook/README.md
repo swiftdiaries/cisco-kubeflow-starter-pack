@@ -7,7 +7,7 @@ Then, serve and predict using the saved model.
 
 ### Infrastructure Used
 
-* Cisco UCS - C240/C480
+* Cisco UCS - C240M5 and C480ML
 
 ## Setup
 
