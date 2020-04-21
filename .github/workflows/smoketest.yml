@@ -39,12 +39,15 @@ jobs:
         ${GITHUB_WORKSPACE}/helm install stable/nfs-server-provisioner --set=persistence.enabled=true,persistence.storageClass=standard,persistence.size=20Gi --generate-name
         sleep 60
 
-    - name: Setup Python + Conda environment
+    - name: Setup Python + Conda
       uses: actions/setup-python@v1
       with:
         python-version: 3.7.5
     - uses: s-weigand/setup-conda@v1
-      run: conda env create -f kf-conda-environment.yaml
+
+    - name: Setup Conda environment for test
+      run: |
+        conda env create -f kf-conda-environment.yaml
 
     - name: Run BLERSSI pipeline
       run: |
