@@ -37,11 +37,11 @@ This IP will be referred to as INGRESS_IP from here on.
 
 #### Installing NFS server, PVs and PVCs.
 
-Follow the [steps](./../install/) to install NFS server, PVs and PVCs.
+Follow the [steps](../../../ble-localization/onprem/install) to install NFS server, PVs and PVCs.
 
 ### Create & Connect to Jupyter Notebook Server
 
-You can access Kubeflow Dashboard using the Ingress IP, provided while running [nfs-installation](./../install#-provide-ucs-cluster-ip) script, and _31380_ port. For example, http://<INGRESS_IP:31380>
+You can access Kubeflow Dashboard using the Ingress IP, provided while running [nfs-installation](../../../ble-localization/onprem/install#-provide-ucs-cluster-ip) script, and _31380_ port. For example, http://<INGRESS_IP:31380>
 
 Select _anonymous_ namespace and click Notebook Servers in the left panel of the Kubeflow Dashboard
 
