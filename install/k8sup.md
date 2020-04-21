@@ -2,6 +2,7 @@
 
 
 - [Docker](#docker)
+    * [GPU Support](#gpu)
 - [Kubernetes](#kubernetes)
 - [Create a Kubernetes cluster](#k8s-up)
     * [Create cluster with kubeadm](#kubeadm)
@@ -53,10 +54,31 @@ sudo apt-get install -y \
 
 [Source](https://kubernetes.io/docs/setup/production-environment/container-runtimes/#docker)
 
-### GPU Support
+### <a id=gpu></a>GPU Support
 
-Refer the [link](https://github.com/NVIDIA/k8s-device-plugin#preparing-your-gpu-nodes) to prepare gpu nodes with nvidia-docker2 installation and docker runtime configuration.
+Install nvidia-docker2
 
+```bash
+distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
+curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+
+sudo apt-get update && sudo apt-get install -y nvidia-docker2
+sudo systemctl restart docker
+```
+Enable nvidia runtime as your default runtime on your node by editing the docker daemon config file which is usually present at /etc/docker/daemon.json:
+```bash
+{
+    "default-runtime": "nvidia",
+    "runtimes": {
+        "nvidia": {
+            "path": "/usr/bin/nvidia-container-runtime",
+            "runtimeArgs": []
+        }
+    }
+}
+```
+[Source](https://github.com/NVIDIA/k8s-device-plugin#preparing-your-gpu-nodes)
 
 ## <a id=kubernetes></a> Kubernetes setup
 
