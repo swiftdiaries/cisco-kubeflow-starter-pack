@@ -55,7 +55,7 @@ sudo apt-get install -y \
 
 ### GPU Support
 
-Refer to [link](https://github.com/NVIDIA/k8s-device-plugin#preparing-your-gpu-nodes) to prepare gpu nodes with nvidia-docker2 installation and docker runtime configuration.
+Refer the [link](https://github.com/NVIDIA/k8s-device-plugin#preparing-your-gpu-nodes) to prepare gpu nodes with nvidia-docker2 installation and docker runtime configuration.
 
 
 ## <a id=kubernetes></a> Kubernetes setup
