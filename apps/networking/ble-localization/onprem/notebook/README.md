@@ -106,7 +106,7 @@ Prediction - class_ids(38) in response is location and predicted using kubeflow-
 
 tf.estimator has limited support to train model in Multi GPU.
 
-Here is the list of Distribution Strategy with test-result  using tf.estimator
+Here is the list of Distribution Strategy with verified-testing using tf.estimator in multi GPU
 
 | Distribution Strategy       | Multi GPU Training  |
 | --------------------------- |:-------------------:|
