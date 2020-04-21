@@ -17,9 +17,10 @@
 
 * Cisco UCS - C240M5 and C480ML
 * Ubuntu 16+ baremetal
-* Nvidia Driver Version : 	410.129  & above
-* CUDA Version		: 	10.0 & above
-* NVIDIA-SMI Version 	:  	410.129 & above
+* Nvidia 
+   - Driver Version >= 410.129
+   - CUDA Version		>= 10.0
+   - nvidia-smi Version >= 410.129
 
 ## <a id=docker></a> Docker setup
 
