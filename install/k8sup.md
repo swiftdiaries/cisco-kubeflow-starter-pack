@@ -14,11 +14,11 @@
 
 ## Prerequisites 
 
-UCS c240
-Ubuntu 16+ baremetal
-Nvidia Driver Version 	: 	410.129  & above
-CUDA Version		: 	10.0 & above
-NVIDIA-SMI Version 	:  	410.129 & above
+* Cisco UCS - C240M5 and C480ML
+* Ubuntu 16+ baremetal
+* Nvidia Driver Version : 	410.129  & above
+* CUDA Version		: 	10.0 & above
+* NVIDIA-SMI Version 	:  	410.129 & above
 
 ## <a id=docker></a> Docker setup
 
@@ -53,20 +53,11 @@ sudo apt-get install -y \
 
 [Source](https://kubernetes.io/docs/setup/production-environment/container-runtimes/#docker)
 
-Note : To train models using GPU 
+### GPU Support
 
-Change default docker runtime environment to nvidia configuration in /etc/docker/daemon.json
-```
-{
-	"default-runtime": "nvidia",
-	"runtimes": {
-		"nvidia": {
-			"path": "nvidia-container-runtime",
-			"runtimeArgs": []
-		}
-	}
-}
-```
+Refer to [link](https://github.com/NVIDIA/k8s-device-plugin#preparing-your-gpu-nodes) to prepare gpu nodes with nvidia-docker2 installation and docker runtime configuration.
+
+
 ## <a id=kubernetes></a> Kubernetes setup
 
 Recommended version is `v1.15.11` for Kubernetes and `v0.7.5` for Kubernetes-CNI.
