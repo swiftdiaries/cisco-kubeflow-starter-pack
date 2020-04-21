@@ -23,7 +23,7 @@ jobs:
       run: |
         chmod +x ${GITHUB_WORKSPACE}/test/kfx-smoketest.sh
         ${GITHUB_WORKSPACE}/test/kfx-smoketest.sh
-        sleep 150
+        sleep 60
 
     - name: Setup Helm
       run: |
@@ -37,28 +37,26 @@ jobs:
         ${GITHUB_WORKSPACE}/helm repo update
 
         ${GITHUB_WORKSPACE}/helm install stable/nfs-server-provisioner --set=persistence.enabled=true,persistence.storageClass=standard,persistence.size=20Gi --generate-name
-        sleep 300
-    
-    - name: Create Notebook Server, Bootstrap starter-pack
-      run: |
-        echo "Create anonymous namespace..."
-        kubectl create ns anonymous
+        sleep 60
 
-        echo "Create notebook server PVC in anonymous namespace"
-        kubectl create -f ${GITHUB_WORKSPACE}/test/nfs-pvc.yaml
-
-        echo "Creating Notebook server"
-        kubectl create -f ${GITHUB_WORKSPACE}/test/test-notebook-server.yaml
-
-        echo "Cloning starter-pack into the notebook"
-        kubectl get po --all-namespaces
-        kubectl -n anonymous exec blerssi-0 --container blerssi -- git clone https://github.com/CiscoAI/cisco-kubeflow-starter-pack starter-pack
+    - name: Setup Python + Conda environment
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.7.5
+    - uses: s-weigand/setup-conda@v1
+      run: conda env create -f kf-conda-environment.yaml
 
     - name: Run BLERSSI pipeline
       run: |
-        echo "Executing pipeline launcher notebook"
-        kubectl -n anonymous exec blerssi-0 --container blerssi -- jupyter nbconvert --to notebook --execute starter-pack/apps/networking/ble-localization/onprem/pipelines/BLERSSI-Pipeline-Deployment.ipynb
-        sleep 150
+        echo "Compiling the pipeline..."
+        papermill apps/networking/ble-localization/onprem/pipelines/local-BLERSSI-Pipeline-Deployment.ipynb test/build/local-output-blerssi.ipynb
+        sleep 10
+        echo "Executing the pipeline..."
+        
+        kfp -n kubeflow --endpoint http://127.0.0.1:31380/pipeline -n kubeflow run submit \
+        -e "kfp-cli" \
+        -r "blerssi" \
+        -f blerssi.zip
 
     - name: Check Pipeline output
       run: |

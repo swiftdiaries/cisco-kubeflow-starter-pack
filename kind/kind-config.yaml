@@ -19,3 +19,7 @@ nodes:
     hostPort: 443
     listenAddress: "127.0.0.1"
     protocol: TCP
+  - containerPort: 31380
+    hostPort: 31380
+    listenAddress: "127.0.0.1"
+    protocol: TCP
