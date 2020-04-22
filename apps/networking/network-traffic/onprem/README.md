@@ -33,4 +33,5 @@ The DNNClassifier requires feature columns (input layer), the architecture of th
 
 As of now implementation done with :
   - [Using Kubeflow pipelines](./pipelines)
+  - [Using Kubeflow Jupyter Notebook Server](./notebook)
 
