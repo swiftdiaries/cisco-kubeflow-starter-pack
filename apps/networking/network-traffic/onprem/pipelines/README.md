@@ -8,7 +8,7 @@ To train and serve Network Traffic model, prediction for client's request using 
 
 ## Infrastructure Used
 
-* Cisco UCS - C240
+* Cisco UCS - C240M5 and C480ML
 
 
 ## Setup
