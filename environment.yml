@@ -7,7 +7,7 @@ dependencies:
   - ipython=7.9.0=py37h39e3cac_0
   - ipython_genutils=0.2.0=py37_0
   - jupyter_core=4.6.1=py37_0
-  - jupyterlab=1.2.2
+  - jupyterlab=2.0.0
   - jupyterlab_server=1.0.6=py_0
   - nb_conda=2.2.1=py37_0
   - nb_conda_kernels=2.2.2=py37_0
