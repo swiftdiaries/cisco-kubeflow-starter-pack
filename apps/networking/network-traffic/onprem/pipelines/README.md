@@ -2,7 +2,7 @@
 
 ## What we're going to build
 
-To train, serve, and prodict model using kubeflow pipeline through jupyter-notebook.
+To train, serve, and predict model using kubeflow pipeline through jupyter-notebook.
 
 ![TF-Network Traffic Pipeline](pictures/0-network-graph.PNG)
 
@@ -97,10 +97,10 @@ Tensorboard Graph for Network Traffic
 
 ![TF-Network Traffic Pipeline](pictures/5-tensorboard-graph.PNG)
 
-Predict Network Traffic Location using Web UI - upload data file located at [location](./../data/Network_Traffic.csv)
+Predict Network Traffic using Web UI - upload data file located at [location](./../data/Network_Traffic.csv)
 
 ![TF-Network Traffic Pipeline](pictures/7-upload-file-1.PNG)
 
-Network Traffic Prediction Location with Probability
+Network Traffic Prediction with Probability
 
 ![TF-Network Traffic Pipeline](pictures/8-show-table.PNG)
