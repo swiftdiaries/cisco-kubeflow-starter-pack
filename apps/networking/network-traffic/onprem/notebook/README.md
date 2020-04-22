@@ -1,4 +1,4 @@
-# Network Traffic Location Prediction 
+# Malicious Network Traffic Prediction 
 
 ## What we're going to do
 
