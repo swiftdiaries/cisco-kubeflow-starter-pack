@@ -2,8 +2,8 @@
 
 ## What we're going to do
 
-Train & save a Network Traffic  model from kubeflow jupyter notebook.
-Then, serve and predict using the saved model.
+Train, Save & Serve a Network Traffic model directly from Kubeflow Jupyter notebook.
+And, predict network traffic flow label for client's data .
 
 ### Infrastructure Used
 
@@ -83,7 +83,7 @@ https://cse-cic-ids2018.s3.ca-central-1.amazonaws.com/Processed+Traffic+Data+for
 
 ![TF-Network Pipeline](pictures/7-upload-pipeline-notebook1.PNG)
 
-### Train Network Model
+### Train Model
 
 Open the notebook file and run first command to train Network Traffic model
 
@@ -93,16 +93,16 @@ Once training completes, the model will be stored in local notebook server
 
 ![TF-Network Pipeline](pictures/2-complete-training.PNG)
 
-### Serve Network Traffic Model from K8s PVC through Kfserving
+### Serve Model from K8s PVC through Kfserving
 
 ![TF-Network Pipeline](pictures/4-create-kfserving-network.PNG)
 
-### Predict location for test data using served Network Traffic Model 
+### Predict Flow label (Benign/Bot) for test data using served model 
 
 Change Ingress IP in the curl command to your provided value before executing location prediction.
 
 
 ![TF-Network Pipeline](pictures/5-predict-model.PNG)
 
-Prediction - class(0) is the predicted response using kubeflow-kfserving which represents the target label as "Benign"
+Prediction - class(0) is the predicted response using kubeflow-kfserving which indicates the predicted label as "Benign"
 
