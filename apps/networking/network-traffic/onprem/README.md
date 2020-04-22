@@ -1,4 +1,4 @@
-# Network Traffic Prediction on UCS infrastructure
+# Malicious Network Traffic Prediction
 # Table of Contents
 - [Problem Statement](#problem-statement)
 - [Solution approach](#solution-approach)
@@ -32,6 +32,6 @@ The DNNClassifier requires feature columns (input layer), the architecture of th
 
 
 As of now implementation done with :
-  - [Using Kubeflow pipelines](./pipelines)
+  - [Using Kubeflow Pipelines](./pipelines)
   - [Using Kubeflow Jupyter Notebook Server](./notebook)
 
