@@ -3,7 +3,6 @@ import pandas as pd
 import numpy as np
 import shutil
 import os
-from sklearn.preprocessing import OneHotEncoder
 
 BLE_RSSI = pd.read_csv('/opt/iBeacon_RSSI_Labeled.csv') #Labeled dataset
 
