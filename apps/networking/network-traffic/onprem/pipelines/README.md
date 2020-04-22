@@ -2,7 +2,7 @@
 
 ## What we're going to build
 
-Train and serve Network Traffic model using KF pipeline, and model prediction for client's request from Jupyter notebook.
+Train and serve Network Traffic model using KF pipeline, and predict flow label for client's data from Jupyter notebook.
 
 ![TF-Network Traffic Pipeline](pictures/0-network-graph.PNG)
 
@@ -70,10 +70,10 @@ Tensorboard Graph for Network Traffic
 
 ![TF-Network Traffic Pipeline](pictures/5-tensorboard-graph.PNG)
 
-Predict Network Traffic using Web UI - upload data file located at [location](./../data/Network_Test_Traffic.csv)
+ Using Web UI - upload test data file located [here](./../data/Network_Test_Traffic.csv)
 
 ![TF-Network Traffic Pipeline](pictures/7-upload-file-1.PNG)
 
-Network Traffic Prediction with Probability
+ Prediction of Traffic flow label and its probability
 
 ![TF-Network Traffic Pipeline](pictures/8-show-table.PNG)
