@@ -97,7 +97,7 @@ Tensorboard Graph for Network Traffic
 
 ![TF-Network Traffic Pipeline](pictures/5-tensorboard-graph.PNG)
 
-Predict Network Traffic using Web UI - upload data file located at [location](./../data/Network_Traffic.csv)
+Predict Network Traffic using Web UI - upload data file located at [location](./../data/Network_Test_Traffic.csv)
 
 ![TF-Network Traffic Pipeline](pictures/7-upload-file-1.PNG)
 
