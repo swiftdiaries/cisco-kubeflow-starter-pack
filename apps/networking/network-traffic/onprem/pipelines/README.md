@@ -1,48 +1,21 @@
-# Network Traffic location classifier using Kubeflow Pipelines
+# Malicious Network Traffic Predicton using Pipelines
 
 ## What we're going to build
 
-To train, serve, and prodict model using kubeflow pipeline through jupyter-notebook.
+Train and serve Network Traffic model using KF pipeline, and predict flow label for client's data from Jupyter notebook.
 
 ![TF-Network Traffic Pipeline](pictures/0-network-graph.PNG)
 
 ## Infrastructure Used
 
-* Cisco UCS - C240
+* Cisco UCS - C240M5 and C480ML
 
 
 ## Setup
 
 ### Install NFS server (if not installed)
 
-To install NFS server follow steps below.
-
-#### Retrieve Ingress IP
-
-
-For installation, we need to know the external IP of the 'istio-ingressgateway' service. This can be retrieved by the following steps.
-
-```
-kubectl get service -n istio-system istio-ingressgateway
-```
-
-If your service is of LoadBalancer Type, use the 'EXTERNAL-IP' of this service.  
-
-Or else, if your service is of NodePort Type - run the following command:  
-
-```
-kubectl get nodes -o wide
-```
-
-Use either of 'EXTERNAL-IP' or 'INTERNAL-IP' of any of the nodes based on which IP is accessible in your network.  
-
-This IP will be referred to as INGRESS_IP from here on.
-
-#### Installing NFS server, PVs and PVCs.
-
-Follow the [steps](../../../ble-localization/onprem/install) to install NFS server, PVs and PVCs.
-
-
+To install NFS server follow [steps](./../notebook#install-nfs-server-if-not-installed)
 
 ### Create Jupyter Notebook Server
 
@@ -97,10 +70,10 @@ Tensorboard Graph for Network Traffic
 
 ![TF-Network Traffic Pipeline](pictures/5-tensorboard-graph.PNG)
 
-Predict Network Traffic Location using Web UI - upload data file located at [location](./../data/Network_Traffic.csv)
+ Using Web UI - upload test data file located [here](./../data/Network_Test_Traffic.csv)
 
 ![TF-Network Traffic Pipeline](pictures/7-upload-file-1.PNG)
 
-Network Traffic Prediction Location with Probability
+ Prediction of Traffic flow label and its probability
 
 ![TF-Network Traffic Pipeline](pictures/8-show-table.PNG)
