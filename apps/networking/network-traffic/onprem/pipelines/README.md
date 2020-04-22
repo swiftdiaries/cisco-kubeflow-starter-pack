@@ -1,4 +1,4 @@
-# Network Traffic location classifier using Kubeflow Pipelines
+# Network Traffic Predicton using Kubeflow Pipelines
 
 ## What we're going to build
 
