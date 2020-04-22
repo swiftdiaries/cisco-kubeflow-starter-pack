@@ -2,7 +2,7 @@
 
 ## What we're going to build
 
-To train, serve, and predict model using kubeflow pipeline through jupyter-notebook.
+To train and serve Network Traffic model, prediction for client's request using kubeflow pipeline through jupyter-notebook.
 
 ![TF-Network Traffic Pipeline](pictures/0-network-graph.PNG)
 
