@@ -2,7 +2,7 @@
 
 ## What we're going to do
 
-Train, Save & Serve a Network Traffic model directly from Kubeflow Jupyter notebook.
+Train, save & serve a Network Traffic model from Kubeflow Jupyter notebook.
 And, predict network traffic flow label for client's data .
 
 ### Infrastructure Used
