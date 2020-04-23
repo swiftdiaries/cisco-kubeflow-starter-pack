@@ -93,12 +93,13 @@ def eval_input_fn():
     dataset = tf.data.Dataset.from_tensor_slices((trainingFeatures, y))
     return dataset.batch(64).repeat(1000)
 
-distribution=tf.distribute.experimental.ParameterServerStrategy()
-print('Number of devices: {}'.format(distribution.num_replicas_in_sync))
-config = tf.estimator.RunConfig(eval_distribute=distribution, model_dir=TF_MODEL_DIR, save_summary_steps=100, save_checkpoints_steps=100)
+#distribution=tf.distribute.experimental.ParameterServerStrategy()
+#print('Number of devices: {}'.format(distribution.num_replicas_in_sync))
+#config = tf.estimator.RunConfig(eval_distribute=distribution, model_dir=TF_MODEL_DIR, save_summary_steps=100, save_checkpoints_steps=100)
+
+config = tf.estimator.RunConfig(model_dir=TF_MODEL_DIR, save_summary_steps=100, save_checkpoints_steps=100)
 
 # Build 3 layer DNN classifier
-
 model = tf.estimator.DNNClassifier(hidden_units = [13,65,110],
                  feature_columns = feature_columns,
  #                optimizer='SGD',
