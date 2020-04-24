@@ -1,6 +1,6 @@
-FROM tensorflow/tensorflow:1.7.0-py3
+FROM tensorflow/tensorflow:1.15.2-py3
+RUN pip install pandas
 ADD blerssi-model.py  /opt/blerssi-model.py
 ADD iBeacon_RSSI_Labeled.csv /opt/iBeacon_RSSI_Labeled.csv
 RUN chmod +x /opt/blerssi-model.py  /opt/iBeacon_RSSI_Labeled.csv 
-ENTRYPOINT ["/usr/bin/python"]
-CMD ["/opt/blerssi-model.py"]
+CMD ["python","/opt/blerssi-model.py"]
