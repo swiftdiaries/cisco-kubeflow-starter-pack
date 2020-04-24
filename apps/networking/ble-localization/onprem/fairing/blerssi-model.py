@@ -82,15 +82,14 @@ trainingFeatures
 
 # Train Input Function
 def train_input_fn():
-    dataset = tf.data.Dataset.from_tensor_slices((trainingFeatures, y))
-    dataset = dataset.batch(64).repeat(1000)
+    dataset = tf.data.Dataset.from_tensor_slices((trainingFeatures, y1))
+    dataset = dataset.repeat(1000).batch(128)
     return dataset
 
 # Test Input Function
-
 def eval_input_fn():
-    dataset = tf.data.Dataset.from_tensor_slices((trainingFeatures, y))
-    return dataset.batch(64).repeat(1000)
+    dataset = tf.data.Dataset.from_tensor_slices((testFeatures, y2))
+    return dataset.repeat(1000).batch(128)
 
 #distribution=tf.distribute.experimental.ParameterServerStrategy()
 #print('Number of devices: {}'.format(distribution.num_replicas_in_sync))
