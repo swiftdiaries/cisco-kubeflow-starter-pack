@@ -23,7 +23,6 @@ jobs:
     - uses: goanpeca/setup-miniconda@v1
       with:
         miniconda-version: 'latest'
-        environment-file: environment.yml
         activate-environment: cksp
         auto-activate-base: false
 
