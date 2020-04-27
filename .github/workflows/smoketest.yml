@@ -1,5 +1,12 @@
-name: "Test Starter Pack using KinD + kfx"
-on: [pull_request, push]
+name: "Test Starter Pack"
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
 
 jobs:
   kind:
@@ -7,62 +14,28 @@ jobs:
     steps:
     - uses: actions/checkout@master
 
-    - name: KinD Create Cluster
-      uses: engineerd/setup-kind@v0.3.0
+    - uses: goanpeca/setup-miniconda@v1
       with:
-        name: "kfx-k8s"
-        version: "v0.7.0"
-        config: "kind/kind-config.yaml"
-    
-    - name: KinD Cluster Check
-      run: |
-        kubectl cluster-info
-        kubectl get pods -n kube-system
-    
-    - name: Setup Kubeflow (using kfx)
-      run: |
-        chmod +x ${GITHUB_WORKSPACE}/test/kfx-smoketest.sh
-        ${GITHUB_WORKSPACE}/test/kfx-smoketest.sh
-        sleep 60
-
-    - name: Setup Helm
-      run: |
-        wget https://get.helm.sh/helm-v3.1.2-linux-amd64.tar.gz
-        tar -zxvf helm-v3.1.2-linux-amd64.tar.gz
-        mv linux-amd64/helm ${GITHUB_WORKSPACE}/helm
-
-    - name: Setup NFS (using Helm)
-      run: |
-        ${GITHUB_WORKSPACE}/helm repo add stable https://kubernetes-charts.storage.googleapis.com/
-        ${GITHUB_WORKSPACE}/helm repo update
-
-        ${GITHUB_WORKSPACE}/helm install stable/nfs-server-provisioner --set=persistence.enabled=true,persistence.storageClass=standard,persistence.size=20Gi --generate-name
-        sleep 60
-        kubectl get po --all-namespaces
-
-    - name: Setup Python + Conda
-      uses: actions/setup-python@v1
-      with:
+        miniconda-version: 'latest'
+        activate-environment: kubeflow-fairing
+        environment-file: environment.yml
         python-version: 3.7
-    - uses: s-weigand/setup-conda@v1
-
-    - name: Setup Conda environment for test
-      run: |
-        conda create -n kubeflow-fairing python=3.7
-        conda env update --prune -f=environment.yml
-        conda activate kubeflow-fairing
+        auto-activate-base: false
 
     - name: Run BLERSSI pipeline
       run: |
         echo "Compiling the pipeline..."
         papermill apps/networking/ble-localization/onprem/pipelines/local-BLERSSI-Pipeline-Deployment.ipynb test/build/local-output-blerssi.ipynb
-        sleep 10
+        yq w -i blerssi.yaml "spec.volumes[0].name" "nfs"
+        yq w -i blerssi.yaml "spec.volumes[0].persistentVolumeClaim.claimName" "nfs-wf-volume"
+        cat blerssi.yaml | tr '_' '-' > blerssi_formatted.yaml
+        argo lint blerssi_formatted.yaml
         echo "Executing the pipeline..."
-        
-        kfp -n kubeflow --endpoint http://127.0.0.1:31380/pipeline -n kubeflow run submit \
-        -e "kfp-cli" \
-        -r "blerssi" \
-        -f blerssi.zip
+
+        # kfp -n kubeflow --endpoint ${KF_PIPELINES_HOST} run submit \
+        # -e "kfp-cli" \
+        # -r "blerssi" \
+        # -f blerssi_formatted.yaml
 
     - name: Check Pipeline output
       run: |

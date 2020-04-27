@@ -1,7 +1,6 @@
 .cache
 kustomize
 kfx
-kfctl_k8s_istio.yaml
 *.zip
 test/build/
 .ipynb*/
