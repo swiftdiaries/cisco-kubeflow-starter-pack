@@ -25,11 +25,11 @@ jobs:
     - name: Run BLERSSI pipeline
       shell: bash -l {0}
       run: |
-        echo "Check if papermill exists"
+        echo "Conda environment info:"
         conda info
-        conda list | grep papermill
-
+        
         echo "Compiling the pipeline..."
+        mkdir -p ${GITHUB_WORKSPACE}/test/build
         papermill apps/networking/ble-localization/onprem/pipelines/local-BLERSSI-Pipeline-Deployment.ipynb test/build/local-output-blerssi.ipynb
         yq w -i blerssi.yaml "spec.volumes[0].name" "nfs"
         yq w -i blerssi.yaml "spec.volumes[0].persistentVolumeClaim.claimName" "nfs-wf-volume"
