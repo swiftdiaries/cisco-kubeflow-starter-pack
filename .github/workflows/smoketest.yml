@@ -14,6 +14,12 @@ jobs:
     steps:
     - uses: actions/checkout@master
 
+    - name: Install yq
+      run: |
+        sudo add-apt-repository ppa:rmescandon/yq
+        sudo apt update
+        sudo apt install yq -y
+
     - uses: goanpeca/setup-miniconda@v1
       with:
         miniconda-version: 'latest'
@@ -27,7 +33,7 @@ jobs:
       run: |
         echo "Conda environment info:"
         conda info
-        
+
         echo "Compiling the pipeline..."
         mkdir -p ${GITHUB_WORKSPACE}/test/build
         papermill apps/networking/ble-localization/onprem/pipelines/local-BLERSSI-Pipeline-Deployment.ipynb test/build/local-output-blerssi.ipynb
@@ -37,10 +43,13 @@ jobs:
         argo lint blerssi_formatted.yaml
         echo "Executing the pipeline..."
 
-        # kfp -n kubeflow --endpoint ${KF_PIPELINES_HOST} run submit \
-        # -e "kfp-cli" \
-        # -r "blerssi" \
-        # -f blerssi_formatted.yaml
+        echo "Install latest kfp..."
+        pip install kfp --user --upgrade
+        echo "Run BLERSSI pipeline..."
+        kfp --endpoint ${KF_PIPELINES_HOST} run submit \
+        -e "kfp-cli" \
+        -r "blerssi" \
+        -f blerssi_formatted.yaml
 
     - name: Check Pipeline output
       run: |
