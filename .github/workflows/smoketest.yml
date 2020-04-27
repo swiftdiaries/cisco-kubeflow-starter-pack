@@ -23,7 +23,12 @@ jobs:
         auto-activate-base: false
 
     - name: Run BLERSSI pipeline
+      shell: bash -l {0}
       run: |
+        echo "Check if papermill exists"
+        conda info
+        conda list | grep papermill
+
         echo "Compiling the pipeline..."
         papermill apps/networking/ble-localization/onprem/pipelines/local-BLERSSI-Pipeline-Deployment.ipynb test/build/local-output-blerssi.ipynb
         yq w -i blerssi.yaml "spec.volumes[0].name" "nfs"
