@@ -23,7 +23,7 @@ jobs:
     - uses: goanpeca/setup-miniconda@v1
       with:
         miniconda-version: 'latest'
-        activate-environment: cksp
+        activate-environment: kubeflow-fairing
         python-version: 3.8
         auto-activate-base: false
 
@@ -37,6 +37,7 @@ jobs:
         pip install papermill
         pip install kfp==0.4.0
 
+        jupyter-kernelspec install --user --name kubeflow-fairing /usr/share/miniconda3/envs/cksp
         echo "Compiling the pipeline..."
         mkdir -p ${GITHUB_WORKSPACE}/test/build
         papermill apps/networking/ble-localization/onprem/pipelines/local-BLERSSI-Pipeline-Deployment.ipynb test/build/local-output-blerssi.ipynb
