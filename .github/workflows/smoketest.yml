@@ -28,8 +28,8 @@ jobs:
 
     - name: Install python packages
       run: |
-        pip install papermill
-        pip install kfp --user --upgrade
+        pip install papermill==2.1.1
+        pip install kfp==0.5.0
 
     - name: Run BLERSSI pipeline
       shell: bash -l {0}
