@@ -7,7 +7,7 @@ Train & Save a BLERSSI location model using Kubeflow Fairing from jupyter notebo
 
 ## Infrastructure Used
 
-* Cisco UCS - C240M5 and C480ML
+* Cisco UCS - C240
 
 
 ## Setup
@@ -64,14 +64,64 @@ kubectl delete configmap -n $namespace docker-config
 ![TF-BLERSSI Create Configmap](pictures/6_create_configmap.PNG)
 
 ### Build docker image for the model
-Note: Upload dataset, Dockerfile, and blerssi-model.py into notebook.  
+Note: Upload dataset, Dockerfile, and blerssi-model.py into notebook.
 Builder builds training image using input files, an output_map - a map from source location to the location inside the context, and pushes it to the registry.
 
 ![TF-BLERSSI Build Docker Image](pictures/7_build_docker_image.PNG)
 
+
+### Create Katib Experiment
+Use Katib for automated tuning of your machine learning (ML) model’s hyperparameters and architecture.
+
+![TF-BLERSSI Create katib experiment](pictures/16_create_katib_experiment.PNG)
+
+![TF-BLERSSI Create katib experiment](pictures/17_create_katib_experiment1.PNG)
+
+### Wait for Katib Experiment Succeeded
+
+![TF-BLERSSI wati katib experiment](pictures/18_wait_for_experiment_succeeded.PNG)
+
+### View the results of the experiment in the Katib UI
+
+#### Accessing the Katib UI
+
+* You can access Kubeflow Dashboard using the Ingress IP, provided while running [nfs-installation](./../install#-provide-ucs-cluster-ip) script, and _31380_ port. For example, http://<INGRESS_IP:31380>
+
+* Select _anonymous_ namespace and click Katib in the left panel of the Kubeflow Dashboard
+
+![TF-BLERSSI katib dashboard](pictures/21_katib_dashboard.PNG)
+
+* You can use the Katib user interface (UI) to submit experiments and to monitor your results. The Katib home page within Kubeflow looks like
+
+![TF-BLERSSI katib homepage](pictures/22_katib_homepage.PNG)
+
+* Click Hyperparameter Tuning on the Katib home page.
+
+* Open the Katib menu panel on the left, then open the **HP** section and click **Monitor**
+
+![TF-BLERSSI katib monitor](pictures/23_katib_monitor.PNG)
+
+* Click on the right-hand panel to close the menu panel. You should see the list of experiments
+
+![TF-BLERSSI katib list experiments](pictures/24_katib_list_experiments.PNG)
+
+* Click the name of the experiment, **blerssi**
+
+* You should see a graph showing the level of accuracy for various combinations of the hyperparameter values (learning rate, batch size)
+
+![TF-BLERSSI katib experiment graph](pictures/19_katib_experiment_graph.PNG)
+
+* Below the graph is a list of trials that ran within the experiment
+
+![TF-BLERSSI katib experiment trials](pictures/20_katib_experiment_trials.PNG)
+
+### Get Optimal Hyperparameters
+
+![TF-BLERSSI katib experiment trials](pictures/28_get_optimal_hyperparameters.PNG)
+
 ### Define TFJob Class to create training job
 
-![TF-BLERSSI Define TFJob](pictures/8_define_TFJob.PNG)
+![TF-BLERSSI Define TFJob](pictures/8_define_tfjob_pass_best_hyperparameter_values.PNG)
 
 ### Define Blerssi class to be used by Kubeflow fairing
 
@@ -107,3 +157,13 @@ Change endpoint in the curl command to previous cell output, before executing lo
 Delete the prediction endpoint created by this notebook.
 
 ![TF-BLERSSI Delete endpoine](pictures/14_delete_prediction_endpoint.PNG)
+
+### Clean up the Katib Experiment
+Delete the katib experiment created by this notebook.
+
+![TF-BLERSSI Delete katib experiment](pictures/26_delete_katib_experiment.PNG)
+
+### Clean up the TFjob
+Delete the TFjob created by this notebook.
+
+![TF-BLERSSI Delete tfjob](pictures/27_delete_tfjob.PNG)
