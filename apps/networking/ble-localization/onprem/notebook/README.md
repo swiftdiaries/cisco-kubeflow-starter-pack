@@ -75,7 +75,7 @@ Once Notebook Server is created, click on Connect button.
 
 ### Upload Notebook, Data & Yaml files
 
-Upload the [BLERSSI-Classification-cpu.ipynb](./BLERSSI-Classification-cpu.ipynb) or [BLERSSI-Classification-gpu.ipynb](./BLERSSI-Classification-gpu.ipynb), [iBeacon_RSSI_Labeled.csv](./../data/iBeacon_RSSI_Labeled.csv) and [blerssi_kfserving.yaml](./blerssi_kfserving.yaml) to the Notebook Server.
+Upload the [BLERSSI-Classification.ipynb](./BLERSSI-Classification.ipynb), [iBeacon_RSSI_Labeled.csv](./../data/iBeacon_RSSI_Labeled.csv) and [blerssi_kfserving.yaml](./blerssi_kfserving.yaml) to the Notebook Server.
 
 ![TF-BLERSSI Pipeline](pictures/7-upload-pipeline-notebook1.PNG)
 
