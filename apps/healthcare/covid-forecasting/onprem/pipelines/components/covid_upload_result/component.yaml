@@ -1,0 +1,11 @@
+name: Upload COVID Prediction Result
+description: Upload COVID Prediction Result to GCS bucket
+inputs:
+  - {name: GCS URL, type: String, default: "gs://covid-result/", description: 'GCS path or local directory.'}
+
+implementation:
+  container:
+    image: poornimadevii/upload_covid_t:v20200427--e3b0c4
+    args: [
+      --gcs-url, {inputValue: GCS URL},
+    ]
