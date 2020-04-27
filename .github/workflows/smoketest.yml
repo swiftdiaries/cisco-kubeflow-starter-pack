@@ -37,7 +37,7 @@ jobs:
         pip install papermill
         pip install kfp==0.4.0
 
-        jupyter-kernelspec install --user --name kubeflow-fairing /usr/share/miniconda3/envs/cksp
+        jupyter-kernelspec install --user --name kubeflow-fairing /usr/share/miniconda3/envs/kubeflow-fairing
         echo "Compiling the pipeline..."
         mkdir -p ${GITHUB_WORKSPACE}/test/build
         papermill apps/networking/ble-localization/onprem/pipelines/local-BLERSSI-Pipeline-Deployment.ipynb test/build/local-output-blerssi.ipynb
