@@ -23,10 +23,14 @@ jobs:
     - uses: goanpeca/setup-miniconda@v1
       with:
         miniconda-version: 'latest'
-        activate-environment: kubeflow-fairing
         environment-file: environment.yml
-        python-version: 3.7
+        activate-environment: cksp
         auto-activate-base: false
+
+    - name: Install python packages
+      run: |
+        pip install papermill
+        pip install kfp --user --upgrade
 
     - name: Run BLERSSI pipeline
       shell: bash -l {0}
@@ -43,8 +47,6 @@ jobs:
         argo lint blerssi_formatted.yaml
         echo "Executing the pipeline..."
 
-        echo "Install latest kfp..."
-        pip install kfp --user --upgrade
         echo "Run BLERSSI pipeline..."
         kfp --endpoint ${KF_PIPELINES_HOST} run submit \
         -e "kfp-cli" \
