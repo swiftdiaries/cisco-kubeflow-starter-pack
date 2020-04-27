@@ -24,18 +24,18 @@ jobs:
       with:
         miniconda-version: 'latest'
         activate-environment: cksp
+        python-version: 3.8
         auto-activate-base: false
-
-    - name: Install python packages
-      run: |
-        pip install papermill==2.1.1
-        pip install kfp==0.5.0
 
     - name: Run BLERSSI pipeline
       shell: bash -l {0}
       run: |
         echo "Conda environment info:"
         conda info
+
+        echo "Installing pip packages..."
+        pip install papermill
+        pip install kfp==0.4.0
 
         echo "Compiling the pipeline..."
         mkdir -p ${GITHUB_WORKSPACE}/test/build
@@ -53,6 +53,7 @@ jobs:
         -f blerssi_formatted.yaml
 
     - name: Check Pipeline output
+      shell: bash -l {0}
       run: |
         echo "Download the Argo binary..."
         curl -sLO https://github.com/argoproj/argo/releases/download/v2.7.2/argo-linux-amd64
