@@ -8,8 +8,12 @@ on:
     branches:
       - master
 
+env:
+  GKE_CLUSTER: cluster-1
+  GKE_ZONE: us-central-1a
+
 jobs:
-  kind:
+  ai-platform:
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@master
@@ -27,7 +31,7 @@ jobs:
         python-version: 3.8
         auto-activate-base: false
 
-    - name: Run BLERSSI pipeline
+    - name: Generate BLERSSI pipeline
       shell: bash -l {0}
       run: |
         echo "Conda environment info:"
@@ -45,6 +49,8 @@ jobs:
         yq w -i blerssi.yaml "spec.volumes[0].name" "nfs"
         yq w -i blerssi.yaml "spec.volumes[0].persistentVolumeClaim.claimName" "nfs-wf-volume"
         cat blerssi.yaml | tr '_' '-' > blerssi_formatted.yaml
+
+        echo "Pipeline definition: "
         cat blerssi_formatted.yaml
 
         echo "Download the Argo binary..."
@@ -59,15 +65,24 @@ jobs:
         echo "Test installation..."
         ${GITHUB_WORKSPACE}/argo version
 
-        # echo "Check linting on Argo pipeline..."
-        # ${GITHUB_WORKSPACE}/argo lint blerssi_formatted.yaml
+    - name: Run and Check Pipeline output
+    - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+      with:
+        version: '286.0.0'
+        service_account_email: ${{ secrets.GKE_SA_EMAIL }}
+        service_account_key: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+        project_id: ${{ secrets.GKE_PROJECT_ID }}
+
+      run: |
+
+        echo "Get cluster creds..."
+        gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"
+
+        echo "Check linting on Argo pipeline..."
+        ${GITHUB_WORKSPACE}/argo lint blerssi_formatted.yaml
 
         echo "Run BLERSSI pipeline..."
         kfp --endpoint ${KF_PIPELINES_HOST} run submit -e "kfp-cli" -r "blerssi" -f blerssi_formatted.yaml
-
-    - name: Check Pipeline output
-      shell: bash -l {0}
-      run: |
 
         echo "Wait for pipeline to finish"
         sleep 60
