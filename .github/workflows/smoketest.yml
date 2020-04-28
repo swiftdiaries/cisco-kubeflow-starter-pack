@@ -73,6 +73,7 @@ jobs:
         project_id: ${{ secrets.GKE_PROJECT_ID }}
 
     - name: Run and Check Pipeline output
+      shell: bash -l {0}
       run: |
         echo "Get cluster creds..."
         gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"
