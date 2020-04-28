@@ -7,3 +7,4 @@
 apps/ @ramdootp
 install/ @swiftdiaries
 *.md @elviraux
+.github/ @ramdootp @swiftdiaries
