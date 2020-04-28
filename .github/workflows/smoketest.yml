@@ -73,8 +73,7 @@ jobs:
         service_account_key: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
         project_id: ${{ secrets.GKE_PROJECT_ID }}
 
-      run: |
-
+    - run: |
         echo "Get cluster creds..."
         gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"
 
