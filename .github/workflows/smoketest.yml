@@ -65,7 +65,6 @@ jobs:
         echo "Test installation..."
         ${GITHUB_WORKSPACE}/argo version
 
-    - name: Setup gcloud
     - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
       with:
         version: '286.0.0'
