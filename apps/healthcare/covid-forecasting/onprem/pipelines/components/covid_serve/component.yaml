@@ -8,7 +8,7 @@ inputs:
     
 implementation:
   container:
-    image: poornimadevii/covid_serve_27:v20200427--e3b0c4
+    image: poornimadevii/covidserve:v20200428--e3b0c4
     command: ["/bin/deploy.sh"]
     args: [
       --namespace, {inputValue: Kubernetes namespace},

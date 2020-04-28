@@ -48,26 +48,21 @@ if [ -z "${TIMESTAMP}" ]; then
   exit 1
 fi
 
-CLUSTER_NAME="covid-pipeline"
+echo "Deploying the Model"
+
+CLUSTER_NAME=ucs
 
 # Connect kubectl to the local cluster
 kubectl config set-cluster "${CLUSTER_NAME}" --server=https://kubernetes.default --certificate-authority=/var/run/secrets/kubernetes.io/serviceaccount/ca.crt
 kubectl config set-credentials pipeline --token "$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)"
 kubectl config set-context kubeflow --cluster "${CLUSTER_NAME}" --user pipeline
 kubectl config use-context kubeflow
-kubectl get secret git -n kubeflow -o yaml | grep GIT | cut -d : -f 2 |sed 's/ //g'|base64 --decode > /tmp/git.txt
-readtoken=$(cat /tmp/git.txt)
-
-# Configure before TF serving implementation
-cd /src/github.com/kubeflow/kubeflow
-git checkout ${KUBEFLOW_VERSION}
-export GITHUB_TOKEN=$readtoken
-cd /opt
 
 #Make folder to store yaml files for kustomization
 mkdir covid_serve
 cd covid_serve/
 touch kustomization.yaml covid_serve.yaml covid_service.yaml
+echo $TIMESTAMP
 
 #Write configuration code into yaml files
 cat >> kustomization.yaml << EOF
@@ -77,6 +72,7 @@ resources:
 
 namePrefix: serve-
 EOF
+sed -i "s/serve-/serve-$TIMESTAMP-/g" kustomization.yaml
 
 cat >> covid_serve.yaml << EOF
 apiVersion: apps/v1
@@ -84,18 +80,21 @@ kind: Deployment
 metadata:
   labels:
     app: covid
-  name: covid-v1
+    timestamp: timestamp-value
+  name: covid
   namespace: kubeflow
 spec:
   selector:
     matchLabels:
       app: covid
+      timestamp: timestamp-value
   template:
     metadata:
       annotations:
         sidecar.istio.io/inject: "true"
       labels:
         app: covid
+        timestamp: timestamp-value
         version: v1
     spec:
       containers:
@@ -108,6 +107,13 @@ spec:
           value: "Model_Covid"
         image: tensorflow/serving
         name: tensorflow-serving
+        resources:
+          limits:
+            memory: 750Mi
+            cpu: 0.5
+          requests:
+            memory: 512Mi
+            cpu: 0.25
         imagePullPolicy: IfNotPresent
         volumeMounts:
         - mountPath: "/mnt/Model_Covid/"
@@ -117,13 +123,14 @@ spec:
          persistentVolumeClaim:
            claimName: "nfs"
 EOF
-
+sed -i "s/timestamp-value/ts-$TIMESTAMP/g"  covid_serve.yaml
 cat >> covid_service.yaml << EOF
 apiVersion: v1
 kind: Service
 metadata:
   labels:
     app: covid
+    timestamp: timestamp-value
   name: covid-service
   namespace: kubeflow
 spec:
@@ -136,8 +143,10 @@ spec:
     targetPort: 8500
   selector:
     app: covid
-  type: NodePort
+    timestamp: timestamp-value
+  type: ClusterIP
 EOF
+sed -i "s/timestamp-value/ts-$TIMESTAMP/g"  covid_service.yaml
 
 echo "Installing kustomize"
 wget https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv3.5.4/kustomize_v3.5.4_linux_amd64.tar.gz
@@ -147,74 +156,17 @@ export PATH=$PATH:$PWD
 #Build a service and a deployment using kustomize for COVID serving
 kustomize build . | kubectl apply -f -
 
-# Wait for the deployment to have at least one available replica
-echo "Waiting for the TF Serving deployment to show up..."
-timeout="60"
-start_time=`date +%s`
-while [[ $(kubectl get deploy --namespace "${KUBERNETES_NAMESPACE}" --selector=app="${SERVER_NAME}" 2>&1|wc -l) != "2" ]];do
-  current_time=`date +%s`
-  elapsed_time=$(expr $current_time + 1 - $start_time)
-  if [[ $elapsed_time -gt $timeout ]];then
-    echo "TF serving deployment timeout"
-    exit 1
-  fi
-  sleep 2
-done
+kubectl get deployment serve-$TIMESTAMP-covid -n kubeflow
 
-echo "Waiting for the valid workflow json..."
-start_time=`date +%s`
-exit_code="1"
-while [[ $exit_code != "0" ]];do
-  kubectl get deploy --namespace "${KUBERNETES_NAMESPACE}" --selector=app="${SERVER_NAME}" --output=jsonpath='{.items[0].status.availableReplicas}'
-  exit_code=$?
-  current_time=`date +%s`
-  elapsed_time=$(expr $current_time + 1 - $start_time)
-  if [[ $elapsed_time -gt $timeout ]];then
-    echo "Valid workflow json timeout"
-    exit 1
-  fi
-  sleep 2
-done
+kubectl get svc serve-$TIMESTAMP-covid-service -n kubeflow
+
+echo "Writing Prediction result files to Visualisation server"
+
+vis_podname=$(kubectl -n kubeflow get pods | grep ml-pipeline-visualizationserver | awk '{print $1}')
+
+kubectl cp /mnt/train_df.csv $vis_podname:/src -n kubeflow
+
+kubectl cp /mnt/predict_df.csv $vis_podname:/src -n kubeflow
 
 
-echo "Obtaining the pod name..."
-start_time=`date +%s`
-pod_name=""
-while [[ $pod_name == "" ]];do
-  pod_name=$(kubectl get pods --namespace "${KUBERNETES_NAMESPACE}" --selector=app="${SERVER_NAME}" --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}')
-  current_time=`date +%s`
-  elapsed_time=$(expr $current_time + 1 - $start_time)
-  if [[ $elapsed_time -gt $timeout ]];then
-    echo "Pod name reception timeout"
-    exit 1
-  fi
-  sleep 2
-done
-echo "Pod name is: " $pod_name
 
-# Wait for the pod container to start running
-echo "Waiting for the TF Serving pod to start running..."
-start_time=`date +%s`
-exit_code="1"
-while [[ $exit_code != "0" ]];do
-  kubectl get po ${pod_name} --namespace "${KUBERNETES_NAMESPACE}" -o jsonpath='{.status.containerStatuses[0].state.running}'
-  exit_code=$?
-  current_time=`date +%s`
-  elapsed_time=$(expr $current_time + 1 - $start_time)
-  if [[ $elapsed_time -gt $timeout ]];then
-    echo "TF serving pod running status timeout"
-    exit 1
-  fi
-  sleep 2
-done
-
-start_time=`date +%s`
-while [ -z "$(kubectl get po ${pod_name} --namespace "${KUBERNETES_NAMESPACE}" -o jsonpath='{.status.containerStatuses[0].state.running}')" ]; do
-  current_time=`date +%s`
-  elapsed_time=$(expr $current_time + 1 - $start_time)
-  if [[ $elapsed_time -gt $timeout ]];then
-    echo "timeout"
-    exit 1
-  fi
-  sleep 5
-done
