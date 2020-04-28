@@ -65,7 +65,7 @@ jobs:
         echo "Test installation..."
         ${GITHUB_WORKSPACE}/argo version
 
-    - name: Run and Check Pipeline output
+    - name: Setup gcloud
     - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
       with:
         version: '286.0.0'
@@ -73,7 +73,8 @@ jobs:
         service_account_key: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
         project_id: ${{ secrets.GKE_PROJECT_ID }}
 
-    - run: |
+    - name: Run and Check Pipeline output
+      run: |
         echo "Get cluster creds..."
         gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"
 
