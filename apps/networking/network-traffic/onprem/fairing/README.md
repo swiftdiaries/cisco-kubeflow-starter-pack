@@ -7,7 +7,7 @@ Train, save & serve a Network Traffic model using Kubeflow Fairing from jupyter 
 
 ## Infrastructure Used
 
-* Cisco UCS - C240M5 and C480ML
+* Cisco UCS - C240
 
 
 ## Setup
@@ -71,8 +71,8 @@ Builder builds training image using input files, an output_map - a map from sour
 
 ### Define TFJob Class to create training job
 
-![TF-Network Define TFJob](pictures/8_define_TFJob.PNG)
-
+![TF-Network Define TFJob](pictures/8_define_tfjob_pass_best_hyperparameter_values.PNG)
+ 
 ### Define Network class to be used by Kubeflow fairing
 
 Note: Must necessarily contain train() and predict() methods
@@ -101,7 +101,7 @@ It then builds & runs the training job on Kubeflow.
 
 Change endpoint in the curl command to previous cell output, before executing prediction cell.
 
-![TF-Network prediction](pictures/13_prediction.PNG)
+![TF-Network prediction](pictures/3_prediction.PNG)
 
 ### Clean up the prediction endpoint
 Delete the prediction endpoint created by this notebook.
