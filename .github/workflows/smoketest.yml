@@ -82,7 +82,7 @@ jobs:
         ${GITHUB_WORKSPACE}/argo lint blerssi_formatted.yaml
 
         echo "Run BLERSSI pipeline..."
-        kfp --endpoint ${KF_PIPELINES_HOST} run submit -e "kfp-cli" -r "blerssi" -f blerssi_formatted.yaml
+        kfp --endpoint ${{ secrets.KF_PIPELINES_HOST }} run submit -e "kfp-cli" -r "blerssi" -f blerssi_formatted.yaml
 
         echo "Wait for pipeline to finish"
         sleep 60
