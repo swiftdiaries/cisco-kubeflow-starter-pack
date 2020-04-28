@@ -10,7 +10,7 @@ on:
 
 env:
   GKE_CLUSTER: cluster-1
-  GKE_ZONE: us-central-1a
+  GKE_ZONE: us-central1-a
 
 jobs:
   ai-platform:
