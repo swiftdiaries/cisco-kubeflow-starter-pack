@@ -31,7 +31,7 @@ Upload [Network-Classification-fairing.ipynb](Network-Classification-fairing.ipy
 
 Open the Network-Classification-fairing.ipynb file and run notebook
 
-### Configure Docker Registry credentials 
+
 
 ![TF-Network Docker Configure](pictures/1_configure_docker_credentials.PNG)
 
@@ -69,7 +69,7 @@ Builder builds training image using input files, an output_map - a map from sour
 
 ![TF-Network Build Docker Image](pictures/7_build_docker_image.PNG)
 
-### Define TFJob Class to create training job
+
 
 ![TF-Network Define TFJob](pictures/8_define_tfjob_pass_best_hyperparameter_values.PNG)
  
