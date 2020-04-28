@@ -59,8 +59,8 @@ jobs:
         echo "Test installation..."
         ${GITHUB_WORKSPACE}/argo version
 
-        echo "Check linting on Argo pipeline..."
-        ${GITHUB_WORKSPACE}/argo lint blerssi_formatted.yaml
+        # echo "Check linting on Argo pipeline..."
+        # ${GITHUB_WORKSPACE}/argo lint blerssi_formatted.yaml
 
         echo "Run BLERSSI pipeline..."
         kfp --endpoint ${KF_PIPELINES_HOST} run submit -e "kfp-cli" -r "blerssi" -f blerssi_formatted.yaml
