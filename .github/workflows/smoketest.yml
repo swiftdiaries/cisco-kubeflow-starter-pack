@@ -45,18 +45,7 @@ jobs:
         yq w -i blerssi.yaml "spec.volumes[0].name" "nfs"
         yq w -i blerssi.yaml "spec.volumes[0].persistentVolumeClaim.claimName" "nfs-wf-volume"
         cat blerssi.yaml | tr '_' '-' > blerssi_formatted.yaml
-        argo lint blerssi_formatted.yaml
-        echo "Executing the pipeline..."
 
-        echo "Run BLERSSI pipeline..."
-        kfp --endpoint ${KF_PIPELINES_HOST} run submit \
-        -e "kfp-cli" \
-        -r "blerssi" \
-        -f blerssi_formatted.yaml
-
-    - name: Check Pipeline output
-      shell: bash -l {0}
-      run: |
         echo "Download the Argo binary..."
         curl -sLO https://github.com/argoproj/argo/releases/download/v2.7.2/argo-linux-amd64
 
@@ -68,6 +57,19 @@ jobs:
 
         echo "Test installation..."
         ${GITHUB_WORKSPACE}/argo version
+
+        ${GITHUB_WORKSPACE}/argo lint blerssi_formatted.yaml
+        echo "Executing the pipeline..."
+
+        echo "Run BLERSSI pipeline..."
+        kfp --endpoint ${KF_PIPELINES_HOST} run submit \
+        -e "kfp-cli" \
+        -r "blerssi" \
+        -f blerssi_formatted.yaml
+
+    - name: Check Pipeline output
+      shell: bash -l {0}
+      run: |
 
         echo "Sleep 5 minutes; wait for pipeline to finish"
         sleep 300
