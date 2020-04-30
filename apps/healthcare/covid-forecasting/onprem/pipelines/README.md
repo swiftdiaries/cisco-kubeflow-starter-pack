@@ -42,11 +42,11 @@ Follow the [steps](https://github.com/CiscoAI/cisco-kubeflow-starter-pack/tree/d
 
 ### Create Jupyter Notebook Server
 
-Follow the [steps](./../notebook#create--connect-to-jupyter-notebook-server) to create & connect to Jupyter Notebook Server in Kubeflow
+Follow the [steps](https://github.com/CiscoAI/cisco-kubeflow-starter-pack/tree/master/apps/networking/ble-localization/onprem/notebook#create--connect-to-jupyter-notebook-server) to create & connect to Jupyter Notebook Server in Kubeflow
 
 ### Upload Notebook file
 
-Upload [COVID-Pipeline-Deployment.ipynb](COVID-Pipeline-Deployment.ipynb)
+Upload [COVID-Pipeline-Deployment.ipynb](COVID_Pipeline_Deployment.ipynb)
 
 ### Run BLERSSI Pipeline
 
