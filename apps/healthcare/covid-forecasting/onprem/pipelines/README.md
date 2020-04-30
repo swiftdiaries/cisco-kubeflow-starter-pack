@@ -2,7 +2,7 @@
 
 ## What we're going to build
 
-To train, serve and prodict  model  using kubeflow pipeline through jupyter-notebook.
+To train, serve and predict COVID model using kubeflow pipeline through jupyter-notebook.
 
 ![COVID Pipeline](./pictures/0-covid-pipeline.PNG)
 
