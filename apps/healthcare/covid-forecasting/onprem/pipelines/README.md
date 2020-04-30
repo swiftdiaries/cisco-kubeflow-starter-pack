@@ -38,7 +38,7 @@ This IP will be referred to as INGRESS_IP from here on.
 
 #### Installing NFS server, PVs and PVCs.
 
-Follow the [steps](https://github.com/CiscoAI/cisco-kubeflow-starter-pack/tree/dev/apps/networking/ble-localization/onprem/install) to install NFS server, PVs and PVCs.
+Follow the [steps](./../../../../networking/ble-localization/onprem/install) to install NFS server, PVs and PVCs.
 
 ### Create Jupyter Notebook Server
 
@@ -90,7 +90,7 @@ Logs of COVID Training Component
 
 Logs of COVID TF Serving Component
 
-![TF-COVID Pipeline](./pictures/8-covid-serving.PNG)
+![TF-COVID Pipeline](./pictures/8-covid-serve.PNG)
 
 
 Predict Results of COVID Model Serving by sending a curl request to the covid-serve service that is running.
