@@ -4,11 +4,6 @@
 
 Train, save & serve a network traffic model using KF Fairing from Jupyter notebook. Then, deploy the trained model to Kubeflow for predictions.
 
-## Version Used
-
-kubeflow-fairing : 0.7.2
-
-
 ## Infrastructure Used
 
 * Cisco UCS - C240
