@@ -8,7 +8,7 @@ To train, serve and prodict  model  using kubeflow pipeline through jupyter-note
 
 ## Infrastructure Used
 
-* Cisco UCS - C240M5 
+* Cisco UCS - C240M5 and C480ML 
 
 ## Setup
 
