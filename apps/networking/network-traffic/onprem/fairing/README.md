@@ -4,6 +4,10 @@
 
 Train, save & serve a Network Traffic model using Kubeflow Fairing from jupyter notebook. Then, deploy the trained model to Kubeflow for Predictions.
 
+## Version Used
+
+kubeflow-fairing : 0.7.2
+
 
 ## Infrastructure Used
 
@@ -33,7 +37,7 @@ Open the Network-Classification-fairing.ipynb file and run notebook
 
 
 
-![TF-Network Docker Configure](pictures/1_configure_docker_credentials.PNG)
+![TF-Network Docker Configure](pictures/1_configure_docker_credentials1.PNG)
 
 ### Create requirements.txt with require python packages
 
@@ -68,7 +72,6 @@ Note: Upload dataset, Dockerfile, and network_model.py into notebook.
 Builder builds training image using input files, an output_map - a map from source location to the location inside the context, and pushes it to the registry.
 
 ![TF-Network Build Docker Image](pictures/7_build_docker_image.PNG)
-
 
 
 ![TF-Network Define TFJob](pictures/8_define_tfjob_pass_best_hyperparameter_values.PNG)
