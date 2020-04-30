@@ -2,7 +2,7 @@
 
 ## What we're going to build
 
-Train, save & serve a Network Traffic model using Kubeflow Fairing from jupyter notebook. Then, deploy the trained model to Kubeflow for Predictions.
+Train, save & serve a network traffic model using KF Fairing from Jupyter notebook. Then, deploy the trained model to Kubeflow for predictions.
 
 ## Version Used
 
