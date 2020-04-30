@@ -162,7 +162,7 @@ kubectl get svc serve-$TIMESTAMP-covid-service -n kubeflow
 
 echo "Writing Prediction result files to Visualisation server"
 
-vis_podname=$(kubectl -n kubeflow get pods | grep ml-pipeline-visualizationserver | awk '{print $1}')
+vis_podname=$(kubectl -n kubeflow get pods --field-selector=status.phase=Running | grep ml-pipeline-visualizationserver | awk '{print $1}')
 
 kubectl cp /mnt/train_df.csv $vis_podname:/src -n kubeflow
 
