@@ -4,7 +4,7 @@
 
 To train, serve and prodict  model  using kubeflow pipeline through jupyter-notebook.
 
-![COVID Pipeline](pictures/0-covid-pipeline.png)
+![COVID Pipeline](./pictures/0-covid-pipeline.PNG)
 
 ## Infrastructure Used
 
@@ -54,16 +54,16 @@ Open the COVID-Pipeline-Deployment.ipynb file and run pipeline
 
 Clone git repo
 
-![COVID Pipeline](pictures/1-clone-repo.PNG)
+![COVID Pipeline](./pictures/1-clone-repo.PNG)
 
 Loading Components
 
-![COVID Pipeline](pictures/2-load-components.PNG)
+![COVID Pipeline](./pictures/2-load-components.PNG)
 
 
 Defining the COVID Pipeline Function
 
-![COVID Pipeline](pictures/3-def-pipeline-fn.PNG)
+![COVID Pipeline](./pictures/3-def-pipline-fn.PNG)
 
 
 Once COVID Pipeline is executed, Experiment and Run link will be generated and displayed as output
@@ -73,28 +73,28 @@ Once COVID Pipeline is executed, Experiment and Run link will be generated and d
 
 Click on latest experiment which is created 
 
-![TF-BLERSSI Pipeline](pictures/5-latest-experiment.PNG)
+![TF-COVID Pipeline](./pictures/5-latest-experimnt.png)
 
 
 Pipeline components execution can be viewed as below.
 
 Logs of COVID Preprocessing Component
 
-![TF-BLERSSI Pipeline](pictures/6-covid-preprocess.PNG)
+![TF-COVID Pipeline](./pictures/6-covid-preprocess.PNG)
 
 
 Logs of COVID Training Component
 
-![TF-BLERSSI Pipeline](pictures/7-covid-train.PNG)
+![TF-COVID Pipeline](./pictures/7-covid-train.PNG)
 
 
 Logs of COVID TF Serving Component
 
-![TF-BLERSSI Pipeline](pictures/8-covid-serving.PNG)
+![TF-COVID Pipeline](./pictures/8-covid-serving.PNG)
 
 
 Predict Results of COVID Model Serving by sending a curl request to the covid-serve service that is running.
 
-![TF-BLERSSI Pipeline](pictures/9-pred-results.png)
+![TF-COVID Pipeline](./pictures/9-pred-results.PNG)
 
 
