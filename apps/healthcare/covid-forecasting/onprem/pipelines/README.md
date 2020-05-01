@@ -2,7 +2,7 @@
 
 ## What we're going to build
 
-To train, serve a COVID model using Kubeflow Pipeline and get forecast for a client request through Jupyter notebook.
+To train, serve a COVID model using Kubeflow Pipeline and get prediction for client request through Jupyter notebook.
 
 ![COVID Pipeline](./pictures/0-covid-pipeline.PNG)
 
@@ -92,25 +92,25 @@ Logs of COVID TF Serving Component
 
 ![TF-COVID Pipeline](./pictures/8-covid-serve.PNG)
 
-Once pipeline execution is completed return to notebook and exectue next cell
+Once pipeline execution is completed return to notebook and execute next cell
 
 Pre-process prediction dataset
 
 ![TF-COVID Pipeline](./pictures/10-preprocessing-prediction.PNG)
 
-Send REST-API call to tf-serving to predict the data
+Make a REST API invocation to serving endpoint for prediction
 
 ![TF-COVID Pipeline](./pictures/11-predict-tf-serving.PNG)
 
-Concatenate predicted new cases and Fatalities new data
+Post-processing on the prediction
 
 ![TF-COVID Pipeline](./pictures/12-concatenate-data.PNG)
 
-Forecasted table with Confirmed Cases
+Forecast Table with confirmed Cases
 
 ![TF-COVID Pipeline](./pictures/13-Forecasted-table.PNG)
 
-Graph for predicted cases in upcoming days
+Plot predicted cases in upcoming days
 
 ![TF-COVID Pipeline](./pictures/14-graph-of-confirmed.PNG)
 
