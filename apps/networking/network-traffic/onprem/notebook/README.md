@@ -33,7 +33,7 @@ This IP will be referred to as INGRESS_IP from here on.
 
 ### Create & Connect to Jupyter Notebook Server
 
-You can access Kubeflow Dashboard using the Ingress IP, and _31380_ port. For example, http://<INGRESS_IP:31380>
+You can access Kubeflow Dashboard using the Ingress IP and _31380_ port. For example, http://<INGRESS_IP:31380>
 
 Select _anonymous_ namespace and click Notebook Servers in the left panel of the Kubeflow Dashboard
 
