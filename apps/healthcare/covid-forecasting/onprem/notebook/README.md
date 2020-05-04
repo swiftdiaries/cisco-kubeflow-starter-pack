@@ -37,11 +37,11 @@ This IP will be referred to as INGRESS_IP from here on.
 
 #### Installing NFS server, PVs and PVCs.
 
-Follow the [steps](./../../../networking/ble-localization/onprem/install) to install NFS server, PVs and PVCs.
+Follow the [steps](./../../../../networking/ble-localization/onprem/install) to install NFS server, PVs and PVCs.
 
 ### Create & Connect to Jupyter Notebook Server
 
-You can access Kubeflow Dashboard using the Ingress IP, provided while running [nfs-installation](./../../../networking/ble-localization/onprem/install#ingress-ip) script, and _31380_ port. For example, http://<INGRESS_IP:31380>
+You can access Kubeflow Dashboard using the Ingress IP, provided while running [nfs-installation](./../../../../networking/ble-localization/onprem/install#ingress-ip) script, and _31380_ port. For example, http://<INGRESS_IP:31380>
 
 Select _anonymous_ namespace and click Notebook Servers in the left panel of the Kubeflow Dashboard
 
@@ -75,7 +75,7 @@ Once Notebook Server is created, click on Connect button.
 
 ### Upload Notebook, Data & Yaml files
 
-Upload the [covid-forecast.ipynb](./covid-forecast.ipynb), [requirements.txt](./requirements.txt), [train.csv](./../data/train.csv), [test.csv](./../data/test.csv) and [covid_kfserving.yaml](./covid_kfserving.yaml) to the Notebook Server.
+Upload the [covid-forecast.ipynb](./covid-forecast.ipynb), [requirements.txt](./requirements.txt), [train.csv](./../data/train.csv), [test.csv](./../data/test.csv) and [covid-kfserving.yaml](./covid-kfserving.yaml) to the Notebook Server.
 
 ![COVID-Notebook](pictures/7-upload-pipeline-notebook.PNG)
 
@@ -119,9 +119,9 @@ Get the Prediction result of Confirmed Cases & Fatalities for the specified futu
 
 ### Filter India's Data & Visualise
 
-![COVID-Notebook](pictures/15-prediction-result-confirmed-and-fatalities1.PNG)
+![COVID-Notebook](pictures/16-visualization1.PNG)
 
-![COVID-Notebook](pictures/15-prediction-result-confirmed-and-fatalities.PNG)
+![COVID-Notebook](pictures/16-visualization.PNG)
 
 ### Clean up model and kfserving
 Delete COVID model and kfserving.
