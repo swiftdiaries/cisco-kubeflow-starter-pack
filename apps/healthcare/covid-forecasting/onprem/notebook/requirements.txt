@@ -1,0 +1,5 @@
+pandas
+matplotlib
+plotly_express
+keras
+tensorflow==1.13.1

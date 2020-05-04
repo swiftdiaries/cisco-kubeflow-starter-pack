@@ -48,7 +48,7 @@ Follow the [steps](https://github.com/CiscoAI/cisco-kubeflow-starter-pack/tree/m
 
 Upload [COVID-Pipeline-Deployment.ipynb](COVID_Pipeline_Deployment.ipynb)
 
-### Run BLERSSI Pipeline
+### Run COVID Pipeline
 
 Open the COVID-Pipeline-Deployment.ipynb file and run pipeline
 
