@@ -11,9 +11,29 @@ Then, serve and predict using the saved model.
 
 ## Setup
 
+### Retrieve Ingress IP
+
+We need to know the external IP of the 'istio-ingressgateway' service. This can be retrieved by the following steps.
+
+```
+kubectl get service -n istio-system istio-ingressgateway
+```
+
+If your service is of LoadBalancer Type, use the 'EXTERNAL-IP' of this service.
+
+Or else, if your service is of NodePort Type - run the following command:
+
+```
+kubectl get nodes -o wide
+```
+
+Use either of 'EXTERNAL-IP' or 'INTERNAL-IP' of any of the nodes based on which IP is accessible in your network.
+
+This IP will be referred to as INGRESS_IP from here on.
+
 ### Create & Connect to Jupyter Notebook Server
 
-You can access Kubeflow Dashboard using the Ingress IP, provided while running [nfs-installation](./../../../../networking/ble-localization/onprem/install#ingress-ip) script, and _31380_ port. For example, http://<INGRESS_IP:31380>
+You can access Kubeflow Dashboard using the Ingress IP, and _31380_ port. For example, http://<INGRESS_IP:31380>
 
 Select _anonymous_ namespace and click Notebook Servers in the left panel of the Kubeflow Dashboard
 
