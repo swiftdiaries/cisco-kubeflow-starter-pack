@@ -11,34 +11,6 @@ And, predict network traffic flow label for client's data .
 
 ## Setup
 
-### Install NFS server (if not installed)
-
-To install NFS server follow steps below.
-
-#### Retrieve Ingress IP
-
-For installation, we need to know the external IP of the 'istio-ingressgateway' service. This can be retrieved by the following steps.
-
-```
-kubectl get service -n istio-system istio-ingressgateway
-```
-
-If your service is of LoadBalancer Type, use the 'EXTERNAL-IP' of this service.
-
-Or else, if your service is of NodePort Type - run the following command:
-
-```
-kubectl get nodes -o wide
-```
-
-Use either of 'EXTERNAL-IP' or 'INTERNAL-IP' of any of the nodes based on which IP is accessible in your network.
-
-This IP will be referred to as INGRESS_IP from here on.
-
-#### Installing NFS server, PVs and PVCs.
-
-Follow the [steps](../../../ble-localization/onprem/install) to install NFS server, PVs and PVCs.
-
 ### Create & Connect to Jupyter Notebook Server
 
 You can access Kubeflow Dashboard using the Ingress IP, provided while running [nfs-installation](../../../ble-localization/onprem/install#-provide-ucs-cluster-ip) script, and _31380_ port. For example, http://<INGRESS_IP:31380>
