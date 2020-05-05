@@ -23,5 +23,4 @@ to make predictions.
 
 There are multiple ways of training & deploying the model in Kubeflow for this application:
   - [Using Kubeflow Pipelines](./pipelines)
-
-  
+  - [Using Jupyter notebook server from Kubeflow](./notebook)
