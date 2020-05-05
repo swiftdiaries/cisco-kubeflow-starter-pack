@@ -75,6 +75,9 @@ jobs:
     - name: Run and Check Pipeline output
       shell: bash -l {0}
       run: |
+        echo "Set cluster account..."
+        gcloud config set account ${{ secrets.GKE_SA_EMAIL }}
+
         echo "Get cluster creds..."
         gcloud container clusters get-credentials ${GKE_CLUSTER} --zone ${GKE_ZONE}
 
