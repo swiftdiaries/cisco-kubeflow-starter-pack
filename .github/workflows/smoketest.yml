@@ -76,7 +76,7 @@ jobs:
       shell: bash -l {0}
       run: |
         echo "Get cluster creds..."
-        gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"
+        gcloud container clusters get-credentials ${GKE_CLUSTER} --zone ${GKE_ZONE}
 
         echo "Check linting on Argo pipeline..."
         ${GITHUB_WORKSPACE}/argo lint blerssi_formatted.yaml
