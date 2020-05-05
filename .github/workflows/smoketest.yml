@@ -74,12 +74,14 @@ jobs:
 
     - name: Run and Check Pipeline output
       shell: bash -l {0}
+      env:
+        GCP_ACCOUNT:  ${{ secrets.GKE_SA_EMAIL }}
       run: |
         echo "Set cluster account..."
-        gcloud config set account ${{ secrets.GKE_SA_EMAIL }}
+        gcloud config set account "$GCP_ACCOUNT"
 
         echo "Get cluster creds..."
-        gcloud container clusters get-credentials ${GKE_CLUSTER} --zone ${GKE_ZONE}
+        gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"
 
         echo "Check linting on Argo pipeline..."
         ${GITHUB_WORKSPACE}/argo lint blerssi_formatted.yaml
