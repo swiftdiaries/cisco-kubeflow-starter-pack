@@ -4,7 +4,7 @@ The Cisco Kubeflow Starter Pack is a set of end-to-end applications that uses [K
 ## Cisco and Kubeflow
 [Kubeflow](https://www.kubeflow.org/) is a machine learning toolkit for Kubernetes. It consists of a core set of components needed to develop, build, train, and deploy models on [Kubernetes](https://kubernetes.io/) efficiently. Cisco has been part of the Kubeflow journey since the project’s formative stage and has been one of the leading contributors with a focus on our customer needs.
 
-## Installation
+## Setup
 This repository needs to be cloned and the instructions in the following directories need to be followed:
 
 - [install](./install/kfup.md) - This contains Kubernetes and Kubeflow installation instructions. These instructions should be followed to setup the base system first, before installing individual apps.

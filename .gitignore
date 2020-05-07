@@ -1,0 +1,6 @@
+.cache
+kustomize
+kfx
+*.zip
+test/build/
+.ipynb*/
