@@ -23,7 +23,8 @@ Follow the [steps](./../notebook#create--connect-to-jupyter-notebook-server) to 
 
 ### Upload Notebook, Dockerfile and blerssi-model files
 
-Upload [BLERSSI-Classification-fairing.ipynb](BLERSSI-Classification-fairing.ipynb), [Dockerfile](Dockerfile) and [blerssi-model.py](blerssi-model.py) to notebook server.
+Upload [BLERSSI-Classification-fairing.ipynb](BLERSSI-Classification-fairing.ipynb), [Dockerfile](Dockerfile), [blerssi-model.py](blerssi-model.py), [Input_Dataset](../data/iBeacon_RSSI_Labeled.csv) to notebook server.
+
 
 ![TF-BLERSSI Upload](pictures/15_Upload_files.PNG)
 
