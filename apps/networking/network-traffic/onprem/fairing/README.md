@@ -22,7 +22,7 @@ Follow the [steps](./../notebook#create--connect-to-jupyter-notebook-server) to 
 
 ### Upload Notebook, Dockerfile and network_model files
 
-Upload [Network-Classification-fairing.ipynb](Network-Classification-fairing.ipynb), [Dockerfile](Dockerfile) and [network_model.py](network_model.py) to notebook server.
+Upload [Network-Classification-fairing.ipynb](Network-Classification-fairing.ipynb), [Dockerfile](Dockerfile), [network_model.py](network_model.py) and [Network_Test_Traffic.csv](../data/Network_Test_Traffic.csv) to notebook server.
 
 ![TF-Network Upload](pictures/15_Upload_files.PNG)
 
