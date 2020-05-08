@@ -19,36 +19,44 @@ To install NFS server follow [steps](./../notebook#install-nfs-server-if-not-ins
 
 ### Create Jupyter notebook server
 
-Follow the [steps](./../notebook#create--connect-to-jupyter-notebook-server) to create & connect to Jupyter Notebook Server in Kubeflow
+Follow the [steps](./../notebook#create--connect-to-jupyter-notebook-server) to create & connect to Jupyter Notebook Server in Kubeflow.
 
-### Clone Cisco Kubeflow starter pack repository
+### Upload COVID notebook
 
-![COVID Clone](pictures/0_clone_repo.png)
+Upload the [COVID notebook](./COVID-Forecast-fairing.ipynb) into Jupyter Notebook server in Kubeflow.
+
+![COVID upload](pictures/0_upload_notebook.png)
 
 
 ### Run COVID notebook
 
-Open the COVID-Forecast-fairing.ipynb file and run notebook.
+Open & run the uploaded COVID-Forecast-fairing.ipynb file.
+
+
+### Clone Cisco Kubeflow starter pack repository
+
+![COVID Clone](pictures/1_clone_repo.png)
+
 
 ### Configure Docker Registry credentials 
 
-![COVID Configure](pictures/1_configure_docker_credentials.png)
+![COVID Configure](pictures/2_configure_docker_credentials.png)
 
 ### Create requirements.txt with required python packages
 
-![COVID Create requirements](pictures/2_create_requirements_file.png)
+![COVID Create requirements](pictures/3_create_requirements_file.png)
 
 ### Import required libraries
 
-![COVID Import Libraries](pictures/3_import_python_libraries.png)
+![COVID Import Libraries](pictures/4_import_python_libraries.png)
 
-![COVID Setup Fairing](pictures/4_setup_kf_fairing.png)
+![COVID Setup Fairing](pictures/5_setup_kf_fairing.png)
 
 ### Get minio-service cluster IP to upload Docker build context
 
 Note: Please change DOCKER_REGISTRY to the registry for which you've configured credentials. Minio is used as the build context source here.
 
-![COVID Minio Service](pictures/5_minio_service_ip.png)
+![COVID Minio Service](pictures/6_minio_service_ip.png)
 
 ### Create config-map to map your own docker credentials from created config.json
 
@@ -60,29 +68,29 @@ Note: create configmap named "docker-config". If already exists, delete existing
 kubectl delete configmap -n $namespace docker-config
 ```
 
-![COVID Create Configmap](pictures/6_create_configmap.png)
+![COVID Create Configmap](pictures/7_create_configmap.png)
 
 ### Define paths for train & test data files
 
-![COVID Define paths](pictures/0.1_define_paths.png)
+![COVID Define paths](pictures/8_define_paths.png)
 
 ### Add pre-processing function for train data
 
-![COVID Preprocess Train](pictures/7_preprocess_train.png)
+![COVID Preprocess Train](pictures/9_preprocess_train.png)
 
 ### Add pre-processing function for test data
 
-![COVID Preprocess Test](pictures/8_preprocess_test.png)
+![COVID Preprocess Test](pictures/10_preprocess_test.png)
 
 
 ### Add main pre-processing function
 
-![COVID Preprocess Central](pictures/9_preprocess_central.png)
+![COVID Preprocess Central](pictures/11_preprocess_central.png)
 
 
 ### Add function for training Model
 
-![COVID Model Train](pictures/10_train_model_function.png)
+![COVID Model Train](pictures/12_train_model_function.png)
 
 
 ### Define COVID class to be used by Kubeflow Fairing
@@ -90,7 +98,7 @@ kubectl delete configmap -n $namespace docker-config
 Note: Must necessarily contain train() and predict() methods
 
 
-![COVID Serve](pictures/11_define_covid_serve.png)
+![COVID Serve](pictures/13_define_covid_serve.png)
 
 
 ### Train COVID model using Kubeflow Fairing
@@ -98,36 +106,36 @@ Note: Must necessarily contain train() and predict() methods
 Kubeflow Fairing packages the CovidServe class, the training data, and requirements.txt as a Docker image. 
 It then builds & runs the training job on Kubeflow.
 
-![COVID Training](pictures/12_training_using_fairing.png)
+![COVID Training](pictures/14_training_using_fairing.png)
 
 ### Deploy trained model to Kubeflow for predictions using Kubeflow Fairing
 
-![COVID Deploy model](pictures/13_deploy_trained_model_for_prediction.png)
+![COVID Deploy model](pictures/15_deploy_trained_model_for_prediction.png)
 
 
 ### Get prediction endpoint
 
-![COVID Predicion Endpoint](pictures/14_get_prediction_endpoint.png)
+![COVID Predicion Endpoint](pictures/16_get_prediction_endpoint.png)
 
 ### Predict for input data using prediction endpoint
 
-![COVID prediction](pictures/15_prediction.png)
+![COVID prediction](pictures/17_prediction.png)
 
 ### Perform post-processing of prediction result
 
-![COVID postprocessing](pictures/16_postprocessing.png)
+![COVID postprocessing](pictures/18_postprocessing.png)
 
 ### Visualise the final prediction results
 
-![COVID visualise](pictures/17_visualising.png)
+![COVID visualise](pictures/19_visualising.png)
 
 ### View visualised results as graph
 
-![COVID view graph](pictures/18_view_graph.png)
+![COVID view graph](pictures/20_view_graph.png)
 
 ### Delete prediction endpoint
 
-![COVID Delete endpoint](pictures/19_delete_endpoint.png)
+![COVID Delete endpoint](pictures/21_delete_endpoint.png)
 
 
 
