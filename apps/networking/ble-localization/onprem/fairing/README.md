@@ -12,19 +12,13 @@ Train & Save a BLERSSI location model using Kubeflow Fairing from jupyter notebo
 
 ## Setup
 
-
-### Install NFS server (if not installed)
-
-To install NFS server follow [steps](./../notebook#install-nfs-server-if-not-installed)
-
 ### Create Jupyter Notebook Server
 
 Follow the [steps](./../notebook#create--connect-to-jupyter-notebook-server) to create & connect to Jupyter Notebook Server in Kubeflow
 
-### Upload Notebook, Dockerfile and blerssi-model files
+### Upload BLERSSI-Classification-fairing.ipynb file
 
-Upload [BLERSSI-Classification-fairing.ipynb](BLERSSI-Classification-fairing.ipynb), [Dockerfile](Dockerfile), [blerssi-model.py](blerssi-model.py), [Input_Dataset](../data/iBeacon_RSSI_Labeled.csv) to notebook server.
-
+Upload [BLERSSI-Classification-fairing.ipynb](BLERSSI-Classification-fairing.ipynb) to notebook server.
 
 ![TF-BLERSSI Upload](pictures/15_Upload_files.PNG)
 
