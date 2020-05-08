@@ -65,9 +65,9 @@ Once Notebook Server is created, click on Connect button.
 
 ![COVID-Notebook](pictures/6-connect-notebook.PNG)
 
-### Upload Notebook, Data & Yaml files
+### Upload covid-forecast.ipynb file
 
-Upload the [covid-forecast.ipynb](./covid-forecast.ipynb), [requirements.txt](./requirements.txt), [train.csv](./../data/train.csv), [test.csv](./../data/test.csv) and [covid-kfserving.yaml](./covid-kfserving.yaml) to the Notebook Server.
+Upload the [covid-forecast.ipynb](./covid-forecast.ipynb) to the Notebook Server.
 
 ![COVID-Notebook](pictures/7-upload-pipeline-notebook.PNG)
 
