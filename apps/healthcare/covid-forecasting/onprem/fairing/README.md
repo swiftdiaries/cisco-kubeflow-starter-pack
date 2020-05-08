@@ -21,9 +21,9 @@ To install NFS server follow [steps](./../notebook#install-nfs-server-if-not-ins
 
 Follow the [steps](./../notebook#create--connect-to-jupyter-notebook-server) to create & connect to Jupyter Notebook Server in Kubeflow.
 
-### Upload COVID notebook
+### Upload COVID Forecast Fairing notebook
 
-Upload the [COVID notebook](./COVID-Forecast-fairing.ipynb) into Jupyter Notebook server in Kubeflow.
+Upload the [COVID-Forecast-fairing notebook](./COVID-Forecast-fairing.ipynb) into Jupyter Notebook server in Kubeflow.
 
 ![COVID upload](pictures/0_upload_notebook.png)
 
