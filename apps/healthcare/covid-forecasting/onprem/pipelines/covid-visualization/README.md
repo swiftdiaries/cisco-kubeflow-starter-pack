@@ -18,7 +18,7 @@ Enable custom visualizations within Kubeflow Pipelines.
           - name: ALLOW_CUSTOM_VISUALIZATIONS
             value: true
 
-   <img src=/pictures/custom_env_config.png />
+    ![Custom environement config](pictures/custom_env_config.png)
    
  - If you already have Kubeflow Pipelines deployed within a cluster, you can edit the frontend deployment YAML to specify that custom visualizations are allowed in the same way described above. Details about updating deployments can be found in the Kubernetes documentation about updating a deployment.
 
@@ -35,7 +35,7 @@ Enable custom visualizations within Kubeflow Pipelines.
         Usage: kubectl exec -it <<POD-NAME>> -n <<NAMESPACE>> bash
         EX: kubectl exec -it ml-pipeline-ml-pipeline-visualizationserver-5556b66694-c8b4q -n kubeflow bash
         pip3 install matplotlib
-        pip3 install scikit-learn
+        pip3 install pandas
    
 Open the details of a run.
 
@@ -45,7 +45,7 @@ Select type as **CUSTOM** from type drop down list.
 
 Provide the **source** file path or path pattern of data within GCS.
 
-   <img src=/pictures/source_custom_python_code.png />
+   ![Custom python code](pictures/source_custom_python_code.png)
    
 Provide the custom visualization code and click on **Generate Visualization**.
 
@@ -78,5 +78,5 @@ Provide the custom visualization code and click on **Generate Visualization**.
                 
 View generated visualization by scrolling down
 
-   <img src=/pictures/covid_plot.PNG />
+   ![COVID Plot](pictures/covid_plot.PNG)
 
