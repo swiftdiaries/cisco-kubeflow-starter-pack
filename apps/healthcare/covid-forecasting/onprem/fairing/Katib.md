@@ -4,7 +4,7 @@
 
 * Select _anonymous_ namespace and click Katib in the left panel of the Kubeflow Dashboard.
 
-![COVID katib dashboard](pictures/27_katib_dashboard.PNG)
+![COVID katib dashboard](pictures/27_katib_dashboard.png)
 
 * You can use the Katib user interface (UI) to submit experiments and to monitor your results. The Katib home page within Kubeflow looks like
 
