@@ -13,10 +13,6 @@ Train & Save a COVID forecast model using Kubeflow Fairing from Jupyter Notebook
 ## Setup
 
 
-### Install NFS server (if not installed)
-
-To install NFS server follow [steps](./../notebook#install-nfs-server-if-not-installed)
-
 ### Create Jupyter notebook server
 
 Follow the [steps](./../notebook#create--connect-to-jupyter-notebook-server) to create & connect to Jupyter Notebook Server in Kubeflow.
@@ -74,23 +70,50 @@ kubectl delete configmap -n $namespace docker-config
 
 ![COVID Define paths](pictures/8_define_paths.png)
 
+### Build docker image for the model
+Note: Upload dataset, Dockerfile, and covid-model.py into notebook.
+Builder builds training image using input files, an output_map - a map from source location to the location inside the context, and pushes it to the registry.
+
+![COVID Build Docker Image](pictures/9_build_docker_image.png)
+
+
+### Create Katib experiment
+Use Katib for automated tuning of your machine learning (ML) model’s hyperparameters and architecture.
+
+![COVID Create katib experiment](pictures/10_create_katib_experiment.png)
+
+![COVID Create katib experiment](pictures/11_create_katib_experiment1.png)
+
+### Wait for Katib experiment succeeded status
+
+![COVID wait for katib experiment](pictures/12_wait_for_experiment_succeeded.png)
+
+### View the results of the experiment in the Katib UI
+
+[Click here](Katib.md) to view the sample result of Katib experiment.
+
+### Get optimal hyperparameters
+
+![COVID katib experiment trials](pictures/13_get_optimal_hyperparameters.png)
+
+
 ### Add pre-processing function for train data
 
-![COVID Preprocess Train](pictures/9_preprocess_train.png)
+![COVID Preprocess Train](pictures/14_preprocess_train.png)
 
 ### Add pre-processing function for test data
 
-![COVID Preprocess Test](pictures/10_preprocess_test.png)
+![COVID Preprocess Test](pictures/15_preprocess_test.png)
 
 
 ### Add main pre-processing function
 
-![COVID Preprocess Central](pictures/11_preprocess_central.png)
+![COVID Preprocess Main](pictures/16_preprocess_main.png)
 
 
 ### Add function for training Model
 
-![COVID Model Train](pictures/12_train_model_function.png)
+![COVID Model Train](pictures/17_train_model_function.png)
 
 
 ### Define COVID class to be used by Kubeflow Fairing
@@ -98,7 +121,7 @@ kubectl delete configmap -n $namespace docker-config
 Note: Must necessarily contain train() and predict() methods
 
 
-![COVID Serve](pictures/13_define_covid_serve.png)
+![COVID Serve](pictures/18_define_covid_serve.png)
 
 
 ### Train COVID model using Kubeflow Fairing
@@ -106,36 +129,36 @@ Note: Must necessarily contain train() and predict() methods
 Kubeflow Fairing packages the CovidServe class, the training data, and requirements.txt as a Docker image. 
 It then builds & runs the training job on Kubeflow.
 
-![COVID Training](pictures/14_training_using_fairing.png)
+![COVID Training](pictures/19_training_using_fairing.png)
 
 ### Deploy trained model to Kubeflow for predictions using Kubeflow Fairing
 
-![COVID Deploy model](pictures/15_deploy_trained_model_for_prediction.png)
+![COVID Deploy model](pictures/20_deploy_trained_model_for_prediction.png)
 
 
 ### Get prediction endpoint
 
-![COVID Predicion Endpoint](pictures/16_get_prediction_endpoint.png)
+![COVID Predicion Endpoint](pictures/21_get_prediction_endpoint.png)
 
 ### Predict for input data using prediction endpoint
 
-![COVID prediction](pictures/17_prediction.png)
+![COVID prediction](pictures/22_prediction.png)
 
 ### Perform post-processing of prediction result
 
-![COVID postprocessing](pictures/18_postprocessing.png)
+![COVID postprocessing](pictures/23_postprocessing.png)
 
 ### Visualise the final prediction results
 
-![COVID visualise](pictures/19_visualising.png)
+![COVID visualise](pictures/24_visualising.png)
 
 ### View visualised results as graph
 
-![COVID view graph](pictures/20_view_graph.png)
+![COVID view graph](pictures/25_view_graph.png)
 
 ### Delete prediction endpoint
 
-![COVID Delete endpoint](pictures/21_delete_endpoint.png)
+![COVID Delete endpoint](pictures/26_delete_endpoint.png)
 
 
 
