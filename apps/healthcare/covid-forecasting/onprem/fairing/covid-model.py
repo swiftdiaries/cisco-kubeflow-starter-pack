@@ -1,4 +1,4 @@
-#Python script for training COVID-forecast model
+#Python script for creating & training COVID-forecast model
 
 import pandas as pd
 import numpy as np
