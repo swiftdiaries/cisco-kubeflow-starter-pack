@@ -74,19 +74,19 @@ kubectl delete configmap -n $namespace docker-config
 Note: Upload dataset, Dockerfile, and covid-model.py into notebook.
 Builder builds training image using input files, an output_map - a map from source location to the location inside the context, and pushes it to the registry.
 
-![COVID Build Docker Image](pictures/9_build_docker_image.PNG)
+![COVID Build Docker Image](pictures/9_build_docker_image.png)
 
 
 ### Create Katib experiment
 Use Katib for automated tuning of your machine learning (ML) model’s hyperparameters and architecture.
 
-![COVID Create katib experiment](pictures/10_create_katib_experiment.PNG)
+![COVID Create katib experiment](pictures/10_create_katib_experiment.png)
 
-![COVID Create katib experiment](pictures/11_create_katib_experiment1.PNG)
+![COVID Create katib experiment](pictures/11_create_katib_experiment1.png)
 
 ### Wait for Katib experiment succeeded status
 
-![COVID wait for katib experiment](pictures/12_wait_for_experiment_succeeded.PNG)
+![COVID wait for katib experiment](pictures/12_wait_for_experiment_succeeded.png)
 
 ### View the results of the experiment in the Katib UI
 
@@ -94,7 +94,7 @@ Use Katib for automated tuning of your machine learning (ML) model’s hyperpara
 
 ### Get optimal hyperparameters
 
-![COVID katib experiment trials](pictures/13_get_optimal_hyperparameters.PNG)
+![COVID katib experiment trials](pictures/13_get_optimal_hyperparameters.png)
 
 
 ### Add pre-processing function for train data
