@@ -14,7 +14,7 @@ To train, serve and prodict  model  using kubeflow pipeline through jupyter-note
 
 ### Upload Notebook file
 
-Upload [BLERSSI-Pipeline-Deployment.ipynb](BLERSSI-Pipeline-Deployment.ipynb)
+Upload [BLERSSI-Pipeline-Deployment.ipynb](https://github.com/CiscoAI/cisco-kubeflow-starter-pack/blob/master/apps/networking/ble-localization/onprem/pipelines/BLERSSI-Pipeline-Deployment.ipynb)
 
 ### Run BLERSSI Pipeline
 
