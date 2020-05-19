@@ -7,17 +7,13 @@ Then, serve and predict using the saved model.
 
 ### Infrastructure Used
 
-* Cisco UCS - C240
+* Cisco UCS - C240M5 and C480ML
 
 ## Setup
 
-### Install NFS server (if not installed)
+### Retrieve Ingress IP
 
-To install NFS server follow steps below.
-
-#### Retrieve Ingress IP
-
-For installation, we need to know the external IP of the 'istio-ingressgateway' service. This can be retrieved by the following steps.
+We need to know the external IP of the 'istio-ingressgateway' service. This can be retrieved by the following steps.
 
 ```
 kubectl get service -n istio-system istio-ingressgateway
@@ -35,13 +31,9 @@ Use either of 'EXTERNAL-IP' or 'INTERNAL-IP' of any of the nodes based on which 
 
 This IP will be referred to as INGRESS_IP from here on.
 
-#### Installing NFS server, PVs and PVCs.
-
-Follow the [steps](./../install/) to install NFS server, PVs and PVCs.
-
 ### Create & Connect to Jupyter Notebook Server
 
-You can access Kubeflow Dashboard using the Ingress IP, provided while running [nfs-installation](./../install#-provide-ucs-cluster-ip) script, and _31380_ port. For example, http://<INGRESS_IP:31380>
+You can access Kubeflow Dashboard using the Ingress IP and _31380_ port. For example, http://<INGRESS_IP:31380>
 
 Select _anonymous_ namespace and click Notebook Servers in the left panel of the Kubeflow Dashboard
 
@@ -52,35 +44,36 @@ Click New Server button and provide required details
 
 ![TF-BLERSSI Pipeline](pictures/2-create-notebook.PNG)
 
-Provide Notebook Server name, custom Docker Image URL or use prebuilt Image, _samba07/pipeline-notebook:v0.1_ , in the Image Tab
+Provide Notebook Server name and select notebook image appropriately as below
+     
+     CPU  - gcr.io/kubeflow-images-public/tensorflow-1.15.2-notebook-cpu:1.0.0
+     GPU  - gcr.io/kubeflow-images-public/tensorflow-1.15.2-notebook-gpu:1.0.0
 
-![TF-BLERSSI Pipeline](pictures/3-name-details.PNG)
+![TF-BLERSSI Pipeline](pictures/create-notebook-1.PNG)
 
-Set Workspace Volume type as _None_.
+Create new Workspace Volume
 
-![TF-BLERSSI Pipeline](pictures/4-volume-details.PNG)
+![TF-BLERSSI Pipeline](pictures/create-notebook-2.PNG)
 
-Click Add Volume under Data Volume; Set type to _existing_ and name to _nfs1_ with mount point as /mnt/
+If you are creating GPU attached notebook then choose number of GPUs and GPU Vendor as *NVIDIA*. 
 
-![TF-BLERSSI Pipeline](pictures/4-volume-details1.PNG)
+Click Launch Button
 
-Click LAUNCH Button
+![TF-BLERSSI Pipeline](pictures/create-notebook-3.PNG)
 
-![TF-BLERSSI Pipeline](pictures/5-launch-notebook.PNG)
-
-Once the Notebook Server is created, click on connect button.
+Once Notebook Server is created, click on Connect button.
 
 ![TF-BLERSSI Pipeline](pictures/6-connect-notebook1.PNG)
 
-### Upload Notebook, Data & Yaml files
+### Upload BLERSSI-Classification.ipynb file
 
-Upload the [BLERSSI-Classification.ipynb](./BLERSSI-Classification.ipynb), [iBeacon_RSSI_Labeled.csv](./../data/iBeacon_RSSI_Labeled.csv) and [blerssi_kfserving.yaml](./blerssi_kfserving.yaml) to the Notebook Server.
+Upload the [BLERSSI-Classification.ipynb](./BLERSSI-Classification.ipynb) to the Notebook Server.
 
 ![TF-BLERSSI Pipeline](pictures/7-upload-pipeline-notebook1.PNG)
 
 ### Train BLERSSI Model
 
-Open the BLERSSI-Classification.ipynb file and run first command to train BLERSSI model
+Open the notebook file and run first command to train BLERSSI model
 
 ![TF-BLERSSI Pipeline](pictures/1-start-training.PNG)
 
@@ -88,7 +81,7 @@ Once training completes, the model will be stored in local notebook server
 
 ![TF-BLERSSI Pipeline](pictures/2-complete-training.PNG)
 
-### Serve BLERSSI Model from Kubernetes PVC through Kubeflow Kfserving
+### Serve BLERSSI Model from K8s PVC through Kfserving
 
 ![TF-BLERSSI Pipeline](pictures/4-create-kfserving-blerssi.PNG)
 
@@ -100,4 +93,5 @@ Change Ingress IP in the curl command to your provided value before executing lo
 ![TF-BLERSSI Pipeline](pictures/5-predict-model.PNG)
 
 Prediction - class_ids(38) in response is location and predicted using kubeflow-kfserving which represents the location "M05"
+
 

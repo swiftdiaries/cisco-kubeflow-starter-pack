@@ -1,7 +1,7 @@
 # Cisco Kubeflow Starter Pack
 The Cisco Kubeflow Starter Pack is a set of end-to-end applications that uses [Kubeflow](https://www.kubeflow.org/) to manage a portable, distributed, and scalable machine learning (ML) system on on-premise [Kubernetes](https://kubernetes.io/) clusters running on Cisco Infrastructure (e.g. UCS servers). Our mission is to help Cisco customers to reduce the friction in managing ML infrastructure by eliminating the complex steps in *build-train-deploy* machine learning models.
 
-![Starter Pack Tests](https://github.com/swiftdiaries/cisco-kubeflow-starter-pack/workflows/Test%20Starter%20Pack%20using%20KinD%20+%20kfx/badge.svg)
+![Starter Pack Tests](https://github.com/CiscoAI/cisco-kubeflow-starter-pack/workflows/Test%20Starter%20Pack/badge.svg)
 
 ## Cisco and Kubeflow
 [Kubeflow](https://www.kubeflow.org/) is a machine learning toolkit for Kubernetes. It consists of a core set of components needed to develop, build, train, and deploy models on [Kubernetes](https://kubernetes.io/) efficiently. Cisco has been part of the Kubeflow journey since the project’s formative stage and has been one of the leading contributors with a focus on our customer needs.

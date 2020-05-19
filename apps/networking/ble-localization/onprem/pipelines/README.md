@@ -2,13 +2,13 @@
 
 ## What we're going to build
 
-To train, serve and prodict  model  using kubeflow pipeline through jupyter-notebook.
+To train, serve using kubeflow pipeline and prediction for client request through jupyter-notebook.
 
 ![TF-BLERSSI Pipeline](pictures/0-blerssi-graph.png)
 
 ## Infrastructure Used
 
-* Cisco UCS - C240
+* Cisco UCS - C240M5 and C480ML
 
 ## Setup
 
