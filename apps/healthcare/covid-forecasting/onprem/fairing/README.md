@@ -50,7 +50,6 @@ Open & run the uploaded COVID-Forecast-fairing.ipynb file.
 
 ### Get minio-service cluster IP to upload Docker build context
 
-Note: Please change DOCKER_REGISTRY to the registry for which you've configured credentials. Minio is used as the build context source here.
 
 ![COVID Minio Service](pictures/6_minio_service_ip.png)
 
