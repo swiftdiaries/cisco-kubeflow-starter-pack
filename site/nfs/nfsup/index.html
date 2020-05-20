@@ -36,7 +36,7 @@
     
     
       
-        <title>NFS Installation - Cisco Kubeflow Starter Pack</title>
+        <title>NFS Storage Class - Cisco Kubeflow Starter Pack</title>
       
     
     
@@ -138,7 +138,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                NFS Installation
+                NFS Storage Class
               
             </span>
           
@@ -234,17 +234,19 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
     <label class="md-nav__link" for="nav-2">
-      Installation
+      Setup
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-2">
-        Installation
+        Setup
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -255,8 +257,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../install/k8sup/" title="Prerequisites Reference" class="md-nav__link">
-      Prerequisites Reference
+    <a href="../../install/k8sup/" title="Prerequisites" class="md-nav__link">
+      Prerequisites
     </a>
   </li>
 
@@ -273,26 +275,21 @@
   </li>
 
         
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
+          
+          
+          
 
 
   <li class="md-nav__item">
-    <a href="../../jupyter/createserver/" title="Jupyter Notebook Server" class="md-nav__link">
-      Jupyter Notebook Server
+    <a href="../../jupyter/createserver/" title="Jupyter Servers" class="md-nav__link">
+      Jupyter Servers
     </a>
   </li>
 
-    
-      
-      
-      
+        
+          
+          
+          
 
   
 
@@ -305,11 +302,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        NFS Installation
+        NFS Storage Class
       </label>
     
-    <a href="./" title="NFS Installation" class="md-nav__link md-nav__link--active">
-      NFS Installation
+    <a href="./" title="NFS Storage Class" class="md-nav__link md-nav__link--active">
+      NFS Storage Class
     </a>
     
       
@@ -338,8 +335,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#create-volume-claims" class="md-nav__link">
-     Create volume claims
+  <a href="#create-secret-volume-claims" class="md-nav__link">
+     Create secret, volume claims
   </a>
   
 </li>
@@ -359,6 +356,11 @@
     
   </li>
 
+        
+      </ul>
+    </nav>
+  </li>
+
     
       
       
@@ -367,14 +369,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
-    <label class="md-nav__link" for="nav-5">
-      Apps
+    <label class="md-nav__link" for="nav-3">
+      Run Apps
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
-        Apps
+      <label class="md-nav__title" for="nav-3">
+        Run Apps
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -386,14 +388,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-1" type="checkbox" id="nav-5-1">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
     
-    <label class="md-nav__link" for="nav-5-1">
-      Healthcare
+    <label class="md-nav__link" for="nav-3-1">
+      Networking
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-5-1">
-        Healthcare
+      <label class="md-nav__title" for="nav-3-1">
+        Networking
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -404,8 +406,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../../apps/healthcare/covid-forecasting/covid-forecasting/" title="COVID Forecasting" class="md-nav__link">
-      COVID Forecasting
+    <a href="../../apps/networking/ble-localization/blerssipipeline/" title="BLE Location Prediction" class="md-nav__link">
+      BLE Location Prediction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../apps/networking/malicious-traffic-prediction/malicious-traffic-prediction/" title="Malicious Traffic Prediction" class="md-nav__link">
+      Malicious Traffic Prediction
     </a>
   </li>
 
@@ -422,14 +436,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-2" type="checkbox" id="nav-5-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
     
-    <label class="md-nav__link" for="nav-5-2">
-      Networking
+    <label class="md-nav__link" for="nav-3-2">
+      Healthcare
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-5-2">
-        Networking
+      <label class="md-nav__title" for="nav-3-2">
+        Healthcare
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -440,8 +454,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../apps/networking/ble-localization/onprem/blerssipipeline/" title="BLE Localization" class="md-nav__link">
-      BLE Localization
+    <a href="../../apps/healthcare/covid-forecasting/covid-forecasting/" title="COVID Forecasting" class="md-nav__link">
+      COVID Forecasting
     </a>
   </li>
 
@@ -504,8 +518,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#create-volume-claims" class="md-nav__link">
-     Create volume claims
+  <a href="#create-secret-volume-claims" class="md-nav__link">
+     Create secret, volume claims
   </a>
   
 </li>
@@ -535,7 +549,7 @@
                 
                 
                 <h1 id="install-nfs-dynamic-volume-provisioner">Install NFS Dynamic Volume Provisioner<a class="headerlink" href="#install-nfs-dynamic-volume-provisioner" title="Permanent link">&para;</a></h1>
-<p>Please ensure that K8s &amp; Kubeflow is already installed.</p>
+<p>Please ensure that Kubernetes &amp; Kubeflow are already installed.</p>
 <ul>
 <li><a href="#nfs">NFS Dynamic Storage Class</a><ul>
 <li><a href="#nfs-helm-package">Install NFS dynamic volume provisioner</a></li>
@@ -548,14 +562,15 @@
 <p>With <a href="https://helm.sh/docs/intro/install/">Helm</a> installed on the UCS machine run:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>helm repo update
-helm install stable/nfs-server-provisioner --name kf --set<span class="o">=</span>persistence.enabled<span class="o">=</span>true,persistence.storageClass<span class="o">=</span>local-path,persistence.size<span class="o">=</span>50Gi
+helm install stable/nfs-server-provisioner --generate-name --set<span class="o">=</span>persistence.enabled<span class="o">=</span>true,persistence.storageClass<span class="o">=</span>local-path,persistence.size<span class="o">=</span>50Gi
 </code></pre></div>
 </td></tr></table>
 
-<blockquote>
-<p>Note: Replace <code>storageClass</code> with the relevant default Storage Class in your k8s cluster.</p>
-</blockquote>
-<h3 id="create-volume-claims"><a id=create-nfs-volumeclaims></a> Create volume claims<a class="headerlink" href="#create-volume-claims" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Check Storage Class Name</p>
+<p>Replace parameter <code>storageClass</code> with the relevant default Storage Class in your k8s cluster.</p>
+</div>
+<h3 id="create-secret-volume-claims"><a id=create-nfs-volumeclaims></a> Create secret, volume claims<a class="headerlink" href="#create-secret-volume-claims" title="Permanent link">&para;</a></h3>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -572,7 +587,7 @@ kubectl create -f nfs/kubeflow/nfs-pvc.yaml
 <ul>
 <li>A k8s secret with the <code>$INGRESS_IP</code> in the kubeflow namespace</li>
 <li>An anonymous user profile</li>
-<li>nfs-pvc in anonymous, kubeflow namespaces</li>
+<li>A Persistent Volume Claim in the anonymous, kubeflow namespaces</li>
 </ul>
                 
                   
@@ -595,7 +610,7 @@ kubectl create -f nfs/kubeflow/nfs-pvc.yaml
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../jupyter/createserver/" title="Jupyter Notebook Server" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../jupyter/createserver/" title="Jupyter Servers" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -604,19 +619,19 @@ kubectl create -f nfs/kubeflow/nfs-pvc.yaml
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Jupyter Notebook Server
+                Jupyter Servers
               </span>
             </div>
           </a>
         
         
-          <a href="../../apps/healthcare/covid-forecasting/covid-forecasting/" title="COVID Forecasting" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../apps/networking/ble-localization/blerssipipeline/" title="BLE Location Prediction" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                COVID Forecasting
+                BLE Location Prediction
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

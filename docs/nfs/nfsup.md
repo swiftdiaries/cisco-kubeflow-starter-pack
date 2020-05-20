@@ -1,6 +1,6 @@
 # Install NFS Dynamic Volume Provisioner
 
-Please ensure that K8s & Kubeflow is already installed.
+Please ensure that Kubernetes & Kubeflow are already installed.
 
 - [NFS Dynamic Storage Class](#nfs)
     * [Install NFS dynamic volume provisioner](#nfs-helm-package)
@@ -13,14 +13,15 @@ With [Helm](https://helm.sh/docs/intro/install/) installed on the UCS machine ru
 
 ```bash
 helm repo update
-helm install stable/nfs-server-provisioner --name kf --set=persistence.enabled=true,persistence.storageClass=local-path,persistence.size=50Gi
+helm install stable/nfs-server-provisioner --generate-name --set=persistence.enabled=true,persistence.storageClass=local-path,persistence.size=50Gi
 ```
 
-> Note: Replace `storageClass` with the relevant default Storage Class in your k8s cluster.
+!!! note "Check Storage Class Name"
+    Replace parameter `storageClass` with the relevant default Storage Class in your k8s cluster.
 
-### <a id=create-nfs-volumeclaims></a> Create volume claims
+### <a id=create-nfs-volumeclaims></a> Create secret, volume claims
 
-```bash     
+```bash
 cd ${PROJECT_ROOT_DIR}/apps/networking/ble-localization/install/
 kubectl create secret generic kubeflow-dashboard-ip  --from-literal=KUBEFLOW_DASHBOARD_IP=$INGRESS_IP  -n kubeflow
 kubectl create -f nfs/anonymous-profile.yaml
@@ -32,4 +33,4 @@ This will create:
 
 - A k8s secret with the `$INGRESS_IP` in the kubeflow namespace
 - An anonymous user profile
-- nfs-pvc in anonymous, kubeflow namespaces
+- A Persistent Volume Claim in the anonymous, kubeflow namespaces
